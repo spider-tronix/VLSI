@@ -15,7 +15,7 @@ Description : The internal 32 registers described in the RISC V Architecture.
 Specifications : Word size = 32 bits
                  
 */
-timescale 1ns / 1ps
+`timescale 1ns / 1ps
 
 module Registers_Module(clk,ind_1,ind_2,Reg_Rd_En,Reg_Wt_En,D_in,D_out_1,D_out_2);
 parameter XLEN = 32;

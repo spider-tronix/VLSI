@@ -13,7 +13,7 @@ parameter WORD_LENGTH = 8;
 parameter ROM_DEPTH = 2048;
 parameter XLEN = 32;
 output reg [XLEN-1:0] Instr;
-input [WORD_LENGTH-1:0] Addr;
+input [XLEN-1:0] Addr;
 input wire ROM_Enable,clk,ROM_Rst;
 reg [WORD_LENGTH-1:0] ROM_mem[0:ROM_DEPTH-1];                
 integer i;
@@ -24,6 +24,7 @@ begin
  //$readmemb("File path", ROM_mem);           
  //ROM_mem[0] = 8'hff;
  //ROM_mem[1] = 8'hff;
+ //
 end  
 //Rom Read Block
 

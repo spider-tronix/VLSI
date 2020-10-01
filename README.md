@@ -28,6 +28,15 @@ Pipelines : Planned for later stage
 
 ### Core Architecture Diagram
 
-![Architecture Block Diagram](https://github.com/spider-tronix/VLSI/blob/master/Flow%20Diagrams/Architecture.png)    
+![Architecture Block Diagram](https://github.com/spider-tronix/VLSI/blob/master/Flow%20Diagrams/c45e5e76-cd15-468a-bf65-dc7a4b69c358.jfif)    
 
 Note : subject to change
+
+### The Team 
+
+* Akil M [https://github.com/akilm]
+* Mukesh Gandhi [https://github.com/MukkeshGandhi09]
+* Venkatesh T K [https://github.com/VenkateshTK]
+* Sudharshan S [https://github.com/sudharsan2000] 
+* Gaurav Singh [https://github.com/GauravSingh789]
+* Kirthika Srinivasan [https://github.com/kirthi-ka] 
