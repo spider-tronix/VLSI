@@ -37,6 +37,6 @@ Note : subject to change
 * Akil M [https://github.com/akilm]
 * Mukesh Gandhi [https://github.com/MukkeshGandhi09]
 * Venkatesh T K [https://github.com/VenkateshTK]
-* Sudharshan S [https://github.com/sudharsan2000] 
+* Sudharsan S [https://github.com/sudharsan2000] 
 * Gaurav Singh [https://github.com/GauravSingh789]
 * Kirthika Srinivasan [https://github.com/kirthi-ka] 
