@@ -1,0 +1,2294 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Sat Oct  3 03:29:21 2020
+# Process ID: 7412
+# Current directory: F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9220 F:\Spider\VLSIProjRISCV\Git\VLSI\RV32IM\RV32IM.xpr
+# Log file: F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/vivado.log
+# Journal file: F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.2/data/ip'.
+open_project: Time (s): cpu = 00:00:14 ; elapsed = 00:00:08 . Memory (MB): peak = 826.766 ; gain = 106.367
+set_property top ALU_TestBench [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+delete_runs "synth_2"
+set_property needs_refresh false [get_runs synth_1]
+set_property needs_refresh false [get_runs impl_1]
+reset_run synth_1
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+run_program: Time (s): cpu = 00:00:05 ; elapsed = 00:01:48 . Memory (MB): peak = 875.352 ; gain = 0.000
+INFO: [Common 17-344] 'run_program' was cancelled
+INFO: [Vivado 12-5357] 'compile' step aborted
+launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:01:49 . Memory (MB): peak = 875.352 ; gain = 0.000
+INFO: [Common 17-344] 'launch_simulation' was cancelled
+set_property top ALU_Module [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+set_property simulator_language Mixed [current_project]
+update_ip_catalog
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:]
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_Module' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_Module_vlog.prj"
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:58 . Memory (MB): peak = 897.688 ; gain = 0.000
+INFO: [Common 17-344] 'run_program' was cancelled
+INFO: [Vivado 12-5357] 'compile' step aborted
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:58 . Memory (MB): peak = 897.688 ; gain = 0.000
+INFO: [Common 17-344] 'launch_simulation' was cancelled
+move_files -fileset sim_1 [get_files  F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v]
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_Module' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_Module_vlog.prj"
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+run_program: Time (s): cpu = 00:00:08 ; elapsed = 00:02:12 . Memory (MB): peak = 897.688 ; gain = 0.000
+INFO: [Common 17-344] 'run_program' was cancelled
+INFO: [Vivado 12-5357] 'compile' step aborted
+launch_simulation: Time (s): cpu = 00:00:08 ; elapsed = 00:02:12 . Memory (MB): peak = 897.688 ; gain = 0.000
+INFO: [Common 17-344] 'launch_simulation' was cancelled
+set_property top ALU_TestBench [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:01:24 . Memory (MB): peak = 897.688 ; gain = 0.000
+INFO: [Common 17-344] 'run_program' was cancelled
+INFO: [Vivado 12-5357] 'compile' step aborted
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:01:24 . Memory (MB): peak = 897.688 ; gain = 0.000
+INFO: [Common 17-344] 'launch_simulation' was cancelled
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:52 . Memory (MB): peak = 901.703 ; gain = 0.219
+INFO: [Common 17-344] 'run_program' was cancelled
+INFO: [Vivado 12-5357] 'compile' step aborted
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:52 . Memory (MB): peak = 901.703 ; gain = 0.219
+INFO: [Common 17-344] 'launch_simulation' was cancelled
+reset_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-2266] Removing simulation data...
+INFO: [Vivado 12-2267] Reset complete
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 4 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+
+****** Webtalk v2018.2 (64-bit)
+  **** SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+  **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim/xsim.dir/ALU_TestBench_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Sat Oct  3 03:42:38 2020...
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 901.703 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+$finish called at time : 180 ns : File "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" Line 55
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 930.152 ; gain = 28.449
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+move_files [get_files  F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v]
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 4 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+$finish called at time : 180 ns : File "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" Line 55
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 930.152 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+ERROR: [VRFC 10-426] cannot find port clk on this module [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:24]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-99] Step results log file:'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim/elaborate.log'
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim/elaborate.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+reset_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-2266] Removing simulation data...
+INFO: [Vivado 12-2267] Reset complete
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+ERROR: [VRFC 10-426] cannot find port clk on this module [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:24]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-99] Step results log file:'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim/elaborate.log'
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim/elaborate.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 4 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+
+****** Webtalk v2018.2 (64-bit)
+  **** SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+  **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim/xsim.dir/ALU_TestBench_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Sat Oct  3 03:46:41 2020...
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 930.152 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+$finish called at time : 180 ns : File "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" Line 55
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:09 . Memory (MB): peak = 930.152 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 4 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+$finish called at time : 180 ns : File "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" Line 55
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 930.586 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 4 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+$finish called at time : 180 ns : File "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" Line 55
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 933.473 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 4 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:24]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+$finish called at time : 180 ns : File "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" Line 55
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 933.473 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 4 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:07 . Memory (MB): peak = 935.199 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 32 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:07 . Memory (MB): peak = 935.199 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 32 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 937.570 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 32 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:07 . Memory (MB): peak = 937.570 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 32 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 937.570 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 32 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 940.316 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 32 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 940.316 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 32 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 940.316 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 32 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 940.316 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+WARNING: [VRFC 10-1771] potential always loop found [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:28]
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 32 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+run: Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 940.469 ; gain = 0.000
+INFO: [Common 17-344] 'run' was cancelled
+INFO: [Common 17-344] 'source' was cancelled
+xsim: Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 940.469 ; gain = 0.000
+INFO: [Common 17-344] 'xsim' was cancelled
+INFO: [Vivado 12-5357] 'simulate' step aborted
+launch_simulation: Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 940.469 ; gain = 0.000
+INFO: [Common 17-344] 'launch_simulation' was cancelled
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 32 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 940.469 ; gain = 0.000
+relaunch_sim
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 32 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 940.469 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 32 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 941.129 ; gain = 0.660
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 32 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 941.785 ; gain = 0.656
+relaunch_sim
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 32 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:02 ; elapsed = 00:00:07 . Memory (MB): peak = 942.531 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 32 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 942.738 ; gain = 0.207
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 32 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:07 . Memory (MB): peak = 943.359 ; gain = 0.559
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 32 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:07 . Memory (MB): peak = 945.000 ; gain = 0.250
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 32 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:07 . Memory (MB): peak = 945.375 ; gain = 0.375
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 32 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 945.574 ; gain = 0.199
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 32 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 945.898 ; gain = 0.324
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 32 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:07 . Memory (MB): peak = 947.504 ; gain = 0.617
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 32 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:07 . Memory (MB): peak = 948.656 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 32 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:07 . Memory (MB): peak = 949.320 ; gain = 0.203
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 32 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 952.508 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 32 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 952.508 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 32 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 952.508 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 32 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 952.508 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 32 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 956.242 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:10 . Memory (MB): peak = 956.242 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 32 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 956.242 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 32 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 956.242 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 32 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:07 . Memory (MB): peak = 956.387 ; gain = 0.145
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Module
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 301024b189554e7993e55fcad0741d65 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ALU_TestBench_behav xil_defaultlib.ALU_TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 32 for port result [F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v:25]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU_Module
+Compiling module xil_defaultlib.ALU_TestBench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot ALU_TestBench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ALU_TestBench_behav -key {Behavioral:sim_1:Functional:ALU_TestBench} -tclbatch {ALU_TestBench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source ALU_TestBench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ALU_TestBench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 956.938 ; gain = 0.551
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Sat Oct  3 04:49:59 2020...

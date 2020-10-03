@@ -1,0 +1,148 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Sat Oct  3 03:06:31 2020
+# Process ID: 11944
+# Current directory: F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent2228 F:\Spider\VLSIProjRISCV\Git\VLSI\RV32IM\RV32IM.xpr
+# Log file: F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/vivado.log
+# Journal file: F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.2/data/ip'.
+open_project: Time (s): cpu = 00:00:16 ; elapsed = 00:00:09 . Memory (MB): peak = 862.695 ; gain = 148.945
+move_files [get_files  F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v]
+set_property top ALU_Module [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+set_property top ALU_TestBench [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+run_program: Time (s): cpu = 00:00:04 ; elapsed = 00:09:30 . Memory (MB): peak = 881.121 ; gain = 0.000
+INFO: [Common 17-344] 'run_program' was cancelled
+INFO: [Vivado 12-5357] 'compile' step aborted
+launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:09:31 . Memory (MB): peak = 881.121 ; gain = 0.000
+INFO: [Common 17-344] 'launch_simulation' was cancelled
+move_files -fileset sim_1 [get_files  F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v]
+set_property top ALU_Module [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_Module' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_Module_vlog.prj"
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:58 . Memory (MB): peak = 881.121 ; gain = 0.000
+INFO: [Common 17-344] 'run_program' was cancelled
+INFO: [Vivado 12-5357] 'compile' step aborted
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:58 . Memory (MB): peak = 881.121 ; gain = 0.000
+INFO: [Common 17-344] 'launch_simulation' was cancelled
+move_files [get_files  F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v]
+set_property top ALU_TestBench [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:18 . Memory (MB): peak = 889.066 ; gain = 0.000
+INFO: [Common 17-344] 'run_program' was cancelled
+INFO: [Vivado 12-5357] 'compile' step aborted
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:19 . Memory (MB): peak = 889.066 ; gain = 0.410
+INFO: [Common 17-344] 'launch_simulation' was cancelled
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:18 . Memory (MB): peak = 889.621 ; gain = 0.000
+INFO: [Common 17-344] 'run_program' was cancelled
+INFO: [Vivado 12-5357] 'compile' step aborted
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:19 . Memory (MB): peak = 889.621 ; gain = 0.000
+INFO: [Common 17-344] 'launch_simulation' was cancelled
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:01:52 . Memory (MB): peak = 894.109 ; gain = 0.000
+INFO: [Common 17-344] 'run_program' was cancelled
+INFO: [Vivado 12-5357] 'compile' step aborted
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:01:52 . Memory (MB): peak = 894.109 ; gain = 0.000
+INFO: [Common 17-344] 'launch_simulation' was cancelled
+move_files -fileset sim_1 [get_files  F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v]
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_TestBench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_TestBench_vlog.prj"
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+run_program: Time (s): cpu = 00:00:02 ; elapsed = 00:01:18 . Memory (MB): peak = 899.160 ; gain = 4.754
+INFO: [Common 17-344] 'run_program' was cancelled
+INFO: [Vivado 12-5357] 'compile' step aborted
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:01:18 . Memory (MB): peak = 899.160 ; gain = 4.871
+INFO: [Common 17-344] 'launch_simulation' was cancelled
+set_property top ALU_Module [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+move_files [get_files  F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v]
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ALU_Module' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj ALU_Module_vlog.prj"
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:46 . Memory (MB): peak = 899.160 ; gain = 0.000
+INFO: [Common 17-344] 'run_program' was cancelled
+INFO: [Vivado 12-5357] 'compile' step aborted
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:46 . Memory (MB): peak = 899.160 ; gain = 0.000
+INFO: [Common 17-344] 'launch_simulation' was cancelled
+exit
+INFO: [Common 17-206] Exiting Vivado at Sat Oct  3 03:29:18 2020...
