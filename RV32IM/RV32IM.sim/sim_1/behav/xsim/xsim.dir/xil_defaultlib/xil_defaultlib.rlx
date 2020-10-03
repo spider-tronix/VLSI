@@ -3,5 +3,6 @@
 Jun 14 2018
 20:41:02
 F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim/glbl.v,1529022455,verilog,,,,glbl,,,,,,,,
-F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v,1601713612,verilog,,,,ALU_TestBench,,,,,,,,
-F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v,1601712731,verilog,,F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v,,ALU_Module,,,,,,,,
+F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v,1601736553,verilog,,,,ALU_TestBench,,,,,,,,
+F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v,1601736850,verilog,,F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/defines.v,F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/defines.v,ALU_Module,,,,,,,,
+F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/defines.v,1601722745,verilog,,F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v,,,,,,,,,,
