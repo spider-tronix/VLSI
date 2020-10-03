@@ -58,3 +58,10 @@ source ALU_TestBench.tcl
 close_sim
 close_project
 open_project F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.xpr
+launch_simulation
+launch_simulation
+add_files -norecurse F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/defines.v
+launch_simulation
+launch_simulation
+source ALU_TestBench.tcl
+close_sim
