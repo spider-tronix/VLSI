@@ -1,5 +1,13 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_module.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ALU_Module
+<<<<<<< HEAD
 INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sources_1/new/defines.v" into library xil_defaultlib
 INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+=======
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/VLSI/RV32IM/RV32IM.srcs/sources_1/new/ALU_control_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_control
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_TestBench.v" into library xil_defaultlib
+>>>>>>> 2716acef7a73262cb8919bc600a31eb6ce796d0a
 INFO: [VRFC 10-311] analyzing module ALU_TestBench
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/VLSI/RV32IM/RV32IM.srcs/sim_1/new/ALU_control_unit_testbench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_control_unit_testbench
