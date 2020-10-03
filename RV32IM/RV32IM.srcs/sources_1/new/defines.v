@@ -7,10 +7,10 @@
     `define OP_JAL      7'b1101111
     `define OP_JALR     7'b1100111
     `define OP_BRANCH   7'b1100011
-    `define OP_LOAD     7'b0000011
-    `define OP_STORE    7'b0100011
-    `define OP_OP_IMM   7'b0010011
-    `define OP_OP       7'b0110011
+    `define OP_LOAD     7'b0000011  // I-Type
+    `define OP_STORE    7'b0100011  // S-Type
+    `define OP_OP_IMM   7'b0010011  // I-Type
+    `define OP_OP       7'b0110011  // R-Type
     `define OP_MISC_MEM 7'b0001111
 
     //================== Instruction funct3 in RISC-V ================== 
