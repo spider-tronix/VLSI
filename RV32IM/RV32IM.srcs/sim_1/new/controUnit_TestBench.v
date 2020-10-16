@@ -37,17 +37,22 @@
 module controUnit_TestBench;
     // Input
     reg[`OPCODE_WIDTH - 1:0] opcode;
+    reg clk = 0;
     // Output
     wire[1:0] alu_op;
     wire mem_read,mem_write,alu_src,mem_to_reg,reg_write;
-
+    wire[4:0] current_stage;
     // UUT
     ControlUnit CU(
+        .clk(clk),
         .opcode(opcode),
         .alu_op(alu_op),
-        .mem_read(mem_read),.mem_write(mem_write), .alu_src(alu_src), .mem_to_reg(mem_to_reg), .reg_write(reg_write)  
+        .mem_read(mem_read),.mem_write(mem_write), .alu_src(alu_src), .mem_to_reg(mem_to_reg), .reg_write(reg_write),
+        .current_stage(current_stage)
+
     );
-    
+    always #10 clk = ~clk;
+
     reg [`OPCODE_NO - 1:0]opcode_list[`OPCODE_WIDTH - 1:0];
     initial begin
     opcode_list[0] = `OP_OP;
@@ -59,17 +64,18 @@ module controUnit_TestBench;
     integer i;
     initial begin
         # 5
-        $monitor(opcode, alu_op, mem_read, mem_write, alu_src, mem_to_reg, reg_write);
+        $monitor(clk, current_stage, opcode, alu_op, mem_read, mem_write, alu_src, mem_to_reg, reg_write);
         
         opcode = `OP_OP;
-        # 200;
+        #200;
         opcode = `OP_OP_IMM;
         #200;
         opcode = `OP_LOAD;
-        # 200;
+        #200;
         opcode = `OP_STORE;
         #200;
         
     end
+    
 endmodule
 

@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-3" LaunchTime="1601881606">
   <File Type="PA-TCL" Name="controUnit_TestBench.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="controUnit_TestBench_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="controUnit_TestBench_reports.tcl"/>
   <File Type="RDS-RDS" Name="controUnit_TestBench.vds"/>
-  <File Type="RDS-UTIL" Name="controUnit_TestBench_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="controUnit_TestBench_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="controUnit_TestBench.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="controUnit_TestBench_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="controUnit_TestBench_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/defines.v">
