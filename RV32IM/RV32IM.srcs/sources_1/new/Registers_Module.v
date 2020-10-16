@@ -17,31 +17,30 @@ Specifications : Word size = 32 bits
 */
 `timescale 1ns / 1ps
 
-module Registers_Module(clk,ind_1,ind_2,Reg_Rd_En,Reg_Wt_En,D_in,D_out_1,D_out_2);
-parameter XLEN = 32;
-parameter RegBank_Size = 32;
-input [4:0] ind_1,ind_2;
-input wire Reg_Rd_En,Reg_Wt_En,clk;
-input [31:0] D_in;
-output reg [31:0] D_out_1,D_out_2;
+module Registers_Module #(parameter XLEN = 32,
+                          parameter RegBank_Size = 32)
+                         
+                         (input [4:0] rs1_Addr,rs2_Addr,rd_Addr,
+                          input wire re,re1,re2,we,clk,
+                          input [XLEN-1:0] rd,
+                          output reg [XLEN-1:0] rs1,rs2 );
+                          
 reg [XLEN-1:0] x[0:RegBank_Size-1];
 
 initial 
-x[0] <= 0;
-
+x[0] <= 0; //register 0 hardwired to zero
 
 always @(posedge clk)
 begin
- if(Reg_Rd_En)
+ if(re)
     begin
-        assign D_out_1 = x[ind_1];
-        assign D_out_2 = x[ind_2];
+      rs1 <= re1 ? x[rs1_Addr] : 'bz;
+      rs2 <= re2 ? x[rs2_Addr] : 'bz;
     end
  else
- if(Reg_Wt_En)
+ if(we)
     begin
-        if(ind_1)
-            x[ind_1] <= D_in ;
+      x[rd_Addr] <= rd_Addr ? rd : 32'b0 ;
     end
 end
 

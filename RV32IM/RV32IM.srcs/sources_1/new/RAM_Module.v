@@ -7,9 +7,9 @@ module RAM_Module #(parameter WORDLENGTH = 8,
                     
                    (input [XLEN-1:0] Addr,
                     input [IMMEDIATE-1:0] Offset_Imm, 
-                    input [XLEN-1:0] Data_In,
+                    input [XLEN-1:0] data_i,
                     input Rd_En,Wt_En,RAM_Enable,clk,
-                    output reg [XLEN-1:0] Data_Out);
+                    output reg [XLEN-1:0] data_o);
                      
 reg [WORDLENGTH-1:0] RAM_mem[0:Size-1];
 
@@ -18,10 +18,10 @@ begin
     if(RAM_Enable)
         begin
             if(Rd_En)
-                Data_Out <= {RAM_mem[Addr+Offset_Imm+3],RAM_mem[Addr+Offset_Imm+2],RAM_mem[Addr+Offset_Imm+1],RAM_mem[Addr+Offset_Imm]};
+                data_o <= {RAM_mem[Addr+Offset_Imm+3],RAM_mem[Addr+Offset_Imm+2],RAM_mem[Addr+Offset_Imm+1],RAM_mem[Addr+Offset_Imm]};
             else
             if(Wt_En)
-                {RAM_mem[Addr+Offset_Imm+3],RAM_mem[Addr+Offset_Imm+2],RAM_mem[Addr+Offset_Imm+1],RAM_mem[Addr+Offset_Imm]} <= Data_In[31:0];
+                {RAM_mem[Addr+Offset_Imm+3],RAM_mem[Addr+Offset_Imm+2],RAM_mem[Addr+Offset_Imm+1],RAM_mem[Addr+Offset_Imm]} <= data_i[31:0];
         end
 end
 
