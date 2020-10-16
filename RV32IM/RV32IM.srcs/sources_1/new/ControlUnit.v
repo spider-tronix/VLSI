@@ -23,13 +23,47 @@
 `timescale 1ns / 1ps
 
 module ControlUnit(
+    input clk,
     input[6:0] opcode,
     output reg[1:0] alu_op,
-    output reg mem_read,mem_write,alu_src,mem_to_reg,reg_write    
+    output reg mem_read,mem_write,alu_src,mem_to_reg,reg_write,
+    output reg [4:0] current_stage    
     );
 
+reg [4:0]next_stage;
 
-always @(*)
+always @(negedge clk)
+  begin
+    current_stage = next_stage;
+    case(current_stage)
+      `STAGE_IF:
+        begin
+            next_stage = `STAGE_ID;
+        end
+      `STAGE_ID:
+        begin
+            next_stage = `STAGE_EX;
+        end    
+      `STAGE_EX:
+        begin
+            next_stage = `STAGE_MEM;
+        end    
+      `STAGE_MEM:
+        begin
+            next_stage = `STAGE_WB;
+        end    
+      `STAGE_WB:
+        begin
+            next_stage = `STAGE_IF;
+        end      
+      default: 
+        begin
+            next_stage = `STAGE_IF;
+        end
+    endcase
+  end
+
+always @(negedge clk)
 begin
  case(opcode) 
  `OP_OP:  

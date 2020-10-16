@@ -1,6 +1,13 @@
 `ifndef DEFINES_V
     `define DEFINES_V
 
+    //========================= Stage enable ============================ 
+    `define STAGE_IF    5'b00001
+    `define STAGE_ID    5'b00010
+    `define STAGE_EX    5'b00100
+    `define STAGE_MEM   5'b01000
+    `define STAGE_WB    5'b10000
+
     // 'define OPCODE_WIDTH 7
     //==================  Instruction opcode in RISC-V ================== 
     `define OP_LUI      7'b0110111
