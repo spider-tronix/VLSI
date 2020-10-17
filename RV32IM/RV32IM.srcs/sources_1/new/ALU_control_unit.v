@@ -9,37 +9,48 @@ ALUOp - Input from control unit
 Funct7, funct3 : Certain sections of instruction word 
 
 Output(To ALU):
-ALU_control_line : output signal
+ALU_control_line : output signal, 
 */
-module ALU_control( ALUOp,funct7,funct3,ALU_control_line, ALU_control_enable, clk);
-input[1:0] ALUOp;
-input[6:0] funct7;
-input[2:0] funct3;
-output reg [3:0] ALU_control_line;
-input wire ALU_control_enable, clk;
+`include "defines.v"
+
+module ALU_control(input[1:0] ALUOp,input[6:0] funct7,input[2:0] funct3, output reg [3:0]ALU_control_line, input wire ALU_control_enable, clk);
 
 always @(posedge clk)
 begin
     if(ALU_control_enable)
     begin
         case(ALUOp)
-            2'b00: ALU_control_line = 4'b0010;  //for opcodes ld,sd
-            2'b01: ALU_control_line = 4'b0110;  //for opcode beq
-            2'b10:begin if(funct7 == 7'b0000000 && funct3 == 3'b000)// for add operation 
+            2'b00: ALU_control_line = 4'b0010;  //for opcodes ld,sd (acc to book)
+            2'b01: ALU_control_line = 4'b0110;  //for opcode beq (acc to book)
+            // changes made acc to defines.v file
+            2'b10:begin if(funct7 == `FUNCT7_ADD && funct3 == `FUNCT3_ADD_SUB)// for add operation 
                        begin
-                       ALU_control_line = 4'b0010; //add signal
+                       ALU_control_line = `EXE_ADD_OP; //add signal
                        end 
-                   else if(funct7 == 7'b0100000 && funct3 == 3'b000) //for subtraction operation
+                   else if(funct7 == `FUNCT7_SUB && funct3 == `FUNCT3_ADD_SUB) //for subtraction operation
                        begin
-                       ALU_control_line = 4'b0110; //subtract signal      
+                       ALU_control_line = `EXE_SUB_OP; //subtract signal      
                        end
-                   else if(funct7 == 7'b0000000 && funct3 == 3'b111)//for AND operation
+                   else if(funct7 == `FUNCT7_AND && funct3 == `FUNCT3_AND)//for AND operation
                         begin
-                        ALU_control_line = 4'b0000; //AND operation
+                        ALU_control_line = `EXE_AND_OP; //AND operation
                         end
-                   else if(funct7 == 7'b0000000 && funct3 == 3'b110)//for OR operation
+                   else if(funct7 == `FUNCT7_OR && funct3 == `FUNCT3_OR)//for OR operation
                         begin
-                        ALU_control_line = 4'b0001; //OR operation
+                        ALU_control_line = `EXE_OR_OP; //OR operation
+                        end
+                   //Added extra functions 
+                   else if(funct7 == `FUNCT7_SLL && funct3 == `FUNCT3_SLL)//for SLL operation
+                        begin
+                        ALU_control_line = `EXE_SLL_OP; //OR operation
+                        end
+                   else if(funct7 == `FUNCT7_SRL && funct3 == `FUNCT3_SRL_SRA)//for SRL operation
+                        begin
+                        ALU_control_line = `EXE_SRL_OP; //SLT operation
+                        end
+                   else if(funct7 == `FUNCT7_SLT && funct3 == `FUNCT3_SLT)//for SRL operation
+                        begin
+                        ALU_control_line = `EXE_SLT_OP; //SLT operation
                         end
                    else begin
                    ALU_control_line = ALU_control_line;

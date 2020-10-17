@@ -2,12 +2,26 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Sat Oct 17 19:22:14 2020
-# Process ID: 17572
-# Current directory: F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent16708 F:\Spider\VLSIProjRISCV\Git\VLSI\RV32IM\RV32IM.xpr
-# Log file: F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/vivado.log
-# Journal file: F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM\vivado.jou
+# Start of session at: Sat Oct 17 18:40:12 2020
+# Process ID: 14036
+# Current directory: D:/VLSI/RV32IM
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent1380 D:\VLSI\RV32IM\RV32IM.xpr
+# Log file: D:/VLSI/RV32IM/vivado.log
+# Journal file: D:/VLSI/RV32IM\vivado.jou
 #-----------------------------------------------------------
 start_gui
-open_project F:/Spider/VLSIProjRISCV/Git/VLSI/RV32IM/RV32IM.xpr
+open_project D:/VLSI/RV32IM/RV32IM.xpr
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top ALU_control [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode DisplayOnly [current_project]
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top ALU_control_unit_testbench [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode DisplayOnly [current_project]
+launch_simulation
+source ALU_control_unit_testbench.tcl
+close_sim
