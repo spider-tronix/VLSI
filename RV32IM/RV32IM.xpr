@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="38" Path="C:/Users/hi/Desktop/VLSI/RV32IM/RV32IM.xpr">
+<Project Version="7" Minor="38" Path="E:/Spider/VLSI/RV32IM/RV32IM.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="301024b189554e7993e55fcad0741d65"/>
@@ -75,6 +75,14 @@
         </FileInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/new/Registers_Module.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/defines.v">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
