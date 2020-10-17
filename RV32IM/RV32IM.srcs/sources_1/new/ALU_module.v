@@ -12,16 +12,14 @@ Description: Takes two registers as input and
 `include "defines.v"
 `timescale 1ns / 1ps
 
-module ALU_Module(rs1, rs2, clk, ALU_Enable, AluOp, ALU_Reset, result,zero);
+module ALU_Module #(parameter XLEN= 32, 
+                    parameter ALU_SELECT_SIZE = 5)
 
-parameter XLEN= 32; 
-parameter ALU_SELECT_SIZE = 5; 
-
-input clk, ALU_Enable, ALU_Reset;
-input [XLEN-1:0] rs1,rs2;
-input [ALU_SELECT_SIZE-1:0] AluOp; //To select functionality
-output reg[XLEN-1:0] result;
-output zero;
+                    (input[XLEN-1:0] rs1,rs2,
+                    input clk,ALU_Reset,ALU_Enable,
+                    input [ALU_SELECT_SIZE-1:0] AluOp, 
+                    output reg[XLEN-1:0]result,
+                    output zero);
 
 assign zero = (result==0)?1'b1:1'b0; //zero is true if result is zero
 always @(posedge clk, rs1, rs2)

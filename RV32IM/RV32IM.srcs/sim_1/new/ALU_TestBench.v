@@ -1,3 +1,10 @@
+/* Test bench for ALU_Module */
+
+//`ifndef DEFINES_TEST_BENCH
+//        `define rs1_val
+//        `define rs2_val
+//        `define AluOp
+//`endif
 
 `timescale 1ns / 1ps
 
@@ -12,7 +19,7 @@ reg [XLEN-1:0] rs1,rs2;
 reg [ALU_SELECT_SIZE-1:0] AluOp;
 
 //Outputs
-wire [XLEN-1:0] result;
+wire [XLEN-1:0] result; 
 wire zero;
 integer i; 
 //ALU TEST UNIT
