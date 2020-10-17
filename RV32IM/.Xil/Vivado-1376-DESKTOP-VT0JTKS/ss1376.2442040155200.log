@@ -1,0 +1,11 @@
+srcscan starts
+=============== Using vdb files for VHDL std libs ===========
+INFO: The vhdl library search path for library "std" is now "C:/Xilinx/Vivado/2018.2/data/precomp_hsv/vhdl/std" (VHDL-1505)
+INFO: The vhdl library search path for library "synopsys" is now "C:/Xilinx/Vivado/2018.2/data/precomp_hsv/vhdl/synopsys" (VHDL-1505)
+INFO: The vhdl library search path for library "ieee" is now "C:/Xilinx/Vivado/2018.2/data/precomp_hsv/vhdl/ieee" (VHDL-1505)
+INFO: The vhdl library search path for library "unimacro" is now "C:/Xilinx/Vivado/2018.2/data/precomp_hsv/vhdl/unimacro" (VHDL-1505)
+INFO: The vhdl library search path for library "unisim" is now "C:/Xilinx/Vivado/2018.2/data/precomp_hsv/vhdl/unisim" (VHDL-1505)
+INFO: The vhdl library search path for library "vl" is now "C:/Xilinx/Vivado/2018.2/data/precomp_hsv/vhdl/vl" (VHDL-1505)
+INFO: The vhdl library search path for library "xpm" is now "C:/Xilinx/Vivado/2018.2/data/precomp_hsv/vhdl/xpm" (VHDL-1505)
+INFO: analyzing module ALU_Module (VERI-9002)
+srcscan exits with return value 0
