@@ -20,7 +20,7 @@ Specifications : Word size = 32 bits
 module Registers_Module #(parameter XLEN = 32,
                           parameter RegBank_Size = 32)
                          
-                         (input [4:0] rs1_Addr,rs2_Addr,rd_Addr,
+                         (input [4:0] src1,src2,dest,
                           input wire re,re1,re2,we,clk,
                           input [XLEN-1:0] rd,
                           output reg [XLEN-1:0] rs1,rs2 );
@@ -34,13 +34,13 @@ always @(posedge clk)
 begin
  if(re)
     begin
-      rs1 <= re1 ? x[rs1_Addr] : 'bz;
-      rs2 <= re2 ? x[rs2_Addr] : 'bz;
+      rs1 <= re1 ? x[src1] : 'bz;
+      rs2 <= re2 ? x[src2] : 'bz;
     end
  else
  if(we)
     begin
-      x[rd_Addr] <= rd_Addr ? rd : 32'b0 ;
+      x[dest] <= dest ? rd : 32'b0 ;
     end
 end
 
