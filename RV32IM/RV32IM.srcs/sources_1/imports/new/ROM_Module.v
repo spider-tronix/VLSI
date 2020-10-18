@@ -8,17 +8,6 @@ Specifications : Word size = 8 bits
 */
 `timescale 1ns / 1ps
 
-<<<<<<< HEAD
-module ROM_Module #(parameter WORD_LENGTH = 8,
-                    parameter ROM_DEPTH = 2048,
-                    parameter XLEN = 32)
-                    
-                   (output reg [XLEN-1:0] Instr,
-                    input [XLEN-1:0] Addr,
-                    input wire ROM_Enable,clk,ROM_Rst);
-                    
-reg [WORD_LENGTH-1:0] ROM_mem[0:ROM_DEPTH-1]; 
-=======
 module ROM_Module(Addr,Instr,ROM_Enable,clk,ROM_Rst);
 parameter WORD_LENGTH = 8;
 parameter ROM_DEPTH = 2048;
@@ -27,7 +16,6 @@ output reg [XLEN-1:0] Instr;
 input [XLEN-1:0] Addr;
 input wire ROM_Enable,clk,ROM_Rst;
 reg [WORD_LENGTH-1:0] ROM_mem[0:ROM_DEPTH-1];                
->>>>>>> ALU_Block
 integer i;
 
 //Rom Write Block

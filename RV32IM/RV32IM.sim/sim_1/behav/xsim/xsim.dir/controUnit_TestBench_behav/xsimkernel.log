@@ -1,4 +1,0 @@
-Running: xsim.dir/controUnit_TestBench_behav/xsimk.exe -simmode gui -wdb controUnit_TestBench_behav.wdb -simrunnum 0 -socket 51185
-Design successfully loaded
-Design Loading Memory Usage: 5676 KB (Peak: 5676 KB)
-Design Loading CPU Usage: 15 ms
