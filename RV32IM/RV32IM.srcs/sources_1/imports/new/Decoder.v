@@ -98,6 +98,24 @@ begin
                     funct7 <= 'bz;
                     imm <= {20*IR[31],IR[7],IR[30:25],IR[11:8],0};
                 end
+        `OP_LOAD:
+                begin
+                    src1 <= IR[19:15];
+                    src2 <= 'bz;
+                    dest <= IR[11:7];
+                    funct3 <= IR[14:12];
+                    funct7 <= 'bz;
+                    imm <= {20*{IR[31]},IR[31:20]};
+                end
+        `OP_STORE:
+                begin
+                    src1 <= IR[19:15];
+                    src2 <= IR[24:20];
+                    dest <= 'bz;
+                    funct3 <= IR[14:12];
+                    funct7 <= 'bz;
+                    imm <= {20*{IR[31]},IR[31:25],IR[11:7]};
+                end
         default : ;
         endcase 
     end
