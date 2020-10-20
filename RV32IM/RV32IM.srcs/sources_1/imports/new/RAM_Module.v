@@ -1,5 +1,5 @@
 `timescale 1ns / 1ps
-module RAM_Chip #(parameter WORDLENGTH = 8,
+module RAM_Module #(parameter WORDLENGTH = 8,
                     parameter XLEN = 32,
                     parameter Size = 2048)
                     
@@ -22,4 +22,3 @@ begin
         end
 end
 endmodule
-
