@@ -46,7 +46,10 @@ case(funct3[1:0])
 10: //Word Store and Load
     begin
     cs[3:0] <= 4'hf;
-    //Need Logic
+    Addr_o[Addr_i[1:0]] <= Addr_i[XLEN-1:0]/4;
+    Addr_o[(Addr_i[1:0]+1)%4] <= (Addr_i[XLEN-1:0]+1)/4;
+    Addr_o[(Addr_i[1:0]+2)%4] <= (Addr_i[XLEN-1:0]+2)/4;
+    Addr_o[(Addr_i[1:0]+3)%4] <= (Addr_i[XLEN-1:0]+3)/4;
     end
 endcase
 end
