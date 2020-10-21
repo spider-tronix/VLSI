@@ -2,22 +2,11 @@
 # Webtalk v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-<<<<<<< HEAD
-# Start of session at: Fri Oct 16 16:41:49 2020
-# Process ID: 6520
+# Start of session at: Sun Oct 18 14:57:36 2020
+# Process ID: 6192
 # Current directory: E:/Spider/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim
 # Command line: wbtcv.exe -mode batch -source E:/Spider/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim/xsim.dir/controUnit_TestBench_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: E:/Spider/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim/webtalk.log
 # Journal file: E:/Spider/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim\webtalk.jou
 #-----------------------------------------------------------
 source E:/Spider/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim/xsim.dir/controUnit_TestBench_behav/webtalk/xsim_webtalk.tcl -notrace
-=======
-# Start of session at: Sat Oct 17 19:05:49 2020
-# Process ID: 13816
-# Current directory: D:/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim
-# Command line: wbtcv.exe -mode batch -source D:/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim/xsim.dir/ALU_control_unit_testbench_behav/webtalk/xsim_webtalk.tcl -notrace
-# Log file: D:/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim/webtalk.log
-# Journal file: D:/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim\webtalk.jou
-#-----------------------------------------------------------
-source D:/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim/xsim.dir/ALU_control_unit_testbench_behav/webtalk/xsim_webtalk.tcl -notrace
->>>>>>> ALU_Block
