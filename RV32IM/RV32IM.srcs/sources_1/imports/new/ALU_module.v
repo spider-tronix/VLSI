@@ -17,11 +17,11 @@ module ALU_Module #(parameter XLEN= 32,
 
                     (input[XLEN-1:0] rs1,rs2,
                     input clk,ALU_Reset,ALU_Enable,
-                    input [ALU_SELECT_SIZE-1:0] AluOp, 
+                    input [ALU_SELECT_SIZE-1:0] ALUOp, 
                     output reg[XLEN-1:0]result,
-                    output zero);
+                    output zero_flag);
 
-assign zero = (result==0)?1'b1:1'b0; //zero is true if result is zero
+assign zero_flag = (result==0)?1'b1:1'b0; //zero is true if result is zero
 always @(posedge clk, rs1, rs2)
     begin
         if(ALU_Reset)
@@ -30,7 +30,7 @@ always @(posedge clk, rs1, rs2)
     
         if(ALU_Enable)
         begin
-        case (AluOp)
+        case (ALUOp)
         `EXE_NOP_OP: ;                             //No operation
         `EXE_AND_OP: result <= rs1 & rs2;          //AND
         `EXE_OR_OP : result <= rs1 | rs2;          //OR
