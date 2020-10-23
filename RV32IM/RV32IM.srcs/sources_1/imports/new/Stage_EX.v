@@ -29,7 +29,7 @@ module Stage_EX#(parameter XLEN= 32,
         input[6:0] funct7,
         input[2:0] funct3,
         input[XLEN-1:0] rs1, rs2,
-        input clk, ALU_Reset, enable,
+        input clk, ALU_Reset, select,
         output reg[XLEN-1:0]result,
         output zero_flag);
 
@@ -38,14 +38,14 @@ module Stage_EX#(parameter XLEN= 32,
                         .funct7(funct7),
                         .funct3(funct3),
                         .ALU_control_line(ALU_control_line),
-                        .ALU_control_enable(enable),
+                        .ALU_control_enable(select),
                         .clk(clk)
                        );
     ALU_Module ALU( .rs1(rs1),
                     .rs2(rs2),
                     .clk(clk),
-                    .ALU_Reset(~enable),
-                    .ALU_Enable(enable),
+                    .ALU_Reset(0),
+                    .ALU_Enable(select),
                     .ALUOp(ALU_control_line),
                     .result(result),
                     .zero_flag(zero_flag)

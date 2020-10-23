@@ -6,7 +6,7 @@
 module Stage_MEM#(parameter XLEN =32,
                    parameter WORDLENGTH = 8)
                 (
-                    input clk,
+                    input wire clk, write_enable, select,
                     input [XLEN-1:0] Addr0,
                     input [XLEN-1:0] Addr1,
                     input [XLEN-1:0] Addr2,
@@ -17,9 +17,10 @@ module Stage_MEM#(parameter XLEN =32,
                 );
 
 RamMemory dm (.clk(clk), 
-                .Addr0(Addr0), .Addr1(Addr1), .Addr2(Addr2), .Addr3(Addr3),
-                .cs(cs), .re(re), .we(we),
-                .data_i(data_i),
-                .data_o(data_o) 
-            );
+                    .Addr0(Addr0), .Addr1(Addr1), .Addr2(Addr2), .Addr3(Addr3),
+                    .cs(cs & write_enable), .re(re), .we(we),
+                    .data_i(data_i),
+                    .data_o(data_o) 
+                );
+    
 endmodule
