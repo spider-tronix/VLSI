@@ -1,11 +1,11 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
-// Engineer: 
+// Engineer: Akhil M
 // 
-// Create Date: 10/18/2020 03:06:32 PM
+// Create Date: 
 // Design Name: 
-// Module Name: Decoder
+// Module Name: Stage_decode
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 `include "defines.v"
-module Decoder(input [31:0] IR,
+module Stage_DEC(input [31:0] IR,
                input clk,
                input DecoderEnable,
                output reg [6:0] opcode,
