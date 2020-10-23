@@ -5,7 +5,7 @@
 // 
 // Create Date: 
 // Design Name: 
-// Module Name: Stage_decode
+// Module Name: Stage_ID
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 `include "defines.v"
-module Stage_DEC(input [31:0] IR,
+module Stage_ID(input [31:0] IR,
                input clk,
                input DecoderEnable,
                output reg [6:0] opcode,
