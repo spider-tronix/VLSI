@@ -19,3 +19,20 @@ call arguments and Return <br/>addresses in the RISC V Architecture
 |1|0|1|Write operation<br/>8 bit data from data_i is written in the address pointed by the Addr signals
 |1|1|1| *According to module definition Read Operation happens|
 |0|x|x| No Operation|
+<br/>
+
+## Decoder Module ##
+Decodes the instruction stored in the instruction register after the fetch operation. Functionalities include - identifying the instruction type (R,I etc) ,separating the opcodes and functional code from the register and decoding the addresses bits for different memory units such as the Register and the RAM module. 
+
+| Signal | Description |
+|:--:|-----|
+|IR|Instruction register.The instruction fetched during the fetch cycle is stored in this 32-bit register|
+|DecoderEnable|Enables the functioning of the decode Asserted/Deasserted by the control unit|
+|opcode|Forms the first 7 bits of any instruction. Determines the type of instruction and how the other bit-fields are organised in the IR|
+|funct3|3-bit functional code |
+|funct7|7-bit functional code|
+|src1|Address of the first source register decoded from the instruction|
+|src2|Address of the second source register decoded from the instruction|
+|dest|Address of the destination register decoded from the instruction|
+|imm|12-bit data present in the instruction itself,ordering of the bits is determined by the opcode|
+|clk|clock signal - positive edge triggered module|
