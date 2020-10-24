@@ -36,3 +36,14 @@ Decodes the instruction stored in the instruction register after the fetch opera
 |dest|Address of the destination register decoded from the instruction|
 |imm|12-bit data present in the instruction itself,ordering of the bits is determined by the opcode|
 |clk|clock signal - positive edge triggered module|
+<br/>
+
+## ROM Module ##
+Also known as the Instruction memory, stores the code to be executed. Follows byte addressing (also little-endian format), subsequent instruction addresses differ by 0x04.
+| Signal | Description |
+|:--:|-----|
+|IR|Instruction register.4 consecutive memory locations are read in every Instruction Fetch sycle and placed in the IR register|
+|reset|Clears all memory |
+|Addr| 32-bit starting address for instruction register. PC acts as the Addr for Instruction fetch from memory|
+|en|enable signal, driven by the control unit|
+|clk|clock signal - positive edge triggered module|
