@@ -47,3 +47,20 @@ Also known as the Instruction memory, stores the code to be executed. Follows by
 |Addr| 32-bit starting address for instruction register. PC acts as the Addr for Instruction fetch from memory|
 |en|enable signal, driven by the control unit|
 |clk|clock signal - positive edge triggered module|
+
+## Registers ##
+32 Registers are defined in the RISC-V instruction set architecture. The registers are named from x0-x31. x0 is hard-wired to zero.
+
+|Signal | Description|
+|:---:|:---:|
+|src1|Address of first source register|
+|src2|Address of second source register|
+|dest|Address of the destination register|
+|re|Read enable, enables read operation|
+|re1|Read enable corresponding to src1|
+|re2|Read enable corresponding to src2|
+|we|Write enable corresponding to dest|
+|rs1|32 bit result of read operation performed in the address pointed by src1|
+|rs2|32 bit result of read operation performed in the address pointed by src2|
+|rd|32 bit input to for write operation in the address pointed by dest|
+|clk|clock signal - positive edge triggered module|
