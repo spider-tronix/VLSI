@@ -22,10 +22,7 @@ integer i;
 //Rom Write Block
 initial
 begin
- //$readmemb("File path", ROM_mem);           
- //ROM_mem[0] = 8'hff;
- //ROM_mem[1] = 8'hff;
- //
+ $readmemb("code", ROM_mem);           
 end  
 //Rom Read Block
 
@@ -40,5 +37,7 @@ begin
     else
         IR <= 0;
 end
+
+
 
 endmodule
