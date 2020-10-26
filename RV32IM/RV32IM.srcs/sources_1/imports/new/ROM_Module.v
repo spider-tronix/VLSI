@@ -8,7 +8,7 @@ Specifications : Word size = 8 bits
 */
 `timescale 1ns / 1ps
 
-module ROM_Module #(parameter WORD_LENGTH = 8,
+module ROM_Module #(parameter WORD_LENGTH = 32,
                     parameter ROM_DEPTH = 2048,
                     parameter XLEN = 32)
                     (input [XLEN-1:0] Addr,
@@ -22,7 +22,8 @@ integer i;
 //Rom Write Block
 initial
 begin
- $readmemb("code", ROM_mem);           
+ $readmemh("Code.txt", ROM_mem);
+ $display("Done Reading!!!!!!");           
 end  
 //Rom Read Block
 
@@ -33,9 +34,11 @@ begin
         ROM_mem[i] <= 0; 
     else
     if(ROMEnable)
-        IR <= {ROM_mem[Addr+3],ROM_mem[Addr+2],ROM_mem[Addr+1],ROM_mem[Addr]};   //little endian format
+        // IR = {ROM_mem[Addr+3],ROM_mem[Addr+2],ROM_mem[Addr+1],ROM_mem[Addr]};   //little endian format
+
+        IR = ROM_mem[Addr];   //little endian format
     else
-        IR <= 0;
+        IR = 0;
 end
 
 
