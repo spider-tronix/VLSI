@@ -1,4 +1,4 @@
-# Building the RV31-IM Compiler Toolchain 
+# Building the RV32-IM Compiler Toolchain 
 We will be working with the RISC-V toolchain repos found on the Github page [RISC-V GNU Compiler Toolchain](https://github.com/riscv/riscv-gnu-toolchain).
 
 The following installation was performed on Ubuntu 18.04 (WSL)
