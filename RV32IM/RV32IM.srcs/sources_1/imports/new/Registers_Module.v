@@ -26,11 +26,23 @@ module Registers_Module #(parameter XLEN = 32,
                           output reg [XLEN-1:0] rs1,rs2 );
                           
 reg [XLEN-1:0] x[0:RegBank_Size-1];
-
+integer i;
 initial 
+begin
 x[0] <= 0; //register 0 hardwired to zero
-
-always @(posedge clk)
+for(i=1;i<RegBank_Size;i=i+1)
+    begin 
+        if(i==2)
+        begin
+        x[i] <= 32'h0000ffff;
+        end
+        else
+        begin
+        x[i] <= i;
+        end
+    end
+end
+always @(negedge clk)
 begin
  if(re)
     begin

@@ -12,8 +12,8 @@ module ROM_Module #(parameter WORD_LENGTH = 32,
                     parameter ROM_DEPTH = 2048,
                     parameter XLEN = 32)
                     (input [XLEN-1:0] Addr,
-                     output reg [XLEN-1:0] IR,
-                     input ROMEnable,clk,reset);
+                     output reg [XLEN-1:0] Instr,
+                     input ROM_Enable,clk,ROM_Rst);
 
 
 reg [WORD_LENGTH-1:0] ROM_mem[0:ROM_DEPTH-1];                
@@ -29,16 +29,16 @@ end
 
 always @(posedge clk)
 begin
-    if(reset)
+    if(ROM_Rst)
         for(i = 0;i<ROM_DEPTH;i=i+1)
         ROM_mem[i] <= 0; 
     else
-    if(ROMEnable)
+    if(ROM_Enable)
         // IR = {ROM_mem[Addr+3],ROM_mem[Addr+2],ROM_mem[Addr+1],ROM_mem[Addr]};   //little endian format
 
-        IR = ROM_mem[Addr];   //little endian format
+        Instr = ROM_mem[Addr];   //little endian format
     else
-        IR = 0;
+        Instr = 0;
 end
 
 

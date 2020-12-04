@@ -1,5 +1,4 @@
 `timescale 1ns / 1ps
-`include "ROM_Module.v"
 
 module Stage_IF#(parameter XLEN=32)
                 ( 

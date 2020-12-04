@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 10/20/2020 04:39:08 AM
+// Create Date: 12/03/2020 03:15:27 PM
 // Design Name: 
-// Module Name: Mux
+// Module Name: Buffer_32bit
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,13 +20,13 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module Mux #(parameter XLEN =32)
-            
-            (input [XLEN-1:0] d0,d1,
-             input select,
-             output [XLEN-1:0] d_out
-            );
-          
-assign d_out[XLEN-1:0] = select ? d1[XLEN-1:0]:d0[XLEN-1:0] ;
-
+module Buffer_32bit #(parameter XLEN = 32)
+                     (input [XLEN-1:0] D_in,
+                      input clk,
+                      output reg [XLEN-1:0] D_out);
+                      
+always @(negedge clk)
+begin
+D_out[XLEN-1:0] <= D_in[XLEN-1:0];
+end
 endmodule

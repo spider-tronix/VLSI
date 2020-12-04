@@ -18,22 +18,19 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-`include "Stage_IF.v"
-`include "Stage_ID.v"
-`include "Stage_MEM.v"
-`include "ControlUnit.v"
-`include "defines.v"
-`include "RamMemory.v"
 
-parameter enable = 1'b1;
-parameter XLEN = 32;
 
-module RV32Core(
-    input clk, input PC, input ALU_Reset, output [XLEN-1:0]ALU_result);
-    
+
+module RV32Core #(parameter enable = 1'b1,
+                  parameter XLEN = 32)
+                 (input clk, 
+                  input [XLEN-1:0] PC, 
+                  input ALU_Reset, 
+                  output [XLEN-1:0]ALU_result);
+  
     wire [4:0]current_stage;
-    wire [XLEN-1:0]Instr,ext_im, data_src1,data_src2,mem_read_data;
-    reg [6:0] opcode;
+    wire [XLEN-1:0]Instr,ext_im, data_src1,data_src2_R,data_src2,mem_read_data;
+    wire [6:0] opcode;
     wire [2:0] funct3;
     wire [6:0] funct7;
     wire [4:0] src1,src2,dest,mem_read_extended,mem_write_extended;
@@ -41,10 +38,11 @@ module RV32Core(
     wire [1:0] alu_op;
     wire mem_read,mem_write,mem_to_reg,reg_write;
     wire zero_flag,alu_src;
+    wire [XLEN-1:0] IF_buf;
             
-    initial begin 
-    opcode = 7'bZ;
-    end        
+  //  initial begin 
+  //  opcode <= 7'bZ;
+  //  end        
         //Control unit generates control signals based on opcode 
         //output - control signals, current_stage(enables IF,ID,EX,MEM,WB stages)
         ControlUnit control_unit(.clk(clk),.opcode(opcode),.alu_op(alu_op),.mem_read(mem_read),
@@ -56,29 +54,25 @@ module RV32Core(
         //Instruction decode stage. 
         //Outputs - opcode, address of source register 1,2 , destination register,
         //          immediate value (in case of I type instruction)
-        Stage_ID decode(.IR(Instr),.clk(clk),.DecoderEnable(current_stage[1]),
+        Buffer_32bit IF_BUFFER (.D_in(Instr),.clk(clk),.D_out(IF_buf));
+        
+        Stage_ID decode(.IR(IF_buf),.clk(clk),.DecoderEnable(current_stage[1]),
                      .opcode(opcode),.funct3(funct3),.funct7(funct7),.src1(src1),
                       .src2(src2),.dest(dest),.imm(imm));
                                        
-        Register_Module Registers(.clk(clk),.src1(src1), .src2(src2), .dest(dest),
+        Registers_Module Registers(.clk(clk),.src1(src1), .src2(src2), .dest(dest),
                 .we(reg_write), .re(enable),.re1(enable), .re2(enable),
-                .rs1(data_src1), .rs2(data_src2));
-                                  
-        // Sign extending immediate offset (in case of I type instruction)
-        assign ext_im= {{20{Instr[XLEN-1]}}, Instr[31:19]};
-            
-        //deciding whether instruction is R type or I type based on alu_src
-        assign data_src2= (alu_src==1'b1)? ext_im : data_src2;
-            
-        //execution stage
-        //output - Result from ALU, zero flag
+                .rs1(data_src1), .rs2(data_src2_R));
+                    
+        Mux SRC2_Select(.d0(data_src2_R),.d1(imm),.select(alu_src),.d_out(data_src2));
+        
         Stage_EX execute(.ALUOp(alu_op),.funct7(funct7),.funct3(funct3),.rs1(data_src1), .rs2(data_src2),
                     .clk(clk), .ALU_Reset(ALU_Reset), .select(current_stage[2]),.result(ALU_result),
                     .zero_flag(zero_flag));
             
         //mem stage 
         //Output - data read from memory, data to be written to destination register
-        assign mem_read_extended = {{4{mem_read}}, mem_read};
+     /*   assign mem_read_extended = {{4{mem_read}}, mem_read};
         assign mem_write_extended = {{4{mem_write}}, mem_write};
              
         Stage_MEM access_dm(.clk(clk), .write_enable(mem_write), .select(current_stage[3]),
@@ -86,9 +80,10 @@ module RV32Core(
                               .data_i(data_src2),.data_o(mem_read_data));
                               
         //write back stage, writes output to destination register
-        //output - None
+        //output - None */
         Stage_WB (.select(current_stage[4]), .clk(clk), .write_enable(reg_write), 
                              .MemtoReg(mem_to_reg),.data_from_EX(ALU_result),
                              .data_from_MEM(mem_read_data),.register_address(dest));
+///*/
 
 endmodule

@@ -32,6 +32,11 @@ module ControlUnit(
 
 reg [4:0]next_stage;
 
+initial
+begin
+current_stage <= `STAGE_IF;
+end
+
 always @(negedge clk)
   begin
     current_stage = next_stage;

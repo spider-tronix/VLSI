@@ -19,12 +19,12 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-`include "ROM_Module.v"
+/*`include "ROM_Module.v"
 `include "Registers_Module.v"
 `include "RAM_Module.v"
 `include "ALU_Module.v"
 `include "ALU_control_unit.v"
-
+*/
 module Datapath #(parameter XLEN=32)
                 
                 (input clk,
