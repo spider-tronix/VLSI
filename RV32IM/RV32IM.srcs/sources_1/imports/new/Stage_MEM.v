@@ -7,20 +7,20 @@ module Stage_MEM#(parameter XLEN =32,
                    parameter WORDLENGTH = 8)
                 (
                     input wire clk, write_enable, select,
-                    input [XLEN-1:0] Addr0,
-                    input [XLEN-1:0] Addr1,
-                    input [XLEN-1:0] Addr2,
-                    input [XLEN-1:0] Addr3,
-                    input [3:0] cs,re,we,
+                    input [XLEN-1:0] Addr,
                     input [XLEN-1:0] data_i,
-                    output [XLEN-1:0] data_o 
+                    output [XLEN-1:0] data_o, 
+                    input [2:0] funct3
                 );
-
+wire Addr_M [XLEN-3:0];
+wire cs[3:0];
+MMU MemControl (.Addr_i(Addr),.funct3(funct3),.cs(cs),.MMUEnable(1'b1),.Addr_o(Addr_M));
+/*
 RamMemory dm (.clk(clk), 
-                    .Addr0(Addr0), .Addr1(Addr1), .Addr2(Addr2), .Addr3(Addr3),
+                    .Addr(), 
                     .cs(cs & write_enable), .re(re), .we(we),
                     .data_i(data_i),
                     .data_o(data_o) 
                 );
-    
+    */
 endmodule

@@ -3,7 +3,7 @@ module RAM_Module #(parameter WORDLENGTH = 8,
                     parameter XLEN = 32,
                     parameter Size = 2048)
                     
-                   (input [XLEN-1:0] Addr,
+                   (input [XLEN-3:0] Addr,
                     input [WORDLENGTH-1:0] data_i,
                     input re,we,cs,clk,
                     output reg [WORDLENGTH-1:0] data_o);
