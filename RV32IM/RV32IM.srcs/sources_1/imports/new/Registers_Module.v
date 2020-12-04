@@ -42,6 +42,7 @@ for(i=1;i<RegBank_Size;i=i+1)
         end
     end
 end
+
 always @(negedge clk)
 begin
  if(re)
@@ -49,10 +50,13 @@ begin
       rs1 <= re1 ? x[src1] : 'bz;
       rs2 <= re2 ? x[src2] : 'bz;
     end
- else
+end
+
+always @(posedge clk)
+begin
  if(we)
     begin
-      x[dest] <= dest ? rd : 32'b0 ;
+      x[dest] <= dest ? rd[31:0] : 32'b0 ;
     end
 end
 

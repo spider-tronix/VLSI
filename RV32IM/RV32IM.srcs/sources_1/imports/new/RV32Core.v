@@ -39,7 +39,8 @@ module RV32Core #(parameter enable = 1'b1,
     wire mem_read,mem_write,mem_to_reg,reg_write;
     wire zero_flag,alu_src;
     wire [XLEN-1:0] IF_buf;
-            
+    wire [XLEN-1:0] data;
+    wire wr_enable;       
   //  initial begin 
   //  opcode <= 7'bZ;
   //  end        
@@ -61,8 +62,8 @@ module RV32Core #(parameter enable = 1'b1,
                       .src2(src2),.dest(dest),.imm(imm));
                                        
         Registers_Module Registers(.clk(clk),.src1(src1), .src2(src2), .dest(dest),
-                .we(reg_write), .re(enable),.re1(enable), .re2(enable),
-                .rs1(data_src1), .rs2(data_src2_R));
+                .we(wr_enable), .re(enable),.re1(enable), .re2(enable),
+                .rs1(data_src1), .rs2(data_src2_R),.rd(data));
                     
         Mux SRC2_Select(.d0(data_src2_R),.d1(imm),.select(alu_src),.d_out(data_src2));
         
@@ -72,18 +73,21 @@ module RV32Core #(parameter enable = 1'b1,
             
         //mem stage 
         //Output - data read from memory, data to be written to destination register
-     /*   assign mem_read_extended = {{4{mem_read}}, mem_read};
+        assign mem_read_extended = {{4{mem_read}}, mem_read};
         assign mem_write_extended = {{4{mem_write}}, mem_write};
-             
+        
         Stage_MEM access_dm(.clk(clk), .write_enable(mem_write), .select(current_stage[3]),
                                 .Addr0(ALU_result),.cs(4'b1111),.re(mem_read_extended),.we(mem_write_extended),
                               .data_i(data_src2),.data_o(mem_read_data));
                               
         //write back stage, writes output to destination register
-        //output - None */
-        Stage_WB (.select(current_stage[4]), .clk(clk), .write_enable(reg_write), 
+        //output - None 
+        assign data= (mem_to_reg== 1'b1)? mem_read_data : ALU_result;
+        assign wr_enable = current_stage[4] & reg_write;
+       /* Stage_WB write_register (.select(current_stage[4]), .clk(clk), .write_enable(reg_write), 
                              .MemtoReg(mem_to_reg),.data_from_EX(ALU_result),
                              .data_from_MEM(mem_read_data),.register_address(dest));
-///*/
+///*/  
+         
 
 endmodule

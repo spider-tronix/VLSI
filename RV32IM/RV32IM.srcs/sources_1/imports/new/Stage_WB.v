@@ -7,7 +7,7 @@ module Stage_WB#(parameter XLEN=32)
                 input MemtoReg,
                 input [XLEN-1:0]data_from_EX,
                 input [XLEN-1:0]data_from_MEM,
-                input register_address
+                input [4:0] register_address
                 );
 wire [XLEN-1:0] dummy1, dummy2;
 wire [XLEN-1:0] data;
