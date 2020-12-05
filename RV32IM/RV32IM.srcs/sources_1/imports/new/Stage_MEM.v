@@ -9,18 +9,17 @@ module Stage_MEM#(parameter XLEN =32,
                     input wire clk, write_enable, select,
                     input [XLEN-1:0] Addr,
                     input [XLEN-1:0] data_i,
-                    output [XLEN-1:0] data_o, 
-                    input [2:0] funct3
+                    input [2:0] funct3,
+                    input mem_read,mem_write,
+                    output [XLEN-1:0] data_o             
                 );
-wire Addr_M [XLEN-3:0];
-wire cs[3:0];
-MMU MemControl (.Addr_i(Addr),.funct3(funct3),.cs(cs),.MMUEnable(1'b1),.Addr_o(Addr_M));
-/*
-RamMemory dm (.clk(clk), 
-                    .Addr(), 
-                    .cs(cs & write_enable), .re(re), .we(we),
-                    .data_i(data_i),
-                    .data_o(data_o) 
-                );
-    */
+wire [XLEN-3:0] Addr_M ;
+wire [3:0] cs,re,wr;
+wire [XLEN-1:0] data_to_mem,data_from_mem;
+
+MMU MemControl (.funct3(funct3),.mem_read(mem_read),.mem_write(mem_write),.MMUEnable(1'b1),.cs(cs),.re(re),.wr(wr),.Addr_o(Addr_M),.Addr_i(Addr));
+input_shifter DataIN (.data_in(data_i),.funct3(funct3),.Addr(Addr[1:0]),.data_out(data_to_mem));
+output_shifter DataOut (.data_in(data_from_mem),.funct3(funct3),.Addr(Addr[1:0]),.data_out(data_o)); 
+RamMemory Dm (.cs(cs),.re(re),.we(wr),.Addr(Addr_M),.data_i(data_to_mem),.data_o(data_from_mem));
+
 endmodule
