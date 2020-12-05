@@ -70,14 +70,10 @@ module RV32Core #(parameter enable = 1'b1,
         Stage_EX execute(.ALUOp(alu_op),.funct7(funct7),.funct3(funct3),.rs1(data_src1), .rs2(data_src2),
                     .clk(clk), .ALU_Reset(ALU_Reset), .select(current_stage[2]),.result(ALU_result),
                     .zero_flag(zero_flag));
-                                
-        //mem stage 
-        //Output - data read from memory, data to be written to destination register
-        assign mem_read_extended = {{4{mem_read}}, mem_read};
-        assign mem_write_extended = {{4{mem_write}}, mem_write};
-        
-        Stage_MEM access_dm(.clk(clk), .write_enable(mem_write), .select(current_stage[3]),
-                                .Addr0(ALU_result),.cs(4'b1111),.re(mem_read_extended),.we(mem_write_extended),
+
+      
+        Stage_MEM access_dm(.clk(clk), .mem_write(mem_write), .select(current_stage[3]),
+                                .Addr(ALU_result),.re(mem_read_extended),.we(mem_write_extended),
                               .data_i(data_src2),.data_o(mem_read_data));
                               
         //write back stage, writes output to destination register
@@ -87,5 +83,8 @@ module RV32Core #(parameter enable = 1'b1,
         Stage_WB write_register (.select(current_stage[4]), .clk(clk), .write_enable(reg_write), 
                              .MemtoReg(mem_to_reg),.data_from_EX(ALU_result),
                              .data_from_MEM(mem_read_data),.register_address(dest));
+                             
+         
+                                                
 ///*/  
 endmodule
