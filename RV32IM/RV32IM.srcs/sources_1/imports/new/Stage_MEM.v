@@ -6,7 +6,7 @@
 module Stage_MEM#(parameter XLEN =32,
                    parameter WORDLENGTH = 8)
                 (
-                    input wire clk, write_enable, select,
+                    input wire clk, select,
                     input [XLEN-1:0] Addr,
                     input [XLEN-1:0] data_i,
                     input [2:0] funct3,
