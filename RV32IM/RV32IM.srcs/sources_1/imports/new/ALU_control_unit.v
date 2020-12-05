@@ -25,7 +25,7 @@ begin
                                       (funct7 == `FUNCT7_SLL && funct3 == `FUNCT3_SLL) ? `EXE_SLL_OP :
                                       (funct7 == `FUNCT7_SRL && funct3 == `FUNCT3_SRL_SRA) ? `EXE_SRL_OP :
                                       (funct7 == `FUNCT7_SLT && funct3 == `FUNCT3_SLT) ? `EXE_SLT_OP :  
-                                      
+                                      (funct7 == `
         endcase 
     
 end
