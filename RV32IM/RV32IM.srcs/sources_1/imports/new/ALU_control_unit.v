@@ -24,7 +24,8 @@ begin
                                       (funct7 == `FUNCT7_OR && funct3 == `FUNCT3_OR) ? `EXE_OR_OP :
                                       (funct7 == `FUNCT7_SLL && funct3 == `FUNCT3_SLL) ? `EXE_SLL_OP :
                                       (funct7 == `FUNCT7_SRL && funct3 == `FUNCT3_SRL_SRA) ? `EXE_SRL_OP :
-                                      (funct7 == `FUNCT7_SLT && funct3 == `FUNCT3_SLT) ? `EXE_SLT_OP : ALU_control_line ;
+                                      (funct7 == `FUNCT7_SLT && funct3 == `FUNCT3_SLT) ? `EXE_SLT_OP :  
+                                      
         endcase 
     
 end

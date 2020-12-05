@@ -11,7 +11,6 @@ module Stage_MEM#(parameter XLEN =32,
                     input [XLEN-1:0] data_i,
                     input [2:0] funct3,
                     input mem_read,mem_write,
-                    input select,
                     output [XLEN-1:0] data_o             
                 );
 wire [XLEN-3:0] Addr_M ;

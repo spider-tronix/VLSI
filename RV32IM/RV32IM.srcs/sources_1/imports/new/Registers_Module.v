@@ -34,7 +34,7 @@ for(i=1;i<RegBank_Size;i=i+1)
     begin 
         if(i==2)
         begin
-        x[i] <= 32'h0000ffff;
+        x[i] <= 32'h000000ff;
         end
         else
         begin
