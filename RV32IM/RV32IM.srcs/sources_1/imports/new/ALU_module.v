@@ -29,8 +29,8 @@ always @(posedge clk)
         `EXE_SLT_OP: result <= (rs1[31]==rs2[31]) ? (rs1 < rs2) : {31'b0,rs1[31]} ;
         `EXE_SLTU_OP: result <= (rs1 < rs2);
         
-        `EXE_JAL_OP: result <= rs1 + rs2;
-        `EXE_JALR_OP: result <= rs1 + rs2; 
+        `EXE_JAL_OP: result <= rs1 + 32'd1;
+        `EXE_JALR_OP: result <= rs1 + 32'd1; 
         
         `EXE_BEQ_OP: result <= (rs1==rs2) ;
         `EXE_BNE_OP: result <= (rs1!=rs2) ;
@@ -39,7 +39,7 @@ always @(posedge clk)
         `EXE_BLTU_OP: result <= (rs1 < rs2) ;
         `EXE_BGEU_OP: result <= (rs1 >= rs2) ;
          
-        `EXE_LB_OP: result <= rs1 + rs2; 
+  /*      `EXE_LB_OP: result <= rs1 + rs2; 
         `EXE_LH_OP: result <= rs1 + rs2;  
         `EXE_LW_OP: result <= rs1 + rs2; 
         `EXE_LBU_OP: result <= rs1 + rs2; 
@@ -47,7 +47,7 @@ always @(posedge clk)
         `EXE_SB_OP: result <= rs1 + rs2;  
         `EXE_SH_OP: result <= rs1 + rs2;  
         `EXE_SW_OP: result <= rs1 + rs2; 
-        
+    */    
         default: result <= rs1+1;
         endcase
   

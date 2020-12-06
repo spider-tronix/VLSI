@@ -15,17 +15,17 @@ module ALU_control(input[1:0] ALUOp,input[6:0] funct7,input[2:0] funct3, output 
 always @(ALUOp)
 begin
         case(ALUOp)
-            2'b00: ALU_control_line = 4'b0010;  //for opcodes ld,sd (acc to book)
-            2'b01: ALU_control_line = 4'b0110;  //for opcode beq (acc to book)
-            // changes made acc to defines.v file
-            2'b10: ALU_control_line = (funct7 == `FUNCT7_ADD && funct3 == `FUNCT3_ADD_SUB) ? `EXE_ADD_OP :
+            2'b00: ALU_control_line = `EXE_ADD_OP; // Load and Store instructions   
+            2'b01: ALU_control_line = ;             //Branching instructions
+            
+            2'b10: ALU_control_line = (funct7 == `FUNCT7_ADD && funct3 == `FUNCT3_ADD_SUB) ? `EXE_ADD_OP :     // Arithmetic and Logic Instructions
                                       (funct7 == `FUNCT7_SUB && funct3 == `FUNCT3_ADD_SUB) ? `EXE_SUB_OP :
                                       (funct7 == `FUNCT7_AND && funct3 == `FUNCT3_AND) ? `EXE_AND_OP :
                                       (funct7 == `FUNCT7_OR && funct3 == `FUNCT3_OR) ? `EXE_OR_OP :
                                       (funct7 == `FUNCT7_SLL && funct3 == `FUNCT3_SLL) ? `EXE_SLL_OP :
                                       (funct7 == `FUNCT7_SRL && funct3 == `FUNCT3_SRL_SRA) ? `EXE_SRL_OP :
-                                      (funct7 == `FUNCT7_SLT && funct3 == `FUNCT3_SLT) ? `EXE_SLT_OP :  
-                                      (funct7 == `
+                                      (funct7 == `FUNCT7_SLT && funct3 == `FUNCT3_SLT) ? `EXE_SLT_OP : ALU_control_line; 
+            2'b11: ;                                //Jump instructions
         endcase 
     
 end
