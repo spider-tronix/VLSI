@@ -29,34 +29,30 @@ module MMU #(parameter XLEN = 32)
              output reg [XLEN-3:0] Addr_o  //2 bits for chip select
             );
                        
-initial
+always @(posedge MMUEnable)
 begin
-
 // Address bits 
-Addr_o <= Addr_i[XLEN-1:2];
-$display("%0b", funct3);
-
+Addr_o = Addr_i[XLEN-1:2];
 // Chip select bits
 case(funct3[1:0])
 2'b00: //Byte Store and Load
-    begin 
+     
     cs[3:0] = (Addr_i[1:0] == 2'b00) ? 4'b0001:
-               (Addr_i[1:0] == 2'b01) ? 4'b0010:
-               (Addr_i[1:0] == 2'b10) ? 4'b0100:
-               (Addr_i[1:0] == 2'b11) ? 4'b1000: 4'b0000;      
-    end
+              (Addr_i[1:0] == 2'b01) ? 4'b0010:
+              (Addr_i[1:0] == 2'b10) ? 4'b0100:
+              (Addr_i[1:0] == 2'b11) ? 4'b1000: 4'b0000;      
+   
 2'b01: //Halfword Store and Load
-    begin
+    
     cs[3:0] = (Addr_i[1:0] == 2'b00) ? 4'b0011:
-               (Addr_i[1:0] == 2'b10) ? 4'b1100: 4'b0000;
-    end   
+              (Addr_i[1:0] == 2'b10) ? 4'b1100: 4'b0000;
+       
 2'b10: //Word Store and Load
-    begin
+    
     cs[3:0] = 4'hf;
-    end
+    
 default:
     begin
-    
     cs[3:0] = 4'hf;
     end
 

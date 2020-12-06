@@ -75,11 +75,7 @@ module RV32Core #(parameter enable = 1'b1,
         Stage_MEM access_dm(.clk(clk), .mem_write(mem_write),.mem_read(mem_read),.select(current_stage[3]),
                                 .Addr(ALU_result),.funct3(funct3),
                               .data_i(data_src2),.data_o(mem_read_data));
-                              
 
-                            
-                              
-                             
         //write back stage, writes output to destination register
         //output - None 
         assign data= (mem_to_reg== 1'b1)? mem_read_data : ALU_result;

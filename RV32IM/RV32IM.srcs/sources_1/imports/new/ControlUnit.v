@@ -26,7 +26,7 @@ module ControlUnit(
     input clk,
     input[6:0] opcode,
     output reg[1:0] alu_op,
-    output reg mem_read,mem_write,alu_src,mem_to_reg,reg_write,
+    output reg mem_read,mem_write,alu_src,mem_to_reg,reg_write,branch,jump,
     output reg [4:0] current_stage    
     );
 
@@ -78,6 +78,8 @@ begin
       reg_write = 1'b1;
       mem_read = 1'b0;
       mem_write = 1'b0;
+      branch = 1'b0;
+      jump = 1'b0;
       alu_op = 2'b10;
    end
   `OP_OP_IMM:  
@@ -87,6 +89,8 @@ begin
       reg_write = 1'b1;
       mem_read = 1'b0;
       mem_write = 1'b0;
+      branch = 1'b0;
+      jump = 1'b0;
       alu_op = 2'b10;
    end
   `OP_LOAD:  
@@ -96,6 +100,8 @@ begin
       reg_write = 1'b1;
       mem_read = 1'b1;
       mem_write = 1'b0;
+      branch = 1'b0;
+      jump = 1'b0;
       alu_op = 2'b00;
    end
   `OP_STORE:  
@@ -105,17 +111,77 @@ begin
     reg_write = 1'b0;
     mem_read = 1'b0;
     mem_write = 1'b1;
+    branch = 1'b0;
+    jump = 1'b0;
     alu_op = 2'b00;
    end 
+  `OP_BRANCH:
+  begin
+    alu_src = 1'b1;
+    mem_to_reg = 1'bX;
+    reg_write = 1'b0;
+    mem_read = 1'b0;
+    mem_write = 1'b0;
+    branch = 1'b1;
+    jump = 1'b0;
+    alu_op = 2'b01;
+  end
+  //to be defined
+  `OP_JALR:
+  begin
+    alu_src = 1'b1;
+    mem_to_reg = 1'bX;
+    reg_write = 1'b1;
+    mem_read = 1'b0;
+    mem_write = 1'b0;
+    branch = 1'b0;
+    jump = 1'b1;
+    alu_op = 2'b11;
+  end
+  `OP_JAL:
+  begin
+    alu_src = 1'b1;
+    mem_to_reg = 1'bX;
+    reg_write = 1'b1;
+    mem_read = 1'b0;
+    mem_write = 1'b0;
+    branch = 1'b0;
+    alu_op = 2'b11;
+    jump = 1'b1;
+  end
+  `OP_AUIPC:
+  begin
+      alu_src = 1'b1;
+      mem_to_reg = 1'bX;
+      reg_write = 1'b1;
+      mem_read = 1'b0;
+      mem_write = 1'b0;
+      branch = 1'b0;
+      jump = 1'b0;
+      alu_op = 2'b11;
+    end
+  `OP_LUI:
+  begin
+        alu_src = 1'b1;
+        mem_to_reg = 1'bX;
+        reg_write = 1'b1;
+        mem_read = 1'b0;
+        mem_write = 1'b0;
+        branch = 1'b0;
+        alu_op = 2'b11;
+      end
 
- default: begin
+ default: 
+ begin
     alu_src = 1'b0;
     mem_to_reg = 1'b0;
     reg_write = 1'b1;
     mem_read = 1'b0;
     mem_write = 1'b0;
+    branch = 1'b0;
     alu_op = 2'b00;
    end
+ 
  endcase
  end
 
