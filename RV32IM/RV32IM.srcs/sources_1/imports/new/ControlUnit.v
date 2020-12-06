@@ -170,16 +170,7 @@ begin
         branch = 1'b0;
         alu_op = 2'b11;
       end
-   `OP_MISC_MEM:
-   begin
-           alu_src = 1'b1;
-           mem_to_reg = 1'bX;
-           reg_write = 1'b0;
-           mem_read = 1'b0;
-           mem_write = 1'b0;
-           branch = 1'b1;
-           alu_op = 2'b01;
-         end
+
  default: 
  begin
     alu_src = 1'b0;
