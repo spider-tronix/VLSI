@@ -29,7 +29,7 @@ module MMU #(parameter XLEN = 32)
              output reg [XLEN-3:0] Addr_o  //2 bits for chip select
             );
                        
-always @(posedge MMUEnable)
+always @(*)
 begin
 // Address bits 
 Addr_o = Addr_i[XLEN-1:2];
@@ -59,8 +59,8 @@ default:
 endcase
 
 //Data Read and write bits
-assign re = mem_read ? cs : 4'b0000;
-assign wr = mem_write ? cs : 4'b0000;  
+assign re = (mem_read && MMUEnable)? cs : 4'b0000;
+assign wr = (mem_write && MMUEnable)? cs : 4'b0000;  
 
 end
 endmodule
