@@ -80,6 +80,7 @@ module RV32Core #(parameter enable = 1'b1,
         //output - None 
         assign data= (mem_to_reg== 1'b1)? mem_read_data : ALU_result;
         assign wr_enable = current_stage[4] & reg_write;
+        
         Stage_WB write_register (.select(current_stage[4]), .clk(clk), .write_enable(reg_write), 
                              .MemtoReg(mem_to_reg),.data_from_EX(ALU_result),
                              .data_from_MEM(mem_read_data),.register_address(dest));

@@ -85,17 +85,17 @@ module Stage_MEM_TestBench;
 
     //Instantiation
 
-MMU MemControl (.funct3(funct3), .mem_read(mem_read), .mem_write(mem_write), .MMUEnable(1'b1), .cs(cs), .re(re), .wr(wr), .Addr_o(Addr_M), .Addr_i(Addr));
-input_shifter DataIN (.data_in(data_i), .funct3(funct3), .Addr(Addr[1:0]), .data_out(data_to_mem));
-output_shifter DataOut (.data_in(data_from_mem), .funct3(funct3), .Addr(Addr[1:0]), .data_out(data_o)); 
-RamMemory Dm (.cs(cs), .re(re), .we(wr), .Addr(Addr_M), .data_i(data_to_mem), .data_o(data_from_mem));
+//MMU MemControl (.funct3(funct3), .mem_read(mem_read), .mem_write(mem_write), .MMUEnable(1'b1), .cs(cs), .re(re), .wr(wr), .Addr_o(Addr_M), .Addr_i(Addr));
+//input_shifter DataIN (.data_in(data_i), .funct3(funct3), .Addr(Addr[1:0]), .data_out(data_to_mem));
+//output_shifter DataOut (.data_in(data_from_mem), .funct3(funct3), .Addr(Addr[1:0]), .data_out(data_o)); 
+//RamMemory Dm (.cs(cs), .re(re), .we(wr), .Addr(Addr_M), .data_i(data_to_mem), .data_o(data_from_mem));
    
    
-    // Stage_MEM SM(.clk(clk), .select(select), .mem_read(mem_read), .mem_write(mem_write),
-    //                 .Addr(Addr), .data_i(data_i),
-    //                 .funct3(funct3),
-    //                 .data_o(data_o)
-    //             );
+     Stage_MEM SM(.clk(clk), .select(select), .mem_read(mem_read), .mem_write(mem_write),
+                     .Addr(Addr), .data_i(data_i),
+                     .funct3(funct3),
+                     .data_o(data_o)
+                 );
     initial begin
     // Writing to Memory 
     select = 1; mem_read = 0; mem_write = 1;
@@ -107,12 +107,12 @@ RamMemory Dm (.cs(cs), .re(re), .we(wr), .Addr(Addr_M), .data_i(data_to_mem), .d
         // Half Word
         funct3 = `FUNCT3_LH;
         data_i  = I_HalfWord;
-        Addr = 32'b11001;
+        Addr = 32'b11000;
         #25
         //  Word
         funct3 = `FUNCT3_LW;
         data_i  = I_Word;
-        Addr = 32'b111001;
+        Addr = 32'b111000;
         #25
     // Reding from Memory 
     select = 1; mem_read = 1; mem_write = 0;
@@ -125,14 +125,14 @@ RamMemory Dm (.cs(cs), .re(re), .we(wr), .Addr(Addr_M), .data_i(data_to_mem), .d
             $display("BYTE Test Failed!!!\n");
 
         // Half Word
-        Addr = 32'b11001;
+        Addr = 32'b11000;
         #25
         if( I_HalfWord == data_o)
             $display("HALF_WORD Test Passed\n");
         else 
             $display("HALF_WORD Test Failed!!!\n");
         //  Word
-        Addr = 32'b111001;
+        Addr = 32'b111000;
         #25
         if( I_Word == data_o)
             $display("WORD Test Passed\n");
