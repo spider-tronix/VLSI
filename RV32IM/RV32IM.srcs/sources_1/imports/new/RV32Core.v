@@ -24,7 +24,6 @@
 module RV32Core #(parameter enable = 1'b1,
                   parameter XLEN = 32)
                  (input clk, 
-                  input [XLEN-1:0] PC, 
                   input ALU_Reset, 
                   output [XLEN-1:0]ALU_result);
   
@@ -40,15 +39,21 @@ module RV32Core #(parameter enable = 1'b1,
     wire zero_flag,alu_src;
     wire [XLEN-1:0] IF_buf;
     wire [XLEN-1:0] data;
-    wire wr_enable;       
+    wire wr_enable;
+    reg [XLEN-1:0] PC;       
   //  initial begin 
   //  opcode <= 7'bZ;
   //  end        
+        initial 
+        begin 
+            PC <= -1;
+        end
         //Control unit generates control signals based on opcode 
         //output - control signals, current_stage(enables IF,ID,EX,MEM,WB stages)
         ControlUnit control_unit(.clk(clk),.opcode(opcode),.alu_op(alu_op),.mem_read(mem_read),
         .mem_write(mem_write),.alu_src(alu_src),.mem_to_reg(mem_to_reg),.reg_write(reg_write),.current_stage(current_stage));
-
+        
+        
         //instruction fetch from ROM 
         //output - Instruction to be decoded
         Stage_IF fetch(.PC(PC),.Instr(Instr),.clk(clk), .select(current_stage[0]));
@@ -74,7 +79,7 @@ module RV32Core #(parameter enable = 1'b1,
       
         Stage_MEM access_dm(.clk(clk), .mem_write(mem_write),.mem_read(mem_read),.select(current_stage[3]),
                                 .Addr(ALU_result),.funct3(funct3),
-                              .data_i(data_src2),.data_o(mem_read_data));
+                              .data_i(data_src2_R),.data_o(mem_read_data));
 
         //write back stage, writes output to destination register
         //output - None 
@@ -85,7 +90,8 @@ module RV32Core #(parameter enable = 1'b1,
                              .MemtoReg(mem_to_reg),.data_from_EX(ALU_result),
                              .data_from_MEM(mem_read_data),.register_address(dest));
                              
-         
+        always @(posedge current_stage[4])
+            PC <= PC+1;
                                                 
 ///*/  
 endmodule
