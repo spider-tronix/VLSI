@@ -1,0 +1,29 @@
+
+outputC.out:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	fe010113          	addi	sp,sp,-32
+   4:	00812e23          	sw	s0,28(sp)
+   8:	02010413          	addi	s0,sp,32
+   c:	3e800793          	li	a5,1000
+  10:	fef42623          	sw	a5,-20(s0)
+  14:	00300793          	li	a5,3
+  18:	fef42423          	sw	a5,-24(s0)
+  1c:	00a00793          	li	a5,10
+  20:	fef42223          	sw	a5,-28(s0)
+  24:	fec42703          	lw	a4,-20(s0)
+  28:	fe842783          	lw	a5,-24(s0)
+  2c:	00f707b3          	add	a5,a4,a5
+  30:	fef42023          	sw	a5,-32(s0)
+  34:	fe442703          	lw	a4,-28(s0)
+  38:	fe042783          	lw	a5,-32(s0)
+  3c:	40f707b3          	sub	a5,a4,a5
+  40:	fef42223          	sw	a5,-28(s0)
+  44:	00000793          	li	a5,0
+  48:	00078513          	mv	a0,a5
+  4c:	01c12403          	lw	s0,28(sp)
+  50:	02010113          	addi	sp,sp,32
+  54:	00008067          	ret
