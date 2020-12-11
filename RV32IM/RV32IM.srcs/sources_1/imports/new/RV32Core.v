@@ -40,11 +40,12 @@ module RV32Core #(parameter enable = 1'b1,
     wire [XLEN-1:0] IF_buf;
     wire [XLEN-1:0] data;
     wire wr_enable;
-    reg [XLEN-1:0] PC;       
+    reg [XLEN-1:0] PC, PC_addr; 
+    wire jump_or_branch;      
   //  initial begin 
   //  opcode <= 7'bZ;
   //  end        
-        initial 
+        initial
         begin 
             PC <= -1;
         end
@@ -89,9 +90,10 @@ module RV32Core #(parameter enable = 1'b1,
         Stage_WB write_register (.select(current_stage[4]), .clk(clk), .write_enable(reg_write), 
                              .MemtoReg(mem_to_reg),.data_from_EX(ALU_result),
                              .data_from_MEM(mem_read_data),.register_address(dest));
+        
                              
         always @(posedge current_stage[4])
-            PC <= PC+1;
+            PC <= (jump_or_branch)? PC_addr: PC + 4;
                                                 
 ///*/  
 endmodule
