@@ -41,7 +41,7 @@ module RV32Core #(parameter enable = 1'b1,
     wire [XLEN-1:0] data;
     wire wr_enable;
     reg [XLEN-1:0] PC, PC_addr; 
-    wire jump_or_branch;      
+    wire jump, branch;      
   //  initial begin 
   //  opcode <= 7'bZ;
   //  end        
@@ -51,7 +51,7 @@ module RV32Core #(parameter enable = 1'b1,
         end
         //Control unit generates control signals based on opcode 
         //output - control signals, current_stage(enables IF,ID,EX,MEM,WB stages)
-        ControlUnit control_unit(.clk(clk),.opcode(opcode),.alu_op(alu_op),.mem_read(mem_read),
+        ControlUnit control_unit(.clk(clk),.opcode(opcode),.alu_op(alu_op),.mem_read(mem_read), .branch(branch), .jump(hump),
         .mem_write(mem_write),.alu_src(alu_src),.mem_to_reg(mem_to_reg),.reg_write(reg_write),.current_stage(current_stage));
         
         
@@ -90,10 +90,12 @@ module RV32Core #(parameter enable = 1'b1,
         Stage_WB write_register (.select(current_stage[4]), .clk(clk), .write_enable(reg_write), 
                              .MemtoReg(mem_to_reg),.data_from_EX(ALU_result),
                              .data_from_MEM(mem_read_data),.register_address(dest));
-        
-                             
+
+
         always @(posedge current_stage[4])
-            PC <= (jump_or_branch)? PC_addr: PC + 4;
-                                                
+        begin
+            PC_addr = PC + {32{imm, 1'b0}}; 
+            PC = (jump || (branch & ALU_result[0]))? PC_addr : (PC + 4);
+        end                                         
 ///*/  
 endmodule
