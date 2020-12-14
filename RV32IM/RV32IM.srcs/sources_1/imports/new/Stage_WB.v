@@ -4,7 +4,8 @@
 module Stage_WB#(parameter XLEN=32)
                 (
                 input wire select, clk, write_enable, 
-                input MemtoReg,
+                input MemtoReg, jump,
+                input [XLEN-1:0] PC,
                 input [XLEN-1:0]data_from_EX,
                 input [XLEN-1:0]data_from_MEM,
                 input [4:0] register_address
@@ -12,7 +13,8 @@ module Stage_WB#(parameter XLEN=32)
 wire [XLEN-1:0] dummy1, dummy2;
 wire [XLEN-1:0] data;
 
-assign data= (MemtoReg== 1'b1)? data_from_MEM : data_from_EX;
+assign data= (jump)? PC + 4:
+             (MemtoReg== 1'b1)? data_from_MEM : data_from_EX;
 
     Registers_Module regs(
         .clk(clk),
