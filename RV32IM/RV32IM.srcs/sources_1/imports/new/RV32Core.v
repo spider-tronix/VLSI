@@ -44,35 +44,52 @@ reg [XLEN-1:0] PC, PC_addr;
 wire jump, branch;
 
 // Stall signals
-wire[5:0] stall;
-wire stallreq_if;
-wire stallreq_id;
-wire stallreq_ex;
-wire stallreq_mem;
+wire [5:0] stall;
+wire stallreq_IF;
+wire stallreq_ID;
+wire stallreq_EX;
+wire stallreq_MEM;
 
 
 initial
 begin
-    PC <= -1;
+    PC <= 0;
 end
-//Control unit generates control signals based on opcode
-//output - control signals, current_stage(enables IF,ID,EX,MEM,WB stages)
-ControlUnit control_unit(.clk(clk),.opcode(opcode),.alu_op(alu_op),.mem_read(mem_read), .branch(branch), .jump(hump),
-.mem_write(mem_write),.alu_src(alu_src),.mem_to_reg(mem_to_reg),.reg_write(reg_write),.current_stage(current_stage));
 
 
-//instruction fetch from ROM
+// Progam Counter 
+wire [31:0]IF_PC;
+wire IF_PC_ready;
+reg_PC reg_PC0(
+    // Inputs
+    .clk(clk), .rst(rst), .stall(stall), .br(branch), .br_addr(PC_addr), 
+    // Outputs
+    .pc_o(IF_PC), .PC_ready_o(IF_PC_ready));
+
+
+//Instruction fetch from ROM
 //output - Instruction to be decoded
-Stage_IF fetch(.PC(PC),.Instr(Instr),.clk(clk), .select(current_stage[0]));
+Stage_IF fetch(
+                // Inputs
+                .PC(IF_PC), .PC_ready(IF_PC_ready), .branch(branch), .rst(rst), .select(current_stage[0]),
+                // Outputs
+                .Instr(Instr), .stallreq(stallreq_IF) );
+
+// Pipeline register between IF --------- ID
+
+reg_IF_ID reg_IF_ID0(.clk(clk), .rst(rst));
+
 //Instruction decode stage.
 //Outputs - opcode, address of source register 1,2 , destination register,
 //          immediate value (in case of I type instruction)
-Buffer_32bit IF_BUFFER (.D_in(Instr),.clk(clk),.D_out(IF_buf));
-
 Stage_ID decode(.IR(IF_buf),.clk(clk),.DecoderEnable(current_stage[1]),
 .opcode(opcode),.funct3(funct3),.funct7(funct7),.src1(src1),
 .src2(src2),.dest(dest),.imm(imm));
 
+//Control unit generates control signals based on opcode
+//output - control signals, current_stage(enables IF,ID,EX,MEM,WB stages)
+ControlUnit control_unit(.clk(clk),.opcode(opcode),.alu_op(alu_op),.mem_read(mem_read), .branch(branch), .jump(hump),
+.mem_write(mem_write),.alu_src(alu_src),.mem_to_reg(mem_to_reg),.reg_write(reg_write),.current_stage(current_stage));
 Registers_Module Registers(.clk(clk),.src1(src1), .src2(src2), .dest(dest),
 .we(wr_enable), .re(enable),.re1(enable), .re2(enable),
 .rs1(data_src1), .rs2(data_src2_R),.rd(data));
@@ -90,8 +107,8 @@ Stage_MEM access_dm(.clk(clk), .mem_write(mem_write),.mem_read(mem_read),.select
 
 //write back stage, writes output to destination register
 //output - None
-assign data      = (jump)? PC + 4: 
-                   (mem_to_reg == 1'b1)? mem_read_data : ALU_result;
+assign data = (jump)? PC + 4:
+(mem_to_reg == 1'b1)? mem_read_data : ALU_result;
 assign wr_enable = current_stage[4] & reg_write;
 
 // STAGE_WB
