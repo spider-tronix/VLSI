@@ -173,6 +173,7 @@ module ControlUnit(input clk,
                 mem_write  = 1'b0;
                 branch     = 1'b0;
                 alu_op     = 2'b11;
+                jump       = 1'b0;
             end
             
             default:
@@ -184,6 +185,7 @@ module ControlUnit(input clk,
                 mem_write  = 1'b0;
                 branch     = 1'b0;
                 alu_op     = 2'b00;
+                jump       = 1'b0;
             end
             
         endcase
