@@ -90,12 +90,11 @@ Stage_MEM access_dm(.clk(clk), .mem_write(mem_write),.mem_read(mem_read),.select
 
 //write back stage, writes output to destination register
 //output - None
-assign data      = (mem_to_reg == 1'b1)? mem_read_data : ALU_result;
+assign data      = (jump)? PC + 4: 
+                   (mem_to_reg == 1'b1)? mem_read_data : ALU_result;
 assign wr_enable = current_stage[4] & reg_write;
 
-Stage_WB write_register (.select(current_stage[4]), .clk(clk), .write_enable(reg_write),
-.MemtoReg(mem_to_reg),.data_from_EX(ALU_result), .jump(jump), .PC(PC),
-.data_from_MEM(mem_read_data),.register_address(dest));
+// STAGE_WB
 
 
 always @(negedge current_stage[4])
