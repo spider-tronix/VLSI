@@ -19,7 +19,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 `include "defines.v"
-// Inputs from Control unit and STAGE_ID output to STADE_EX
+// Inputs from Control unit and STAGE_ID output to STAGE_EX
 module reg_ID_EX(input rst,
                  clk,
                  input wire [5:0] stall,
