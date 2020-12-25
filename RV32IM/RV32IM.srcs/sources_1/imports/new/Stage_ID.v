@@ -82,7 +82,7 @@ begin
                     dest <= IR[11:7];
                     funct3 <= 'b0;
                     funct7 <= 'b0;
-                    imm <= {{20{IR[31]}},IR[20],IR[30:21],1'b0};
+                    imm <= {IR[31], IR[19:12], IR[20], IR[30:21]};
                 end  
         `OP_JALR:
                 begin
