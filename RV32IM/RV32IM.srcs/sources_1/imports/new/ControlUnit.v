@@ -180,7 +180,7 @@ module ControlUnit#(parameter XLEN = 32)
             `OP_JALR:
             begin
                 alu_src     <= 1'b1;
-                mem_to_reg  <= 1'bX;
+                mem_to_reg  <= 1'b0;
                 reg_write   <= 1'b1;
                 mem_read    <= 1'b0;
                 mem_write   <= 1'b0;
@@ -193,7 +193,7 @@ module ControlUnit#(parameter XLEN = 32)
             `OP_JAL:
             begin
                 alu_src     <= 1'b1;
-                mem_to_reg  <= 1'bX;
+                mem_to_reg  <= 1'b0;
                 reg_write   <= 1'b1;
                 mem_read    <= 1'b0;
                 mem_write   <= 1'b0;

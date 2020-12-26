@@ -28,12 +28,14 @@ module Stage_EX#(parameter XLEN= 32,
         input[1:0] ALUOp,
         input[6:0] funct7,
         input[2:0] funct3,
-        input[XLEN-1:0] rs1, rs2,
+        input [XLEN-1:0] rs1, rs2, link_addr,
+        input jump,
         // input clk, 
         input ALU_Reset, select,
         output [XLEN-1:0]result,
         output zero_flag);
 
+    wire [XLEN-1:0]result_temp;
     wire [4:0]ALU_control_line;
     ALU_control ALU_CU(.ALUOp(ALUOp),
                         .funct7(funct7),
@@ -46,8 +48,8 @@ module Stage_EX#(parameter XLEN= 32,
                     .ALU_Reset(1'b0),
                     .ALU_Enable(select),
                     .ALUOp(ALU_control_line),
-                    .result(result),
+                    .result(result_temp),
                     .zero_flag(zero_flag)
     );
-
+assign result = (jump)?link_addr:result_temp;
 endmodule

@@ -29,9 +29,6 @@ always @(*)
         `EXE_SLT_OP: result <= (rs1[31]==rs2[31]) ? (rs1 < rs2) : {31'b0,rs1[31]} ;
         `EXE_SLTU_OP: result <= (rs1 < rs2);
         
-        `EXE_JAL_OP: result <= rs1 + 32'd1;
-        `EXE_JALR_OP: result <= rs1 + 32'd1; 
-        
         `EXE_BEQ_OP: result <= (rs1==rs2) ;
         `EXE_BNE_OP: result <= (rs1!=rs2) ;
         `EXE_BLT_OP: result <= (rs1 < rs2)^(rs1[31] != rs2[31]) ;
