@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 `include "defines.v"
 module Stage_ID(input [31:0] IR,
-                input clk,
+                // input clk,
                 input DecoderEnable,
                 output reg [6:0] opcode,
                 output reg [2:0] funct3,
@@ -32,10 +32,10 @@ module Stage_ID(input [31:0] IR,
 
 initial
 begin
-    opcode <= 7'bZ;
+    opcode <= 0;
 end
 
-always @(posedge clk)
+always @(*)
 begin
     if (DecoderEnable)
     begin

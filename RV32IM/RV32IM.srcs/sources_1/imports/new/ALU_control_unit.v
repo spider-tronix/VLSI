@@ -10,9 +10,9 @@ ALU_control_line : output signal,
 */
 `include "defines.v"
 
-module ALU_control(input[1:0] ALUOp,input[6:0] funct7,input[2:0] funct3, output reg [4:0]ALU_control_line, input wire ALU_control_enable, clk);
+module ALU_control(input[1:0] ALUOp,input[6:0] funct7,input[2:0] funct3, output reg [4:0]ALU_control_line, input wire ALU_control_enable);
 
-always @(ALUOp)
+always @(*)
 begin
         case(ALUOp)
             2'b00: ALU_control_line = `EXE_ADD_OP; // Load and Store instructions   

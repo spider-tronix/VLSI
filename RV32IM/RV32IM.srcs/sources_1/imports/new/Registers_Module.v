@@ -21,7 +21,8 @@ module Registers_Module #(parameter XLEN = 32,
                           parameter RegBank_Size = 32)
                          
                          (input [4:0] src1,src2,dest,
-                          input wire re,re1,re2,we,clk,
+                          input wire re,re1,re2,we,
+                          // clk,
                           input [XLEN-1:0] rd,
                           output reg [XLEN-1:0] rs1,rs2 );
                           
@@ -43,7 +44,7 @@ for(i=1;i<RegBank_Size;i=i+1)
     end
 end
 
-always @(negedge clk)
+always @(*)
 begin
  if(re)
     begin
@@ -52,7 +53,7 @@ begin
     end
 end
 
-always @(posedge clk)
+always @(*)
 begin
  if(we)
     begin

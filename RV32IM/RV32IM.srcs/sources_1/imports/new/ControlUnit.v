@@ -23,7 +23,12 @@
 `timescale 1ns / 1ps
 
 module ControlUnit(input clk,
+                   rst,
                    input[6:0] opcode,
+                   input stallreq_MEM,
+                   stallreq_EX,
+                   stallreq_ID,
+                   stallreq_IF,
                    output reg[1:0] alu_op,
                    output reg mem_read,
                    mem_write,
@@ -32,10 +37,27 @@ module ControlUnit(input clk,
                    reg_write,
                    branch,
                    jump,
+                   output reg [5:0]stall,
                    output reg [4:0] current_stage);
     
-    reg [4:0]next_stage;
+    always @ (*) begin
+        if (rst) begin
+            stall <= 6'b000000;
+            end else if (stallreq_MEM) begin
+            stall <= 6'b011111;
+            end else if (stallreq_EX) begin
+            stall <= 6'b001111;
+            end else if (stallreq_ID) begin
+            stall <= 6'b000111;
+            end else if (stallreq_IF) begin
+            stall <= 6'b000011;
+            end else begin
+            stall <= 6'b000000;
+        end
+    end
     
+    
+    reg [4:0]next_stage;
     initial
     begin
         current_stage <= `STAGE_IF;
@@ -72,7 +94,7 @@ module ControlUnit(input clk,
         endcase
     end
     
-    always @(negedge clk)
+    always @(*)
     begin
         case(opcode)
             `OP_OP:
