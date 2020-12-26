@@ -26,6 +26,8 @@ module reg_IF_ID#(parameter XLEN = 32)
                   input wire branch,
                   input wire [5:0] stall,
                   input [XLEN-1:0]IF_instr,
+                  input [XLEN-1:0]IF_PC,
+                  output reg [XLEN-1:0]ID_PC,
                   output reg [XLEN-1:0]ID_instr);
     always @ (posedge clk) begin
         if (rst || branch || (stall[1] && !stall[2])) begin
