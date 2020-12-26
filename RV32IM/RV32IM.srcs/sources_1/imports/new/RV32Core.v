@@ -38,8 +38,8 @@ wire [1:0] alu_op;
 wire mem_read,mem_write,mem_to_reg,reg_write;
 wire zero_flag,alu_src;
 wire [XLEN-1:0] IF_buf;
-wire [XLEN-1:0] data;
-wire wr_enable;
+wire [XLEN-1:0] WB_data;
+wire WB_wr_enable;
 reg [XLEN-1:0] PC, PC_addr;
 wire jump, branch;
 
@@ -79,12 +79,16 @@ Stage_IF fetch(
 
 // Pipeline register between IF --------- ID
 wire [XLEN-1:0] Instr_IF_ID_reg_to_ID;
+wire [31:0]ID_PC;
+
 reg_IF_ID reg_IF_ID0(
     // Inputs 
     .clk(clk), .rst(rst),
     .branch(take_branch),
     .stall(stall),
     .IF_instr(Instr),
+    .IF_PC(IF_PC),
+    .ID_PC(ID_PC),
     .ID_instr(Instr_IF_ID_reg_to_ID)
     );
 
@@ -111,16 +115,19 @@ ControlUnit control_unit(
     .stallreq_EX(stallreq_EX),
     .stallreq_ID(stallreq_ID),
     .stallreq_IF(stallreq_IF),
+    .PC(ID_PC),
+    .IR(Instr_IF_ID_reg_to_ID),
+    .data_src1(data_src1),
     // Outputs
-    .alu_op(alu_op),.mem_read(mem_read), .branch(branch), .jump(hump),
+    .alu_op(alu_op),.mem_read(mem_read), .branch(branch), .jump(jump),
     .mem_write(mem_write),.alu_src(alu_src),.mem_to_reg(mem_to_reg),.reg_write(reg_write),.current_stage(current_stage));
 wire [4:0] WB_dest;
 Registers_Module Registers(
     // Inputs
     // .clk(clk),
     .src1(src1), .src2(src2), .dest(WB_dest),
-    .we(wr_enable), .re(enable),.re1(enable), .re2(enable),
-    .rd(data),
+    .we(WB_wr_enable), .re(enable),.re1(enable), .re2(enable),
+    .rd(WB_data),
     // Outputs
     .rs1(data_src1), .rs2(data_src2_R));
 
@@ -163,43 +170,60 @@ reg_ID_EX reg_ID_EX0 (
 ); 
 // -------------------------- STAGE_EX -------------------------------
 Stage_EX execute(
-    // Input
+    // Inputs
     .ALUOp(EX_alu_op),.funct7(EX_funct7),.funct3(EX_funct3),
     .rs1(EX_data_src1), .rs2(EX_data_src2),
     .ALU_Reset(rst), .select(current_stage[2]),
-    // Output
+
+    // Outputs
     .result(ALU_result),.zero_flag(zero_flag)
 );
 // -------------------------- **STAGE_EX** -------------------------------
+wire [XLEN-1:0] MEM_ALU_result, MEM_data_src2_R, MEM_data;
+wire [2:0] MEM_funct3;
+wire [4:0] MEM_dest;
+wire MEM_mem_read, MEM_mem_write, MEM_reg_write, MEM_mem_to_reg;
 // Pipeline register between EX --------- MEM
 reg_EX_MEM reg_EX_MEM0(
-    // Input
-    .clk(clk), .rst(rst), .stall(stall),
+    // Inputs
+    .clk(clk), .rst(rst), .stall(stall), .EX_dest(EX_dest),
     .EX_Addr(ALU_result), .EX_data_i(EX_data_src2_R), .EX_funct3(EX_funct3), 
     .EX_mem_read(EX_mem_read), .EX_mem_write(EX_mem_write),
+    .EX_mem_to_reg(EX_mem_to_reg),
 
     // Outputs
     .MEM_Addr(MEM_ALU_result), .MEM_data_i(MEM_data_src2_R), .MEM_funct3(MEM_funct3), 
-    .MEM_mem_read(MEM_mem_read), .MEM_mem_write(MEM_mem_write)
+    .MEM_mem_read(MEM_mem_read), .MEM_mem_write(MEM_mem_write), 
+    .MEM_dest(MEM_dest), .MEM_mem_to_reg(MEM_mem_to_reg)
 );
 // -------------------------- STAGE_MEM -------------------------------
-Stage_MEM access_dm(.clk(clk), .mem_write(mem_write),.mem_read(mem_read),.select(current_stage[3]),
-.Addr(MEM_ALU_result),.funct3(MEM_funct3),
-.data_i(MEM_data_src2_R),.data_o(mem_read_data));
+Stage_MEM access_dm(
+    // Inputs 
+    .mem_write(MEM_mem_write),.mem_read(MEM_mem_read),.select(current_stage[3]),
+    .Addr(MEM_ALU_result),.funct3(MEM_funct3),
+    .data_i(MEM_data_src2_R),
 
+    // Output
+    .data_o(mem_read_data));
+assign MEM_data = (MEM_mem_to_reg)?mem_read_data:MEM_ALU_result;
+// -------------------------- **STAGE_MEM** -------------------------------
+wire MEM_wr_enable;
+assign MEM_wr_enable = current_stage[4] & MEM_reg_write;
+reg_MEM_WB reg_MEM_WB0(
+    // Input 
+    .clk(clk), .rst(rst), .stall(stall),
+    .MEM_data(MEM_data), .MEM_wr_enable(MEM_wr_enable), .MEM_register_dest(MEM_dest),
+
+    // Output
+    .WB_data(WB_data), .WB_dest(WB_dest), .WB_wr_enable(WB_wr_enable)
+
+);
 //write back stage, writes output to destination register
 //output - None
-assign data = (jump)? PC + 4:
-(mem_to_reg == 1'b1)? mem_read_data : ALU_result;
-assign wr_enable = current_stage[4] & reg_write;
+
 
 // STAGE_WB
 
 
-always @(negedge current_stage[4])
-begin
-    PC_addr = PC + {32{imm, 1'b0}};
-    PC      = (jump || take_branch)? PC_addr : (PC + 4);
-end
 ///*/
 endmodule
