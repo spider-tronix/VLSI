@@ -20,7 +20,8 @@
 //////////////////////////////////////////////////////////////////////////////////
 `include "defines.v"
 // Inputs from Control unit and STAGE_ID output to STAGE_EX
-module reg_ID_EX(input rst,
+module reg_ID_EX#(parameter XLEN = 32)
+                (input rst,
                  clk,
                  input wire [5:0] stall,
                  input wire [2:0] ID_funct3,
@@ -37,12 +38,14 @@ module reg_ID_EX(input rst,
                  ID_reg_write,
                  ID_branch,
                  ID_jump,
+                 input wire [XLEN-1:0] ID_data_src2_R,
                  output reg [2:0] EX_funct3,
                  output reg [6:0] EX_funct7,
                  output reg [4:0] EX_src1,
                  EX_src2,
                  EX_dest,
-                 output reg [31:0] EX_imm,
+                 output reg [XLEN-1:0] EX_data_src2_R,
+                 output reg [XLEN-1:0] EX_imm,
                  output reg[1:0] EX_alu_op,
                  output reg EX_mem_read,
                  EX_mem_write,
@@ -63,12 +66,13 @@ module reg_ID_EX(input rst,
             EX_jump       <= 1'b0;
             
             // From STAGE_ID
-            EX_funct3 <= 0;
-            EX_funct7 <= 0;
-            EX_src1   <= 0;
-            EX_src2   <= 0;
-            EX_dest   <= 0;
-            EX_imm    <= 0;
+            EX_funct3      <= 0;
+            EX_funct7      <= 0;
+            EX_src1        <= 0;
+            EX_src2        <= 0;
+            EX_data_src2_R <= 0;
+            EX_dest        <= 0;
+            EX_imm         <= 0;
             end else if (!stall[2]) begin
             EX_alu_src    <= ID_alu_src;
             EX_mem_to_reg <= ID_mem_to_reg;
@@ -80,12 +84,13 @@ module reg_ID_EX(input rst,
             EX_jump       <= ID_jump;
             
             // From STAGE_ID
-            EX_funct3 <= ID_funct3;
-            EX_funct7 <= ID_funct7;
-            EX_src1   <= ID_src1;
-            EX_src2   <= ID_src2;
-            EX_dest   <= ID_dest;
-            EX_imm    <= ID_imm;
+            EX_funct3      <= ID_funct3;
+            EX_funct7      <= ID_funct7;
+            EX_src1        <= ID_src1;
+            EX_src2        <= ID_src2;
+            EX_dest        <= ID_dest;
+            EX_imm         <= ID_imm;
+            EX_data_src2_R <= ID_data_src2_R;
         end
     end
 endmodule

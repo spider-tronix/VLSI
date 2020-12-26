@@ -140,25 +140,28 @@ EX_mem_to_reg,
 EX_reg_write,
 EX_branch,
 EX_jump;
+wire [XLEN-1:0] EX_data_src2_R;
+
 // Pipeline register between ID --------- EX
 reg_ID_EX reg_ID_EX0 (
     // Inputs from ID
     .rst(rst), .clk(clk), .stall(stall),
     .ID_funct3(funct3), .ID_funct7(funct7),
+    .ID_data_src2_R(data_src2_R),
     .ID_src1(data_src1), .ID_src2(data_src2), .ID_dest(dest), .ID_imm(imm),
     // Inputs from Control Unit
     .ID_alu_op(alu_op), .ID_mem_read(mem_read), .ID_mem_write(mem_write),
     .ID_alu_src(alu_src), .ID_mem_to_reg(mem_to_reg), .ID_reg_write(ID_reg_write), 
-    .ID_branch(branch), .ID_jump(jump),
+    .ID_branch(branch), .ID_jump(jump), .ID_data_src2_R(data_src2_R),
 
     // Outputs
     .EX_funct3(EX_funct3), .EX_funct7(EX_funct7), .EX_src1(EX_data_src1), .EX_src2(EX_data_src2),
     .EX_dest(EX_dest), .EX_imm(EX_imm), .EX_alu_op(EX_alu_op), .EX_mem_read(EX_mem_read),
     .EX_mem_write(EX_mem_write), .EX_mem_to_reg(EX_mem_to_reg),
-    .EX_reg_write(EX_reg_write), .EX_branch(EX_branch), .EX_jump(EX_jump)
+    .EX_reg_write(EX_reg_write), .EX_branch(EX_branch), .EX_jump(EX_jump),
+    .EX_data_src2_R(EX_data_src2_R)
 ); 
 // -------------------------- STAGE_EX -------------------------------
-
 Stage_EX execute(
     // Input
     .ALUOp(EX_alu_op),.funct7(EX_funct7),.funct3(EX_funct3),
@@ -168,12 +171,21 @@ Stage_EX execute(
     .result(ALU_result),.zero_flag(zero_flag)
 );
 // -------------------------- **STAGE_EX** -------------------------------
+// Pipeline register between EX --------- MEM
+reg_EX_MEM reg_EX_MEM0(
+    // Input
+    .clk(clk), .rst(rst), .stall(stall),
+    .EX_Addr(ALU_result), .EX_data_i(EX_data_src2_R), .EX_funct3(EX_funct3), 
+    .EX_mem_read(EX_mem_read), .EX_mem_write(EX_mem_write),
 
+    // Outputs
+    .MEM_Addr(MEM_ALU_result), .MEM_data_i(MEM_data_src2_R), .MEM_funct3(MEM_funct3), 
+    .MEM_mem_read(MEM_mem_read), .MEM_mem_write(MEM_mem_write)
+);
 // -------------------------- STAGE_MEM -------------------------------
-
 Stage_MEM access_dm(.clk(clk), .mem_write(mem_write),.mem_read(mem_read),.select(current_stage[3]),
-.Addr(ALU_result),.funct3(funct3),
-.data_i(data_src2_R),.data_o(mem_read_data));
+.Addr(MEM_ALU_result),.funct3(MEM_funct3),
+.data_i(MEM_data_src2_R),.data_o(mem_read_data));
 
 //write back stage, writes output to destination register
 //output - None
