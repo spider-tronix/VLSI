@@ -26,20 +26,20 @@ module reg_MEM_WB#(parameter XLEN = 32)
                    input wire [5:0] stall,
                    input wire [XLEN-1:0] MEM_data,
                    input wire MEM_wr_enable,
-                   input wire [4:0] MEM_register_address,
+                   input wire [4:0] MEM_register_dest,
                    output reg [XLEN-1:0] WB_data,
                    output reg WB_wr_enable,
-                   output reg [4:0] WB_register_address);
+                   output reg [4:0] WB_dest);
     
     always @ (posedge clk) begin
         if (rst || (stall[4] && !stall[5])) begin
-            WB_data             <= 0;
-            WB_wr_enable        <= 0;
-            WB_register_address <= 0;
-        end else if (!stall[4]) begin
-            WB_data             <= MEM_data;
-            WB_wr_enable        <= MEM_wr_enable;
-            WB_register_address <= MEM_register_address;
+            WB_data      <= 0;
+            WB_wr_enable <= 0;
+            WB_dest      <= 0;
+            end else if (!stall[4]) begin
+            WB_data      <= MEM_data;
+            WB_wr_enable <= MEM_wr_enable;
+            WB_dest      <= MEM_register_dest;
         end
     end
 endmodule
