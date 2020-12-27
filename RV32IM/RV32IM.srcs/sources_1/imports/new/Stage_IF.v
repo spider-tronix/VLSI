@@ -6,7 +6,7 @@ module Stage_IF#(parameter XLEN = 32)
                  branch,
                  input rst,
                  select,
-                 output reg [XLEN-1:0]Instr,
+                 output [XLEN-1:0]Instr,
                  output reg stallreq);
     
     reg using_mem;
@@ -49,7 +49,7 @@ module Stage_IF#(parameter XLEN = 32)
                 stallreq  = 0;
                 using_mem = 0;
                 //PC      = 0;
-                Instr     = 0;
+//                Instr     = 0;
                 mem_re    = 0;
                 waiting   = 0;
             end

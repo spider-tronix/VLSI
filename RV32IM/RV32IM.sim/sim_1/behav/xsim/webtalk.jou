@@ -1,12 +1,12 @@
 #-----------------------------------------------------------
-# Webtalk v2018.3 (64-bit)
-# SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
-# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Tue Dec  8 23:39:26 2020
-# Process ID: 223299
-# Current directory: /media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim
-# Command line: wbtcv -mode batch -source /media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim/xsim.dir/Stage_MEM_TB_behav/webtalk/xsim_webtalk.tcl -notrace
-# Log file: /media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim/webtalk.log
-# Journal file: /media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim/webtalk.jou
+# Webtalk v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Sun Dec 27 15:10:08 2020
+# Process ID: 34089
+# Current directory: /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim
+# Command line: wbtcv -mode batch -source /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim/xsim.dir/RV32Core_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim/webtalk.jou
 #-----------------------------------------------------------
-source /media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim/xsim.dir/Stage_MEM_TB_behav/webtalk/xsim_webtalk.tcl -notrace
+source /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim/xsim.dir/RV32Core_behav/webtalk/xsim_webtalk.tcl -notrace
