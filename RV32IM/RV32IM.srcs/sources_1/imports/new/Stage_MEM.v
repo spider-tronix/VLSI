@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 `include "defines.v"
-`include "RamMemory.v"
+// `include "RamMemory.v"
 
 module Stage_MEM#(parameter XLEN = 32,
                   parameter WORDLENGTH = 8)
@@ -13,7 +13,8 @@ module Stage_MEM#(parameter XLEN = 32,
                   input [2:0] funct3,
                   input mem_read,
                   mem_write,
-                  output [XLEN-1:0] data_o);
+                  output [XLEN-1:0] data_o,
+                  output stallreq);
     wire [XLEN-3:0] Addr_M ;
     wire [3:0] cs,re,wr;
     wire [XLEN-1:0] data_to_mem,data_from_mem, data_o_shift;
@@ -29,4 +30,5 @@ module Stage_MEM#(parameter XLEN = 32,
             data_o_temp <= Addr;
     end
     assign data_o = (mem_read)?data_o_shift:data_o_temp;
+    assign stallreq = 0; // TODO check for mem stall conditions
 endmodule

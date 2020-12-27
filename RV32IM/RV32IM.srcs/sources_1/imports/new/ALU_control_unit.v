@@ -10,10 +10,13 @@ ALU_control_line : output signal,
 */
 `include "defines.v"
 
-module ALU_control(input[1:0] ALUOp,input[6:0] funct7,input[2:0] funct3, output reg [4:0]ALU_control_line, input wire ALU_control_enable);
+module ALU_control(input[1:0] ALUOp,input[6:0] funct7,input[2:0] funct3, output reg [4:0]ALU_control_line, input wire rst);
 
 always @(*)
 begin
+    if (rst)
+        ALU_control_line = 0;
+    else begin 
         case(ALUOp)
             2'b00: ALU_control_line = `EXE_ADD_OP; // Load and Store instructions   
             2'b01: ALU_control_line = (funct3 == `FUNCT3_BEQ) ? `EXE_BEQ_OP :     // Arithmetic and Logic Instructions
@@ -32,6 +35,6 @@ begin
                                       (funct7 == `FUNCT7_SLT && funct3 == `FUNCT3_SLT) ? `EXE_SLT_OP : ALU_control_line; 
             2'b11: ;                                //Jump and pc instructions
         endcase 
-    
+    end
 end
 endmodule

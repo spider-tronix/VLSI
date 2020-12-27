@@ -51,8 +51,18 @@ reg re1, re2;
 assign stallreq = stallreq_1 || stallreq_2;
 always @(*)
 begin
-    if (DecoderEnable)
-    begin
+    if(rst) begin 
+        src1   <= 0;
+        src2   <= 0;
+        dest   <= 0;
+        funct3 <= 0;
+        funct7 <= 0;
+        imm    <= 0;
+        re1    <= 0;
+        re2    <= 0;
+        opcode <= 0;
+    end 
+    else if (DecoderEnable) begin
         opcode <= IR[6:0];
         case(IR[6:0])
             `OP_OP:

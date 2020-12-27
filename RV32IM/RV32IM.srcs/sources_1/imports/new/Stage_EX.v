@@ -19,8 +19,8 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 `include "defines.v"
-`include "ALU_control_unit.v"
-`include "ALU_module.v"
+// `include "ALU_control_unit.v"
+// `include "ALU_module.v"
 
 module Stage_EX#(parameter XLEN= 32, 
                 parameter ALU_SELECT_SIZE = 5)
@@ -29,11 +29,11 @@ module Stage_EX#(parameter XLEN= 32,
         input[6:0] funct7,
         input[2:0] funct3,
         input [XLEN-1:0] rs1, rs2, link_addr,
-        input jump,
+        input jump, 
         // input clk, 
         input ALU_Reset, select,
         output [XLEN-1:0]result,
-        output zero_flag);
+        output zero_flag, stallreq);
 
     wire [XLEN-1:0]result_temp;
     wire [4:0]ALU_control_line;
@@ -41,15 +41,16 @@ module Stage_EX#(parameter XLEN= 32,
                         .funct7(funct7),
                         .funct3(funct3),
                         .ALU_control_line(ALU_control_line),
-                        .ALU_control_enable(select)
+                        .rst(ALU_Reset)
                        );
     ALU_Module ALU( .rs1(rs1),
                     .rs2(rs2),
-                    .ALU_Reset(1'b0),
+                    .ALU_Reset(ALU_Reset),
                     .ALU_Enable(select),
                     .ALUOp(ALU_control_line),
                     .result(result_temp),
                     .zero_flag(zero_flag)
     );
 assign result = (jump)?link_addr:result_temp;
+assign stallreq = 0;
 endmodule

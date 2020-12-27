@@ -32,14 +32,14 @@ module reg_EX_MEM#(parameter XLEN = 32,
                    input wire EX_mem_read,
                    EX_mem_write,
                    EX_mem_to_reg,
-                   EX_jump, 
+                   EX_jump,
                    EX_reg_write,
                    output reg [4:0] MEM_dest,
                    output reg [XLEN-1:0] MEM_Addr,
                    output reg [XLEN-1:0] MEM_data_i,
                    output reg [2:0] MEM_funct3,
-                   MEM_mem_to_reg,
                    output reg MEM_mem_read,
+                   MEM_mem_to_reg,
                    MEM_jump,
                    MEM_mem_write,
                    MEM_reg_write);
@@ -53,7 +53,7 @@ module reg_EX_MEM#(parameter XLEN = 32,
             MEM_dest       <= 0;
             MEM_mem_to_reg <= 0;
             MEM_jump       <= 0;
-            MEM_reg_write <=0;
+            MEM_reg_write  <= 0;
             end else if (!stall[3]) begin
             MEM_Addr       <= EX_Addr;
             MEM_data_i     <= EX_data_i;
@@ -63,7 +63,7 @@ module reg_EX_MEM#(parameter XLEN = 32,
             MEM_dest       <= EX_dest;
             MEM_mem_to_reg <= EX_mem_to_reg;
             MEM_jump       <= EX_jump;
-            MEM_reg_write <= EX_reg_write;
+            MEM_reg_write  <= EX_reg_write;
         end
     end
 endmodule

@@ -21,7 +21,7 @@
 
 
 
-module RV32Core #(parameter XLEN = 32)
+module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
                  (input clk,
                   input ALU_Reset,
                   output [XLEN-1:0]ALU_result);
@@ -67,7 +67,8 @@ module RV32Core #(parameter XLEN = 32)
     // Reg ID-EX
     wire [2:0] EX_funct3;
     wire [6:0] EX_funct7;
-    wire [4:0] EX_data_src1, EX_data_src2, EX_dest;     // "EX_dest" linked in the WB stage to "WB_dest"
+    wire [XLEN - 1:0] EX_data_src1, EX_data_src2;
+    wire [4:0] EX_dest;     // "EX_dest" linked in the WB stage to "WB_dest"
     wire [31:0] EX_imm;
     wire[1:0] EX_alu_op;
     wire EX_mem_read;
@@ -119,6 +120,7 @@ module RV32Core #(parameter XLEN = 32)
         .IR(Instr_IF_ID_reg_to_ID),
         .regdata1(data_src1), .regdata2(data_src2),
         // .clk(clk),
+        .rst(rst),
         .DecoderEnable(current_stage[1]),
         // Data Forwarding
             // MEM
@@ -141,7 +143,7 @@ module RV32Core #(parameter XLEN = 32)
         
     ControlUnit control_unit(
         // Inputs
-        .clk(clk),
+        // .clk(clk),
         .opcode(opcode),
         .stallreq_MEM(stallreq_MEM),
         .stallreq_EX(stallreq_EX),
@@ -149,7 +151,7 @@ module RV32Core #(parameter XLEN = 32)
         .stallreq_IF(stallreq_IF),
         .PC(ID_PC),
         .IR(Instr_IF_ID_reg_to_ID),
-        .data_src1(data_src1),
+        .data_src1(data_src1),  // For calculating branch address
         // Outputs
         .alu_op(alu_op),.mem_read(mem_read), .branch(branch), .jump(jump),
         .mem_write(mem_write),.alu_src(alu_src),.mem_to_reg(mem_to_reg),.reg_write(reg_write),.current_stage(current_stage),
@@ -195,7 +197,7 @@ module RV32Core #(parameter XLEN = 32)
         .ALU_Reset(rst), .select(current_stage[2]),  // TODO Add jump and link addr
         .link_addr(EX_link_addr), .jump(EX_jump),
         // Outputs
-        .result(ALU_result),.zero_flag(zero_flag)
+        .result(ALU_result),.zero_flag(zero_flag), .stallreq(stallreq_EX)
     );
         // -------------------------- **STAGE_EX** -------------------------------
     
@@ -221,7 +223,7 @@ module RV32Core #(parameter XLEN = 32)
         .data_i(MEM_data_src2_R),
         
         // Output
-        .data_o(mem_read_data)
+        .data_o(mem_read_data), .stallreq(stallreq_MEM)
     );
     assign MEM_data = (MEM_mem_to_reg)?mem_read_data:MEM_ALU_result;
         // -------------------------- **STAGE_MEM** -------------------------------

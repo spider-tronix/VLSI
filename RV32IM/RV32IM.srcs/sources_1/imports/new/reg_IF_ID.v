@@ -32,8 +32,10 @@ module reg_IF_ID#(parameter XLEN = 32)
     always @ (posedge clk) begin
         if (rst || branch || (stall[1] && !stall[2])) begin
             ID_instr <= 0;
+            ID_PC    <= 0;
             end else if (!stall[1]) begin
-            ID_instr <= ID_instr;
+            ID_instr <= IF_instr;
+            ID_PC    <= IF_PC;
         end
     end
 endmodule

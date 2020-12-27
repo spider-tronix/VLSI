@@ -23,8 +23,8 @@
 `timescale 1ns / 1ps
 
 module ControlUnit#(parameter XLEN = 32)
-                   (input clk,
-                    rst,
+                   (//input clk,
+                    input rst,
                     input[6:0] opcode,
                     input [XLEN-1:0] PC,
                     IR,
@@ -72,42 +72,42 @@ module ControlUnit#(parameter XLEN = 32)
     assign pc_plus_B_imm   = PC + {{20{IR[31]}}, IR[7], IR[30:25], IR[11:8], 1'b0};
     assign pc_plus_4       = PC + 4;
     
-    reg [4:0]next_stage;
+    // reg [4:0]next_stage;
     initial
     begin
-        current_stage <= `STAGE_IF;
+        current_stage <= 5'b11111;
     end
     
-    always @(negedge clk)
-    begin
-        current_stage = next_stage;
-        case(current_stage)
-            `STAGE_IF:
-            begin
-                next_stage = `STAGE_ID;
-            end
-            `STAGE_ID:
-            begin
-                next_stage = `STAGE_EX;
-            end
-            `STAGE_EX:
-            begin
-                next_stage = `STAGE_MEM;
-            end
-            `STAGE_MEM:
-            begin
-                next_stage = `STAGE_WB;
-            end
-            `STAGE_WB:
-            begin
-                next_stage = `STAGE_IF;
-            end
-            default:
-            begin
-                next_stage = `STAGE_IF;
-            end
-        endcase
-    end
+    // always @(negedge clk)
+    // begin
+    //     current_stage = next_stage;
+    //     case(current_stage)
+    //         `STAGE_IF:
+    //         begin
+    //             next_stage = `STAGE_ID;
+    //         end
+    //         `STAGE_ID:
+    //         begin
+    //             next_stage = `STAGE_EX;
+    //         end
+    //         `STAGE_EX:
+    //         begin
+    //             next_stage = `STAGE_MEM;
+    //         end
+    //         `STAGE_MEM:
+    //         begin
+    //             next_stage = `STAGE_WB;
+    //         end
+    //         `STAGE_WB:
+    //         begin
+    //             next_stage = `STAGE_IF;
+    //         end
+    //         default:
+    //         begin
+    //             next_stage = `STAGE_IF;
+    //         end
+    //     endcase
+    // end
     
     always @(*)
     begin
@@ -186,7 +186,6 @@ module ControlUnit#(parameter XLEN = 32)
                 load        <= 0;
 
             end
-            //to be defined
             `OP_JALR:
             begin
                 alu_src     <= 1'b1;
