@@ -41,6 +41,7 @@ module ControlUnit#(parameter XLEN = 32)
                     reg_write,
                     branch,
                     jump,
+                    load,
                     output reg [5:0]stall,
                     output reg [4:0] current_stage,
                     output reg [XLEN - 1:0] branch_addr,
@@ -123,6 +124,7 @@ module ControlUnit#(parameter XLEN = 32)
                 alu_op      <= 2'b10;
                 branch_addr <= 'b0;
                 link_addr   <= 'b0;
+                load        <= 0;
             end
             `OP_OP_IMM:
             begin
@@ -136,6 +138,8 @@ module ControlUnit#(parameter XLEN = 32)
                 alu_op      <= 2'b10;
                 branch_addr <= 'b0;
                 link_addr   <= 'b0;
+                load        <= 0;
+
             end
             `OP_LOAD:
             begin
@@ -149,6 +153,8 @@ module ControlUnit#(parameter XLEN = 32)
                 alu_op      <= 2'b00;
                 branch_addr <= 'b0;
                 link_addr   <= 'b0;
+                load        <= 1;
+
             end
             `OP_STORE:
             begin
@@ -162,6 +168,8 @@ module ControlUnit#(parameter XLEN = 32)
                 alu_op      <= 2'b00;
                 branch_addr <= 'b0;
                 link_addr   <= 'b0;
+                load        <= 0;
+
             end
             `OP_BRANCH:
             begin
@@ -175,6 +183,8 @@ module ControlUnit#(parameter XLEN = 32)
                 alu_op      <= 2'b01;
                 branch_addr <= pc_plus_B_imm;
                 link_addr   <= 'b0;
+                load        <= 0;
+
             end
             //to be defined
             `OP_JALR:
@@ -189,6 +199,8 @@ module ControlUnit#(parameter XLEN = 32)
                 alu_op      <= 2'b11;
                 branch_addr <= reg1_plus_I_imm;
                 link_addr   <= pc_plus_4;
+                load        <= 0;
+
             end
             `OP_JAL:
             begin
@@ -202,6 +214,8 @@ module ControlUnit#(parameter XLEN = 32)
                 jump        <= 1'b1;
                 branch_addr <= pc_plus_J_imm;
                 link_addr   <= pc_plus_4;
+                load        <= 0;
+
             end
             `OP_AUIPC:
             begin
@@ -215,6 +229,8 @@ module ControlUnit#(parameter XLEN = 32)
                 alu_op      <= 2'b11;
                 branch_addr <= 'b0;
                 link_addr   <= 'b0;
+                load        <= 0;
+
             end
             `OP_LUI:
             begin
@@ -228,6 +244,8 @@ module ControlUnit#(parameter XLEN = 32)
                 jump        <= 1'b0;
                 branch_addr <= 'b0;
                 link_addr   <= 'b0;
+                load        <= 0;
+
             end
             
             default:
@@ -242,6 +260,7 @@ module ControlUnit#(parameter XLEN = 32)
                 jump        <= 1'b0;
                 branch_addr <= 'b0;
                 link_addr   <= 'b0;
+                load        <= 0;
             end
             
         endcase
