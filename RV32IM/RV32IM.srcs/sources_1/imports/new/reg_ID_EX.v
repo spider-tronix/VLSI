@@ -38,7 +38,7 @@ module reg_ID_EX#(parameter XLEN = 32)
                  ID_reg_write,
                  ID_branch,
                  ID_jump,
-                 input wire [XLEN-1:0] ID_link_addr,
+                 input wire [XLEN-1:0] ID_link_addr, ID_branch_addr,
                  input wire [XLEN-1:0] ID_data_src2_R,
                  output reg [2:0] EX_funct3,
                  output reg [6:0] EX_funct7,
@@ -47,7 +47,7 @@ module reg_ID_EX#(parameter XLEN = 32)
                  EX_dest,
                  output reg [XLEN-1:0] EX_data_src2_R,
                  output reg [XLEN-1:0] EX_imm,
-                 output reg [XLEN-1:0] EX_link_addr,
+                 output reg [XLEN-1:0] EX_link_addr, EX_branch_addr,
                  output reg[1:0] EX_alu_op,
                  output reg EX_mem_read,
                  EX_mem_write,
@@ -67,6 +67,7 @@ module reg_ID_EX#(parameter XLEN = 32)
             EX_alu_op     <= 2'b00;
             EX_jump       <= 1'b0;
             EX_link_addr <= 'b0;
+            EX_branch_addr <= 'b0;
             // From STAGE_ID
             EX_funct3      <= 0;
             EX_funct7      <= 0;
@@ -85,6 +86,7 @@ module reg_ID_EX#(parameter XLEN = 32)
             EX_alu_op     <= ID_alu_op;
             EX_jump       <= ID_jump;
             EX_link_addr <= ID_link_addr;
+            EX_branch_addr <= ID_branch_addr;
             // From STAGE_ID
             EX_funct3      <= ID_funct3;
             EX_funct7      <= ID_funct7;

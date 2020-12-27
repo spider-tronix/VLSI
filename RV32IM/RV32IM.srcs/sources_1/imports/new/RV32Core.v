@@ -50,7 +50,6 @@ module RV32Core #(parameter XLEN = 32)
     wire stallreq_MEM;
     
     wire take_branch;
-    assign take_branch = (branch & ALU_result[0]);
     
     initial
     begin
@@ -63,7 +62,7 @@ module RV32Core #(parameter XLEN = 32)
     wire IF_PC_ready;
     reg_PC reg_PC0(
         // Inputs
-        .clk(clk), .rst(rst), .stall(stall), .br(take_branch), .br_addr(PC_addr),
+        .clk(clk), .rst(rst), .stall(stall), .br(take_branch), .br_addr(EX_branch_addr),
         // Outputs
         .pc_o(IF_PC), .PC_ready_o(IF_PC_ready)
     );
@@ -151,7 +150,7 @@ module RV32Core #(parameter XLEN = 32)
     wire EX_branch;
     wire EX_jump;
     wire [XLEN-1:0] EX_data_src2_R;
-    wire [XLEN - 1:0] EX_link_addr;
+    wire [XLEN - 1:0] EX_branch_addr, EX_link_addr;
         // Pipeline register between ID --------- EX
     reg_ID_EX reg_ID_EX0 (
         // Inputs from ID
@@ -163,16 +162,17 @@ module RV32Core #(parameter XLEN = 32)
         .ID_alu_op(alu_op), .ID_mem_read(mem_read), .ID_mem_write(mem_write),
         .ID_alu_src(alu_src), .ID_mem_to_reg(mem_to_reg), .ID_reg_write(ID_reg_write),
         .ID_branch(branch), .ID_jump(jump), .ID_data_src2_R(data_src2_R),
-        .ID_link_addr(ID_link_addr),
+        .ID_link_addr(ID_link_addr), .ID_branch_addr(ID_branch_addr),
         // Outputs
         .EX_funct3(EX_funct3), .EX_funct7(EX_funct7), .EX_src1(EX_data_src1), .EX_src2(EX_data_src2),
         .EX_dest(EX_dest), .EX_imm(EX_imm), .EX_alu_op(EX_alu_op), .EX_mem_read(EX_mem_read),
         .EX_mem_write(EX_mem_write), .EX_mem_to_reg(EX_mem_to_reg),
         .EX_reg_write(EX_reg_write), .EX_branch(EX_branch), .EX_jump(EX_jump),
         .EX_data_src2_R(EX_data_src2_R),
-        .EX_link_addr(EX_link_addr)
+        .EX_link_addr(EX_link_addr), .EX_branch_addr(EX_branch_addr)
     );
         // -------------------------- STAGE_EX -------------------------------
+    assign take_branch = (EX_branch & ALU_result[0]);
     Stage_EX execute(
         // Inputs
         .ALUOp(EX_alu_op),.funct7(EX_funct7),.funct3(EX_funct3),
