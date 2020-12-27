@@ -21,10 +21,10 @@ The idea is to design a RTL-Level Code of the Core using Vivado design suite and
 ### Core Specs
 Architecture Type : Harvard Architecture 
 Cycles : Multicycle  
-ISA : RV32IM  
+ISA : RV32I  
 Cache : Planned for later stage  
 Branch Prediction : Planned for later stage  
-Pipelines : Planned for later stage
+Pipelines : Work in progress
 
 ### Core Architecture Diagram
 
