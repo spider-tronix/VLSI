@@ -1,31 +1,41 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company:
-// Engineer:
-//
-// Create Date: 25.10.2020 13:23:36
-// Design Name:
-// Module Name: five_stages_combined
-// Project Name:
-// Target Devices:
-// Tool Versions:
-// Description:
-//
-// Dependencies:
-//
+// Company: 
+// Engineer: 
+// 
+// Create Date: 12/28/2020 10:12:25 AM
+// Design Name: 
+// Module Name: RV32Core_TB
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
 // Revision:
 // Revision 0.01 - File Created
 // Additional Comments:
-//
+// 
 //////////////////////////////////////////////////////////////////////////////////
 
 
+module RV32Core_TB #(parameter enable = 1'b1,parameter XLEN = 32);
 
-module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
-                 (input clk,
-                  input ALU_Reset,
-                  output [XLEN-1:0]ALU_result);
-    
+//module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
+//                 (input clk,
+//                  input rst,
+//                  output [XLEN-1:0]ALU_result);
+    reg clk = 0;
+    reg rst = 1;
+    wire [XLEN-1:0]ALU_result;
+initial begin
+     rst = 1;
+     clk = 0;
+     # 20 
+     rst = 0;
+end 
+always #10 clk = ~clk;
     // Stall signals
     wire [5:0] stall;
     wire stallreq_IF;
@@ -240,4 +250,6 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
     );
     //write back stage, writes output to destination register
    
+
+
 endmodule

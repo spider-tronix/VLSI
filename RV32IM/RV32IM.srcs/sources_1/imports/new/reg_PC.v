@@ -15,13 +15,14 @@ module reg_PC (input wire clk,
             PC       <= br_addr;
             PC_ready <= 1;
             end else if (!rst && !stall[0]) begin
-            PC       <= PC + 4;
+            PC       <= PC + 1;
             PC_ready <= 0;
         end
             if (rst) begin
                 pc_o     <= 0;
                 PC_ready <= 0;
                 PC       <= 0;
+                PC_ready_o <=0;
                 end else if (!stall[0]) begin
                 //$display("PC now: %h", PC);
                 pc_o       <= PC;

@@ -64,7 +64,7 @@ module reg_ID_EX#(parameter XLEN = 32)
         if (rst || (stall[2] && !stall[3])) begin
             EX_alu_src     <= 1'b0;
             EX_mem_to_reg  <= 1'b0;
-            EX_reg_write   <= 1'b1;
+            EX_reg_write   <= 1'b0;
             EX_mem_read    <= 1'b0;
             EX_mem_write   <= 1'b0;
             EX_branch      <= 1'b0;

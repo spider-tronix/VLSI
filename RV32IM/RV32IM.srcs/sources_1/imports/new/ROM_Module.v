@@ -23,6 +23,7 @@ integer i;
 //Rom Write Block
 initial
 begin
+ mem_busy <=0;
  $readmemh("Code.txt", ROM_mem);
  $display("Done Reading!!!!!!");           
 end  
@@ -41,8 +42,10 @@ begin
         mem_busy = 0; 
         $display("IF Get Inst: %h\n", Instr);
     end
-    else
-        Instr = 0;
+    else begin
+        // $display("ROM not ENABLED!");
+        Instr = 'b0;
+    end
 end
 
 

@@ -19,33 +19,35 @@ module Stage_IF#(parameter XLEN = 32)
             //$display("Right one is here, %h", pc_i);
         end
             if (rst) begin
+                $display("STAGE_IF reset!!");
                 stallreq  = 0;
                 using_mem = 0;
                 //PC      = 0;
                 mem_re    = 0;
                 waiting   = 0;
                 end else if (branch) begin
-                //$display("branch");
+                $display("STAGE_IF branch");
                 //PC      = 0;
                 using_mem = 0;
                 mem_re    = 0;
                 stallreq  = 0;
                 waiting   = 1;
                 end else if (!waiting && !mem_busy && !using_mem) begin
-                //$display("!mem_busy && !using_mem");
-                stallreq  = 1;
+                // $display("!mem_busy && !using_mem");
+                stallreq  = 0;
                 using_mem = 1;
                 mem_re    = 1;
                 end else if (!waiting && !mem_busy && using_mem) begin
-                //$display("!mem_busy && using_mem");
+                $display("!mem_busy && using_mem");
                 stallreq  = 0;
                 using_mem = 0;
                 //PC      = pc_i;
                 
                 end else if (!waiting && mem_busy) begin
-                //$display("mem_busy, %h", pc_i);
+                $display("mem_busylast");
                 stallreq = 1;
                 end else if (!waiting) begin
+                $display("hopeless");
                 stallreq  = 0;
                 using_mem = 0;
                 //PC      = 0;
