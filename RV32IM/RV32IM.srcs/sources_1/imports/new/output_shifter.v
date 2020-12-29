@@ -36,12 +36,12 @@ always @(*)
                               (Addr[1:0] == 2'b01) ? {24'b0,{data_in[15:8]}} :
                               (Addr[1:0] == 2'b10) ? {24'b0,{data_in[23:16]}} :
                               (Addr[1:0] == 2'b11) ? {24'b0,{data_in[31:24]}} :32'b0;   
-           /*3'b100:
+           3'b100:
                   data_out = (Addr[1:0] == 2'b00) ? {24'b0,{data_in[7:0]}} :
                               (Addr[1:0] == 2'b01) ? {24'b0,{data_in[15:8]}} :
                               (Addr[1:0] == 2'b10) ? {24'b0,{data_in[23:16]}} :
                               (Addr[1:0] == 2'b11) ? {24'b0,{data_in[31:24]}} :32'b0;
-           
+           /*
            //halfword store and load
            3'b01:
                   data_out = (Addr[1:0] == 2'b00) ? {{16{data_in[15]}},{data_in[15:0]}} :
