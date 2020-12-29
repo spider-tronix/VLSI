@@ -31,18 +31,18 @@ module input_shifter #(parameter XLEN = 32)
                        );
 always @(*)
 begin
-    case(funct3[1:0])
-    2'b00: begin
+    case(funct3)
+    3'b000: begin
            data_out = (Addr[1:0] == 2'b00) ? {24'b0,{data_in[7:0]}} :
                        (Addr[1:0] == 2'b01) ? {16'b0,{data_in[7:0]},8'b0} :
                        (Addr[1:0] == 2'b10) ? {8'b0,{data_in[7:0]},16'b0} :
                        (Addr[1:0] == 2'b11) ? {{data_in[7:0]},24'b0} : 32'b0;
            end
-    2'b01: begin
+    3'b001: begin
            data_out = (Addr[1:0] == 2'b00) ? {16'b0,{data_in[15:0]}} :
                       (Addr[1:0] == 2'b10) ? {{data_in[15:0]},16'b0} : 32'b0 ;          
            end
-    2'b10: begin
+    3'b010: begin
            data_out <= data_in;                    
            end
     endcase
