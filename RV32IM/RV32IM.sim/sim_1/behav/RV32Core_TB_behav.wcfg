@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="RV32Core_TB_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="RV32Core_TB" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="202800000fs"></ZoomStartTime>
+      <ZoomEndTime time="337200001fs"></ZoomEndTime>
+      <Cursor1Time time="298200000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="196"></NameColumnWidth>
+      <ValueColumnWidth column_width="137"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="72" />
+   <wvobject type="logic" fp_name="/RV32Core_TB/rst">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/ALU_result">
+      <obj_property name="ElementShortName">ALU_result[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ALU_result[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/stall">
+      <obj_property name="ElementShortName">stall[5:0]</obj_property>
+      <obj_property name="ObjectShortName">stall[5:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/RV32Core_TB/stallreq_IF">
+      <obj_property name="ElementShortName">stallreq_IF</obj_property>
+      <obj_property name="ObjectShortName">stallreq_IF</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/RV32Core_TB/stallreq_ID">
+      <obj_property name="ElementShortName">stallreq_ID</obj_property>
+      <obj_property name="ObjectShortName">stallreq_ID</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/RV32Core_TB/stallreq_EX">
+      <obj_property name="ElementShortName">stallreq_EX</obj_property>
+      <obj_property name="ObjectShortName">stallreq_EX</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/RV32Core_TB/stallreq_MEM">
+      <obj_property name="ElementShortName">stallreq_MEM</obj_property>
+      <obj_property name="ObjectShortName">stallreq_MEM</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/RV32Core_TB/take_branch">
+      <obj_property name="ElementShortName">take_branch</obj_property>
+      <obj_property name="ObjectShortName">take_branch</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/IF_PC">
+      <obj_property name="ElementShortName">IF_PC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">IF_PC[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/RV32Core_TB/IF_PC_ready">
+      <obj_property name="ElementShortName">IF_PC_ready</obj_property>
+      <obj_property name="ObjectShortName">IF_PC_ready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/Instr">
+      <obj_property name="ElementShortName">Instr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Instr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/RV32Core_TB/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/Instr_IF_ID_reg_to_ID">
+      <obj_property name="ElementShortName">Instr_IF_ID_reg_to_ID[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Instr_IF_ID_reg_to_ID[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF0080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/ID_PC">
+      <obj_property name="ElementShortName">ID_PC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ID_PC[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/data_src1">
+      <obj_property name="ElementShortName">data_src1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data_src1[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/data_src2">
+      <obj_property name="ElementShortName">data_src2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data_src2[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/opcode">
+      <obj_property name="ElementShortName">opcode[6:0]</obj_property>
+      <obj_property name="ObjectShortName">opcode[6:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/funct3">
+      <obj_property name="ElementShortName">funct3[2:0]</obj_property>
+      <obj_property name="ObjectShortName">funct3[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/funct7">
+      <obj_property name="ElementShortName">funct7[6:0]</obj_property>
+      <obj_property name="ObjectShortName">funct7[6:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/src1">
+      <obj_property name="ElementShortName">src1[4:0]</obj_property>
+      <obj_property name="ObjectShortName">src1[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/src2">
+      <obj_property name="ElementShortName">src2[4:0]</obj_property>
+      <obj_property name="ObjectShortName">src2[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/dest">
+      <obj_property name="ElementShortName">dest[4:0]</obj_property>
+      <obj_property name="ObjectShortName">dest[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/imm">
+      <obj_property name="ElementShortName">imm[31:0]</obj_property>
+      <obj_property name="ObjectShortName">imm[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/alu_op">
+      <obj_property name="ElementShortName">alu_op[1:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_op[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/RV32Core_TB/mem_read">
+      <obj_property name="ElementShortName">mem_read</obj_property>
+      <obj_property name="ObjectShortName">mem_read</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/RV32Core_TB/mem_write">
+      <obj_property name="ElementShortName">mem_write</obj_property>
+      <obj_property name="ObjectShortName">mem_write</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/RV32Core_TB/mem_to_reg">
+      <obj_property name="ElementShortName">mem_to_reg</obj_property>
+      <obj_property name="ObjectShortName">mem_to_reg</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/RV32Core_TB/reg_write">
+      <obj_property name="ElementShortName">reg_write</obj_property>
+      <obj_property name="ObjectShortName">reg_write</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/RV32Core_TB/zero_flag">
+      <obj_property name="ElementShortName">zero_flag</obj_property>
+      <obj_property name="ObjectShortName">zero_flag</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/RV32Core_TB/alu_src">
+      <obj_property name="ElementShortName">alu_src</obj_property>
+      <obj_property name="ObjectShortName">alu_src</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/RV32Core_TB/jump">
+      <obj_property name="ElementShortName">jump</obj_property>
+      <obj_property name="ObjectShortName">jump</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/RV32Core_TB/branch">
+      <obj_property name="ElementShortName">branch</obj_property>
+      <obj_property name="ObjectShortName">branch</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/ID_branch_addr">
+      <obj_property name="ElementShortName">ID_branch_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ID_branch_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/ID_link_addr">
+      <obj_property name="ElementShortName">ID_link_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ID_link_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/ID_data1">
+      <obj_property name="ElementShortName">ID_data1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ID_data1[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/ID_data2">
+      <obj_property name="ElementShortName">ID_data2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ID_data2[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/ID_data_R">
+      <obj_property name="ElementShortName">ID_data_R[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ID_data_R[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/RV32Core_TB/ID_load">
+      <obj_property name="ElementShortName">ID_load</obj_property>
+      <obj_property name="ObjectShortName">ID_load</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/RV32Core_TB/EX_load">
+      <obj_property name="ElementShortName">EX_load</obj_property>
+      <obj_property name="ObjectShortName">EX_load</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/EX_funct3">
+      <obj_property name="ElementShortName">EX_funct3[2:0]</obj_property>
+      <obj_property name="ObjectShortName">EX_funct3[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/EX_funct7">
+      <obj_property name="ElementShortName">EX_funct7[6:0]</obj_property>
+      <obj_property name="ObjectShortName">EX_funct7[6:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/EX_data_src1">
+      <obj_property name="ElementShortName">EX_data_src1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">EX_data_src1[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/EX_data_src2">
+      <obj_property name="ElementShortName">EX_data_src2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">EX_data_src2[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/EX_dest">
+      <obj_property name="ElementShortName">EX_dest[4:0]</obj_property>
+      <obj_property name="ObjectShortName">EX_dest[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/EX_imm">
+      <obj_property name="ElementShortName">EX_imm[31:0]</obj_property>
+      <obj_property name="ObjectShortName">EX_imm[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/EX_alu_op">
+      <obj_property name="ElementShortName">EX_alu_op[1:0]</obj_property>
+      <obj_property name="ObjectShortName">EX_alu_op[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/RV32Core_TB/EX_mem_read">
+      <obj_property name="ElementShortName">EX_mem_read</obj_property>
+      <obj_property name="ObjectShortName">EX_mem_read</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/RV32Core_TB/EX_mem_write">
+      <obj_property name="ElementShortName">EX_mem_write</obj_property>
+      <obj_property name="ObjectShortName">EX_mem_write</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/RV32Core_TB/EX_mem_to_reg">
+      <obj_property name="ElementShortName">EX_mem_to_reg</obj_property>
+      <obj_property name="ObjectShortName">EX_mem_to_reg</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/RV32Core_TB/EX_reg_write">
+      <obj_property name="ElementShortName">EX_reg_write</obj_property>
+      <obj_property name="ObjectShortName">EX_reg_write</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/RV32Core_TB/EX_branch">
+      <obj_property name="ElementShortName">EX_branch</obj_property>
+      <obj_property name="ObjectShortName">EX_branch</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/RV32Core_TB/EX_jump">
+      <obj_property name="ElementShortName">EX_jump</obj_property>
+      <obj_property name="ObjectShortName">EX_jump</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/EX_data_src2_R">
+      <obj_property name="ElementShortName">EX_data_src2_R[31:0]</obj_property>
+      <obj_property name="ObjectShortName">EX_data_src2_R[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/EX_branch_addr">
+      <obj_property name="ElementShortName">EX_branch_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">EX_branch_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/EX_link_addr">
+      <obj_property name="ElementShortName">EX_link_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">EX_link_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/MEM_ALU_result">
+      <obj_property name="ElementShortName">MEM_ALU_result[31:0]</obj_property>
+      <obj_property name="ObjectShortName">MEM_ALU_result[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/MEM_data_src2_R">
+      <obj_property name="ElementShortName">MEM_data_src2_R[31:0]</obj_property>
+      <obj_property name="ObjectShortName">MEM_data_src2_R[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/mem_read_data">
+      <obj_property name="ElementShortName">mem_read_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_read_data[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/MEM_data">
+      <obj_property name="ElementShortName">MEM_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">MEM_data[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/MEM_funct3">
+      <obj_property name="ElementShortName">MEM_funct3[2:0]</obj_property>
+      <obj_property name="ObjectShortName">MEM_funct3[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/MEM_dest">
+      <obj_property name="ElementShortName">MEM_dest[4:0]</obj_property>
+      <obj_property name="ObjectShortName">MEM_dest[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/RV32Core_TB/MEM_mem_read">
+      <obj_property name="ElementShortName">MEM_mem_read</obj_property>
+      <obj_property name="ObjectShortName">MEM_mem_read</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/RV32Core_TB/MEM_mem_write">
+      <obj_property name="ElementShortName">MEM_mem_write</obj_property>
+      <obj_property name="ObjectShortName">MEM_mem_write</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/RV32Core_TB/MEM_reg_write">
+      <obj_property name="ElementShortName">MEM_reg_write</obj_property>
+      <obj_property name="ObjectShortName">MEM_reg_write</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/RV32Core_TB/MEM_mem_to_reg">
+      <obj_property name="ElementShortName">MEM_mem_to_reg</obj_property>
+      <obj_property name="ObjectShortName">MEM_mem_to_reg</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/RV32Core_TB/MEM_jump">
+      <obj_property name="ElementShortName">MEM_jump</obj_property>
+      <obj_property name="ObjectShortName">MEM_jump</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/WB_dest">
+      <obj_property name="ElementShortName">WB_dest[4:0]</obj_property>
+      <obj_property name="ObjectShortName">WB_dest[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/WB_data">
+      <obj_property name="ElementShortName">WB_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WB_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/RV32Core_TB/WB_wr_enable">
+      <obj_property name="ElementShortName">WB_wr_enable</obj_property>
+      <obj_property name="ObjectShortName">WB_wr_enable</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/current_stage">
+      <obj_property name="ElementShortName">current_stage[4:0]</obj_property>
+      <obj_property name="ObjectShortName">current_stage[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/RV32Core_TB/enable">
+      <obj_property name="ElementShortName">enable</obj_property>
+      <obj_property name="ObjectShortName">enable</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/RV32Core_TB/XLEN">
+      <obj_property name="ElementShortName">XLEN[31:0]</obj_property>
+      <obj_property name="ObjectShortName">XLEN[31:0]</obj_property>
+   </wvobject>
+</wave_config>

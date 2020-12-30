@@ -13,7 +13,7 @@ module Stage_MEM#(parameter XLEN = 32,
                   input [2:0] funct3,
                   input mem_read,
                   mem_write,
-                  output [XLEN-1:0] data_o,
+                  output reg [XLEN-1:0] data_o,
                   output stallreq);
     wire [XLEN-3:0] Addr_M ;
     wire [3:0] cs,re,wr;
@@ -28,7 +28,7 @@ module Stage_MEM#(parameter XLEN = 32,
     begin
         if (mem_read == 0)
             data_o_temp <= Addr;
+        data_o = (mem_read)?data_o_shift:data_o_temp;
     end
-    assign data_o = (mem_read)?data_o_shift:data_o_temp;
     assign stallreq = 0; // TODO check for mem stall conditions
 endmodule

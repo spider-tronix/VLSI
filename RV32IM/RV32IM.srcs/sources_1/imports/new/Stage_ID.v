@@ -40,7 +40,8 @@ module Stage_ID(input [31:0] IR,
                 output reg [31:0] imm,
                 output wire stallreq,
                 output reg [31:0]data1,
-                data2);
+                data2,
+                data_R);
 
 initial
 begin
@@ -162,7 +163,7 @@ begin
                 funct7 <= 'b0;
                 imm    <= {{20{{IR[31]}}},IR[31:25],IR[11:7]};
                 re1    <= 1;
-                re2    <= 1;
+                re2    <= 0;
             end
             default :
             ;
@@ -194,5 +195,8 @@ always @(*)begin
 end
 always @(*)begin
     `SET_output(data2, re2, src2, regdata2, imm, stallreq_2)
+end
+always @(*)begin
+    `SET_output(data_R, 1, src2, regdata2, regdata2, stallreq_2)
 end
 endmodule

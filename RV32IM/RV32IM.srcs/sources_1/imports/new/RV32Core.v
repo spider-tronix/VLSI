@@ -42,11 +42,20 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
     wire [XLEN-1:0] Instr_IF_ID_reg_to_ID;
     wire [31:0]ID_PC;
     // STAGE_ID
+    wire [XLEN-1:0] data_src1,data_src2;
+    wire [6:0] opcode;
+    wire [2:0] funct3;
+    wire [6:0] funct7;
+    wire [4:0] src1,src2,dest;
+    wire [31:0] imm;
+    wire [1:0] alu_op;
+    wire mem_read,mem_write,mem_to_reg,reg_write;
+    wire zero_flag,alu_src;
+    wire jump, branch;
     wire [XLEN - 1:0] ID_branch_addr, ID_link_addr;
-    wire [XLEN - 1:0] ID_data1, ID_data2;
+    wire [XLEN - 1:0] ID_data1, ID_data2, ID_data_R;
     wire ID_load, EX_load;
     // Registers Module 
-    wire [4:0] WB_dest;
     // Reg ID-EX
     wire [2:0] EX_funct3;
     wire [6:0] EX_funct7;
@@ -63,25 +72,16 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
     wire [XLEN-1:0] EX_data_src2_R;
     wire [XLEN - 1:0] EX_branch_addr, EX_link_addr;
     // Reg EX-MEM
-    wire [XLEN-1:0] MEM_ALU_result, MEM_data_src2_R, MEM_data;
+    wire [XLEN-1:0] MEM_ALU_result, MEM_data_src2_R, mem_read_data, MEM_data;
     wire [2:0] MEM_funct3;
     wire [4:0] MEM_dest;
     wire MEM_mem_read, MEM_mem_write, MEM_reg_write, MEM_mem_to_reg, MEM_jump;
 
     // Others
-    wire [4:0]current_stage;
-    wire [XLEN-1:0] data_src1,data_src2,mem_read_data;
-    wire [6:0] opcode;
-    wire [2:0] funct3;
-    wire [6:0] funct7;
-    wire [4:0] src1,src2,dest;
-    wire [31:0] imm;
-    wire [1:0] alu_op;
-    wire mem_read,mem_write,mem_to_reg,reg_write;
-    wire zero_flag,alu_src;
+    wire [4:0] WB_dest;
     wire [XLEN-1:0] WB_data;
     wire WB_wr_enable;
-    wire jump, branch;
+    wire [4:0]current_stage;
 
     reg_PC reg_PC0(
         // Inputs
@@ -136,7 +136,8 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
         .src1(src1),.src2(src2),.dest(dest),
         .imm(imm),
         .stallreq(stallreq_ID),
-        .data1(ID_data1), .data2(ID_data2)
+        .data1(ID_data1), .data2(ID_data2),
+        .data_R(ID_data_R)
     );
         
     ControlUnit control_unit(
@@ -153,7 +154,7 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
         .data_src1(data_src1),  // For calculating branch address
         // Outputs
         .alu_op(alu_op),.mem_read(mem_read), .branch(branch), .jump(jump),
-        .mem_write(mem_write),.alu_src(alu_src),.mem_to_reg(mem_to_reg),.reg_write(ID_reg_write),.current_stage(current_stage),
+        .mem_write(mem_write),.alu_src(alu_src),.mem_to_reg(mem_to_reg),.reg_write(reg_write),.current_stage(current_stage),
         .branch_addr(ID_branch_addr), .link_addr(ID_link_addr), .load(ID_load),
         .stall(stall)
     );
@@ -173,11 +174,11 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
         // Inputs from ID
         .rst(rst), .clk(clk), .stall(stall),
         .ID_funct3(funct3), .ID_funct7(funct7),
-        .ID_data_src2_R(data_src2),
+        .ID_data_src2_R(ID_data_R),
         .ID_src1(ID_data1), .ID_src2(ID_data2), .ID_dest(dest), .ID_imm(imm),
         // Inputs from Control Unit
         .ID_alu_op(alu_op), .ID_mem_read(mem_read), .ID_mem_write(mem_write),
-        .ID_alu_src(alu_src), .ID_mem_to_reg(mem_to_reg), .ID_reg_write(ID_reg_write),
+        .ID_alu_src(alu_src), .ID_mem_to_reg(mem_to_reg), .ID_reg_write(reg_write),
         .ID_branch(branch), .ID_jump(jump), 
         .ID_link_addr(ID_link_addr), .ID_branch_addr(ID_branch_addr), .ID_load(ID_load),
         // Outputs

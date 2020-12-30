@@ -33,8 +33,7 @@ wire stallreq;
 Stage_MEM
  uut (
 
- .select(select), .
-Addr(Addr),
+ .select(select), .Addr(Addr),
  .data_i(data_i),
  .funct3(funct3),
                   .mem_read(mem_read),
@@ -45,24 +44,30 @@ Addr(Addr),
 initial begin
 select = 1;
 #10
-funct3 = 3'b010;//halfword store 
-data_i <= 32'b11111111111111111111111111111111;
-Addr = 32'b1100;
+funct3 = 3'b010;// store word 
+data_i <= 1000;
+Addr = 203;
 mem_write = 1;
 mem_read = 0;
-
-#20
-funct3 = 3'b010;//halfword store 
-data_i = 32'b11111111111111111111111111110000;
-Addr = 32'b1010;
+#10
+funct3 = 3'b010;// store word 
+data_i <= 2000;
+Addr = 199;
 mem_write = 1;
-mem_read=0;
+mem_read = 0;
+#20
+funct3 = 3'b010;//word read
+data_i = 32'b11111111111111111111111111110000;
+Addr = 203;
+mem_write = 0;
+mem_read=1;
 
 #30
-funct3 = 3'b000; //load byte at address 32'b1100
-Addr = 32'b1100;
+funct3 = 3'b010;//word read
+data_i = 32'b11111111111111111111111111110000;
+Addr = 199;
 mem_write = 0;
-mem_read = 1;
+mem_read=1;
 
 end
 endmodule
