@@ -95,7 +95,7 @@ always #10 clk = ~clk;
 
     reg_PC reg_PC0(
         // Inputs
-        .clk(clk), .rst(rst), .stall(stall), .br(take_branch), .br_addr(EX_branch_addr),
+        .clk(clk), .rst(rst), .stall(stall), .br(take_branch), .br_addr(ID_branch_addr),
         // Outputs
         .pc_o(IF_PC), .PC_ready_o(IF_PC_ready)
     );

@@ -85,7 +85,7 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
 
     reg_PC reg_PC0(
         // Inputs
-        .clk(clk), .rst(rst), .stall(stall), .br(take_branch), .br_addr(EX_branch_addr),
+        .clk(clk), .rst(rst), .stall(stall), .br(take_branch), .br_addr(ID_branch_addr),
         // Outputs
         .pc_o(IF_PC), .PC_ready_o(IF_PC_ready)
     );
@@ -166,7 +166,18 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
         .rd(WB_data),
         // Outputs
         .rs1(data_src1), .rs2(data_src2)
-    );        
+    );     
+    BranchControl branchControl0(
+        // Inputs
+        .branch(branch),
+        .jump(jump),
+        .rst(rst),
+        .data1(ID_data1),
+        .data2(ID_data1),
+        .funct3(funct3),
+        // Outputs
+        .take_branch(take_branch)
+    );    
         // -------------------------- **STAGE_ID** -------------------------------
         
         // Pipeline register between ID --------- EX
@@ -190,7 +201,6 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
         .EX_link_addr(EX_link_addr), .EX_branch_addr(EX_branch_addr), .EX_load(EX_load)
     );
         // -------------------------- STAGE_EX -------------------------------
-    assign take_branch = EX_jump || (EX_branch & ALU_result[0]);
     Stage_EX execute(
         // Inputs
         .ALUOp(EX_alu_op),.funct7(EX_funct7),.funct3(EX_funct3),

@@ -67,10 +67,13 @@ module ControlUnit#(parameter XLEN = 32)
     wire[XLEN - 1:0] pc_plus_B_imm;
     wire[XLEN - 1:0] pc_plus_4;
     wire[11:0] I_imm       = IR[31:20];
+    wire[XLEN - 1:0] J_imm = $signed({{12{IR[31]}}, IR[19:12], IR[20], IR[30:21], 1'b0})/4;
+    wire[XLEN - 1:0] B_imm = $signed({{20{IR[31]}}, IR[7], IR[30:25], IR[11:8], 1'b0})/4;
+
     assign reg1_plus_I_imm = data_src1 + {{20{I_imm[11]}}, I_imm};
-    assign pc_plus_J_imm   = PC + {{12{IR[31]}}, IR[19:12], IR[20], IR[30:21], 1'b0};
-    assign pc_plus_B_imm   = PC + {{20{IR[31]}}, IR[7], IR[30:25], IR[11:8], 1'b0};
-    assign pc_plus_4       = PC + 4;
+    assign pc_plus_J_imm   = PC + J_imm;
+    assign pc_plus_B_imm   = PC + B_imm;
+    assign pc_plus_4       = PC + 1;
     
     // reg [4:0]next_stage;
     initial
@@ -211,6 +214,8 @@ module ControlUnit#(parameter XLEN = 32)
                 branch      <= 1'b0;
                 alu_op      <= 2'b11;
                 jump        <= 1'b1;
+                // $display("\nOffset %d",J_imm);
+                
                 branch_addr <= pc_plus_J_imm;
                 link_addr   <= pc_plus_4;
                 load        <= 0;
