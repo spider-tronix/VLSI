@@ -176,7 +176,18 @@ always #10 clk = ~clk;
         .rd(WB_data),
         // Outputs
         .rs1(data_src1), .rs2(data_src2)
-    );        
+    );     
+    BranchControl branchControl0(
+        // Inputs
+        .branch(branch),
+        .jump(jump),
+        .rst(rst),
+        .data1(ID_data1),
+        .data2(ID_data1),
+        .funct3(funct3),
+        // Outputs
+        .take_branch(take_branch)
+    );    
         // -------------------------- **STAGE_ID** -------------------------------
         
         // Pipeline register between ID --------- EX
@@ -200,7 +211,6 @@ always #10 clk = ~clk;
         .EX_link_addr(EX_link_addr), .EX_branch_addr(EX_branch_addr), .EX_load(EX_load)
     );
         // -------------------------- STAGE_EX -------------------------------
-    assign take_branch = (EX_branch & ALU_result[0]);
     Stage_EX execute(
         // Inputs
         .ALUOp(EX_alu_op),.funct7(EX_funct7),.funct3(EX_funct3),

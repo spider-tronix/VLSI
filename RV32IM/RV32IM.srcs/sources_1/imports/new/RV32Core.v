@@ -190,7 +190,7 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
         .EX_link_addr(EX_link_addr), .EX_branch_addr(EX_branch_addr), .EX_load(EX_load)
     );
         // -------------------------- STAGE_EX -------------------------------
-    assign take_branch = (EX_branch & ALU_result[0]);
+    assign take_branch = EX_jump || (EX_branch & ALU_result[0]);
     Stage_EX execute(
         // Inputs
         .ALUOp(EX_alu_op),.funct7(EX_funct7),.funct3(EX_funct3),

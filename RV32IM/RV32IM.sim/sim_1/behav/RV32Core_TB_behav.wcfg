@@ -11,9 +11,9 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="202800000fs"></ZoomStartTime>
-      <ZoomEndTime time="337200001fs"></ZoomEndTime>
-      <Cursor1Time time="298200000fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="134400001fs"></ZoomEndTime>
+      <Cursor1Time time="316170000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="196"></NameColumnWidth>
@@ -27,6 +27,7 @@
    <wvobject type="array" fp_name="/RV32Core_TB/ALU_result">
       <obj_property name="ElementShortName">ALU_result[31:0]</obj_property>
       <obj_property name="ObjectShortName">ALU_result[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/RV32Core_TB/stall">
       <obj_property name="ElementShortName">stall[5:0]</obj_property>

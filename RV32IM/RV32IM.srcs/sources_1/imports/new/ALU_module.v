@@ -37,7 +37,7 @@ module ALU_Module #(parameter XLEN = 32,
                 `EXE_BNE_OP: result <= (rs1!= rs2) ;
                 `EXE_BLT_OP: result <= (rs1 < rs2)^(rs1[31] != rs2[31]) ;
                 `EXE_BGE_OP: result <= (rs1 >= rs2)^(rs1[31] != rs2[31]) ;
-                `EXE_BLTU_OP: result <= (rs1 < rs2) ;
+                `EXE_BLTU_OP: result <= (rs1 <= rs2) ;
                 `EXE_BGEU_OP: result <= (rs1 >= rs2) ;
                 
                 /*      `EXE_LB_OP: result <= rs1 + rs2;
