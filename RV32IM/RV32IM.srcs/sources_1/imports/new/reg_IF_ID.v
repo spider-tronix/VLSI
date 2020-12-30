@@ -30,7 +30,7 @@ module reg_IF_ID#(parameter XLEN = 32)
                   output reg [XLEN-1:0]ID_PC,
                   output reg [XLEN-1:0]ID_instr);
     always @ (posedge clk) begin
-        if (rst || branch || (stall[1] && !stall[2])) begin
+        if (rst || (branch && !stall[1]) || (stall[1] && !stall[2])) begin
             ID_instr <= 0;
             ID_PC    <= 0;
             end else if (!stall[1]) begin

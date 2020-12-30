@@ -185,6 +185,8 @@ module ControlUnit#(parameter XLEN = 32)
                 jump        <= 1'b0;
                 alu_op      <= 2'b01;
                 branch_addr <= pc_plus_B_imm;
+                $display("\nBranch Offset %d",B_imm);
+
                 link_addr   <= 'b0;
                 load        <= 0;
 

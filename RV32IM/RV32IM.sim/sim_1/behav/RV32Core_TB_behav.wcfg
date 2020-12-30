@@ -11,22 +11,18 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="999997858fs"></ZoomStartTime>
-      <ZoomEndTime time="1000000429fs"></ZoomEndTime>
-      <Cursor1Time time="1000000000fs"></Cursor1Time>
+      <ZoomStartTime time="430000000fs"></ZoomStartTime>
+      <ZoomEndTime time="553800001fs"></ZoomEndTime>
+      <Cursor1Time time="372400000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="196"></NameColumnWidth>
-      <ValueColumnWidth column_width="115"></ValueColumnWidth>
+      <ValueColumnWidth column_width="91"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="72" />
    <wvobject type="logic" fp_name="/RV32Core_TB/rst">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/RV32Core_TB/clk">
-      <obj_property name="ElementShortName">clk</obj_property>
-      <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/RV32Core_TB/ALU_result">
       <obj_property name="ElementShortName">ALU_result[31:0]</obj_property>
@@ -67,6 +63,12 @@
    <wvobject type="array" fp_name="/RV32Core_TB/Instr">
       <obj_property name="ElementShortName">Instr[31:0]</obj_property>
       <obj_property name="ObjectShortName">Instr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/RV32Core_TB/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/RV32Core_TB/Instr_IF_ID_reg_to_ID">
       <obj_property name="ElementShortName">Instr_IF_ID_reg_to_ID[31:0]</obj_property>

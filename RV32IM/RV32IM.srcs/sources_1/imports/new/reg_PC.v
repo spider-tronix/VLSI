@@ -20,7 +20,7 @@ module reg_PC (input wire clk,
     end
 
     always @ (posedge clk) begin
-        if (!rst && br_occur) begin
+        if (!rst && br_occur && !stall[0]) begin
             PC       = branch_addr;
             PC_ready = 1;
             pc_o       = branch_addr;
