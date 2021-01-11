@@ -2,8 +2,8 @@
 # Webtalk v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Wed Dec 30 16:51:06 2020
-# Process ID: 48701
+# Start of session at: Mon Jan 11 13:22:34 2021
+# Process ID: 18427
 # Current directory: /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim
 # Command line: wbtcv -mode batch -source /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim/xsim.dir/RV32Core_TB_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim/webtalk.log

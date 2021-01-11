@@ -1,0 +1,46 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Mon Jan 11 18:46:18 2021
+# Process ID: 254227
+# Current directory: /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.runs/impl_2
+# Command line: vivado -log RV32Core.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source RV32Core.tcl -notrace
+# Log file: /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.runs/impl_2/RV32Core.vdi
+# Journal file: /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.runs/impl_2/vivado.jou
+#-----------------------------------------------------------
+source RV32Core.tcl -notrace
+Command: link_design -top RV32Core -part xc7a35tftg256-1
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Netlist 29-17] Analyzing 13452 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2018.2
+INFO: [Device 21-403] Loading part xc7a35tftg256-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 1 instances were transformed.
+  LDCP => LDCP (inverted pins: G) (GND, LUT3, LUT3, LDCE, VCC): 1 instances
+
+6 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+link_design completed successfully
+link_design: Time (s): cpu = 00:00:14 ; elapsed = 00:00:27 . Memory (MB): peak = 1681.672 ; gain = 344.633 ; free physical = 2498 ; free virtual = 6269
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 8 threads
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net reg_PC0/br_occur_reg_n_11 has multiple drivers: reg_PC0/pc_o[31]_i_3/O, and reg_PC0/br_occur_reg/Q.
+INFO: [Project 1-461] DRC finished with 1 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+ERROR: [Vivado_Tcl 4-78] Error(s) found during DRC. Opt_design not run.
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 1755.375 ; gain = 73.703 ; free physical = 2494 ; free virtual = 6264
+INFO: [Common 17-83] Releasing license: Implementation
+11 Infos, 0 Warnings, 0 Critical Warnings and 2 Errors encountered.
+opt_design failed
+ERROR: [Common 17-39] 'opt_design' failed due to earlier errors.
+
+INFO: [Common 17-206] Exiting Vivado at Mon Jan 11 18:46:54 2021...

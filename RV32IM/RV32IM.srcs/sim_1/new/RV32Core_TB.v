@@ -103,6 +103,7 @@ always #10 clk = ~clk;
         // -------------------------- STAGE_IF -------------------------------
     Stage_IF fetch(
         // Inputs
+        .clk(clk),
         .PC(IF_PC), .PC_ready(IF_PC_ready), .branch(take_branch), .rst(rst), .select(current_stage[0]),
         // Outputs
         .Instr(Instr), .stallreq(stallreq_IF)
