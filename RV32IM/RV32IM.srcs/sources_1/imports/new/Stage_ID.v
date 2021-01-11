@@ -47,9 +47,9 @@ initial
 begin
     opcode <= 0;
 end
-reg stallreq_1, stallreq_2;
+reg stallreq_1, stallreq_2, stallreq_R;
 reg re1, re2;
-assign stallreq = stallreq_1 || stallreq_2;
+assign stallreq = stallreq_1 || stallreq_2 || stallreq_R;
 always @(*)
 begin
     if(rst) begin 
@@ -197,6 +197,6 @@ always @(*)begin
     `SET_output(data2, re2, src2, regdata2, imm, stallreq_2)
 end
 always @(*)begin
-    `SET_output(data_R, 1, src2, regdata2, regdata2, stallreq_2)
+    `SET_output(data_R, 1, src2, regdata2, regdata2, stallreq_R)
 end
 endmodule

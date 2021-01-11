@@ -6,6 +6,7 @@ module Stage_IF#(parameter XLEN = 32)
                  branch,
                  input rst,
                  select,
+                 clk,
                  output [XLEN-1:0]Instr,
                  output reg stallreq);
     
@@ -65,6 +66,7 @@ module Stage_IF#(parameter XLEN = 32)
     end
     
     ROM_Module fetch_instr(
+    .clk(clk),
     .Addr(PC), .Instr(Instr), .mem_busy(mem_busy),
     .ROM_Enable(mem_re),.ROM_Rst(1'b0)
     );

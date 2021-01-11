@@ -9,7 +9,7 @@ module reg_PC (input wire clk,
     
     reg [31:0] PC;
     reg        PC_ready;
-    reg br_occur = 0;
+    reg br_occur;
     reg [31:0] branch_addr;
     always@(posedge br) begin
     if(br) begin
@@ -41,6 +41,7 @@ module reg_PC (input wire clk,
                 PC_ready = 0;
                 PC       = 0;
                 PC_ready_o =0;
+                br_occur = 0;
                 end else if (!stall[0] && !br_occur) begin
                 $display("PC now: %h", PC);
                 pc_o       = PC;

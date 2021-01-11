@@ -59,8 +59,8 @@ default:
 endcase
 
 //Data Read and write bits
-assign re = (mem_read && MMUEnable)? cs : 4'b0000;
-assign wr = (mem_write && MMUEnable)? cs : 4'b0000;  
+re = (mem_read && MMUEnable)? cs : 4'b0000;
+wr = (mem_write && MMUEnable)? cs : 4'b0000;  
 
 end
 endmodule

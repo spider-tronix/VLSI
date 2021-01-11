@@ -12,12 +12,13 @@ module ROM_Module #(parameter WORD_LENGTH = 32,
                     parameter ROM_DEPTH = 2048,
                     parameter XLEN = 32)
                     (input [XLEN-1:0] Addr, 
+                     input clk,
                      output reg mem_busy,
                      output reg [XLEN-1:0] Instr,
                      input ROM_Enable,ROM_Rst);
 
 
-reg [WORD_LENGTH-1:0] ROM_mem[0:ROM_DEPTH-1];                
+(* KEEP = "TRUE" *) reg [WORD_LENGTH-1:0] ROM_mem[0:ROM_DEPTH-1];                
 integer i;
 
 //Rom Write Block
@@ -29,7 +30,7 @@ begin
 end  
 //Rom Read Block
 
-always @(*)
+always @(negedge clk)
 begin
     if(ROM_Rst)
         for(i = 0;i<ROM_DEPTH;i=i+1)

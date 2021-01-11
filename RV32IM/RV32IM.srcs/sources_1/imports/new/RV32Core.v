@@ -23,7 +23,7 @@
 
 module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
                  (input clk,
-                  input ALU_Reset,
+                  input rst,
                   output [XLEN-1:0]ALU_result);
     
     // Stall signals
@@ -93,6 +93,7 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
         // -------------------------- STAGE_IF -------------------------------
     Stage_IF fetch(
         // Inputs
+        .clk(clk),
         .PC(IF_PC), .PC_ready(IF_PC_ready), .branch(take_branch), .rst(rst), .select(current_stage[0]),
         // Outputs
         .Instr(Instr), .stallreq(stallreq_IF)
