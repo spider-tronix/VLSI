@@ -24,10 +24,11 @@
 module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
                  (input clk,
                   input rst,
-                  output [XLEN-1:0]ALU_result);
+                  output [5:0]stall);
+                  reg [XLEN-1:0]ALU_result;
     
     // Stall signals
-    wire [5:0] stall;
+    // wire [5:0] stall;
     wire stallreq_IF;
     wire stallreq_ID;
     wire stallreq_EX;
