@@ -6,7 +6,7 @@
 module Stage_MEM#(parameter XLEN = 32,
                   parameter WORDLENGTH = 8)
                  (
-                //   input wire clk,
+                  input wire clk,
                   input wire select,
                   input [XLEN-1:0] Addr,
                   input [XLEN-1:0] data_i,
@@ -22,7 +22,7 @@ module Stage_MEM#(parameter XLEN = 32,
     MMU MemControl (.funct3(funct3),.mem_read(mem_read),.mem_write(mem_write),.MMUEnable(select),.cs(cs),.re(re),.wr(wr),.Addr_i(Addr), .Addr_o(Addr_M));
     input_shifter DataIN (.data_in(data_i),.funct3(funct3),.Addr(Addr[1:0]),.data_out(data_to_mem));
     output_shifter DataOut (.data_in(data_from_mem),.funct3(funct3),.Addr(Addr),.data_out(data_o_shift));
-    RamMemory Dm ( //.clk(clk),
+    RamMemory Dm ( .clk(clk),
                     .cs(cs),.re(re),.we(wr),.Addr(Addr_M),.data_i(data_to_mem),.data_o(data_from_mem));
     always @(*)
     begin

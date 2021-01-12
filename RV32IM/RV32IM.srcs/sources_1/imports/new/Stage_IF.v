@@ -15,11 +15,11 @@ module Stage_IF#(parameter XLEN = 32)
     reg mem_re ;
     wire mem_busy;
     reg br_occur = 0;
-    always@(posedge branch) begin
-    if(branch) begin
-        br_occur = 1;
-    end 
-    end 
+    // always@(posedge branch) begin
+    // if(branch) begin
+    //     br_occur = 1;
+    // end 
+    // end 
     always @ (*) begin
         if (PC_ready) begin
             waiting = 0;
@@ -33,7 +33,7 @@ module Stage_IF#(parameter XLEN = 32)
                 //PC      = 0;
                 mem_re    = 0;
                 waiting   = 0;
-                end else if (br_occur) begin
+                end else if (branch) begin
                 $display("STAGE_IF branch");
                 //PC      = 0;
                 using_mem = 0;
