@@ -240,6 +240,7 @@ always #10 clk = ~clk;
         // -------------------------- STAGE_MEM -------------------------------
     Stage_MEM access_dm(
         // Inputs
+        .clk(clk),
         .mem_write(MEM_mem_write),.mem_read(MEM_mem_read),.select(current_stage[3]),
         .Addr(MEM_ALU_result),.funct3(MEM_funct3),
         .data_i(MEM_data_src2_R),

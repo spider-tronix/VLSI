@@ -9,7 +9,7 @@ module RAM_Module #(parameter WORDLENGTH = 8,
                     clk,
                     output reg [WORDLENGTH-1:0] data_o);
                      
-(* KEEP = "TRUE" *) reg [WORDLENGTH-1:0] RAM_mem[0:Size-1];
+ reg [WORDLENGTH-1:0] RAM_mem[0:Size-1];
 
 always @(negedge clk)
 begin

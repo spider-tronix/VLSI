@@ -24,36 +24,36 @@ create_project -in_memory -part xc7a35tftg256-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.cache/wt [current_project]
-set_property parent.project_path /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.xpr [current_project]
+set_property webtalk.parent_dir D:/Spider/VLSI/RV32IM/RV32IM.cache/wt [current_project]
+set_property parent.project_path D:/Spider/VLSI/RV32IM/RV32IM.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part allaboutfpga.com:edgea7:part0:1.1 [current_project]
-set_property ip_output_repo /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.cache/ip [current_project]
+set_property ip_output_repo d:/Spider/VLSI/RV32IM/RV32IM.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib {
-  /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/RamMemory.v
-  /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/Registers_Module.v
-  /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/ALU_control_unit.v
-  /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/ROM_Module.v
-  /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/Stage_EX.v
-  /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/ControlUnit.v
-  /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/MMU.v
-  /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/RV32Core.v
-  /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/Stage_ID.v
-  /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/ALU_module.v
-  /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/Stage_IF.v
-  /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/defines.v
-  /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/reg_ID_EX.v
-  /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/output_shifter.v
-  /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/reg_IF_ID.v
-  /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/RAM_Module.v
-  /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/reg_EX_MEM.v
-  /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/reg_MEM_WB.v
-  /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/reg_PC.v
-  /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/BranchControl.v
-  /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/Stage_MEM.v
-  /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/input_shifter.v
+  D:/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/RamMemory.v
+  D:/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/Registers_Module.v
+  D:/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/ALU_control_unit.v
+  D:/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/ROM_Module.v
+  D:/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/Stage_EX.v
+  D:/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/ControlUnit.v
+  D:/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/MMU.v
+  D:/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/RV32Core.v
+  D:/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/Stage_ID.v
+  D:/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/ALU_module.v
+  D:/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/Stage_IF.v
+  D:/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/defines.v
+  D:/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/reg_ID_EX.v
+  D:/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/output_shifter.v
+  D:/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/reg_IF_ID.v
+  D:/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/RAM_Module.v
+  D:/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/reg_EX_MEM.v
+  D:/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/reg_MEM_WB.v
+  D:/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/reg_PC.v
+  D:/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/BranchControl.v
+  D:/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/Stage_MEM.v
+  D:/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/input_shifter.v
 }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -63,6 +63,9 @@ read_verilog -library xil_defaultlib {
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
+read_xdc D:/Spider/VLSI/RV32IM/RV32IM.srcs/constrs_1/new/IO_Constraints.xdc
+set_property used_in_implementation false [get_files D:/Spider/VLSI/RV32IM/RV32IM.srcs/constrs_1/new/IO_Constraints.xdc]
+
 set_param ips.enableIPCacheLiteLoad 0
 close [open __synthesis_is_running__ w]
 
