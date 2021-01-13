@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date         : Tue Jan 12 14:12:49 2021
+| Date         : Wed Jan 13 11:49:09 2021
 | Host         : Sudhar-Windows running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file RV32Core_control_sets_placed.rpt
 | Design       : RV32Core
@@ -48,12 +48,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |            2252 |          502 |
+| No           | No                    | No                     |            2252 |          525 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |             994 |          185 |
+| No           | Yes                   | No                     |             994 |          187 |
 | Yes          | No                    | No                     |               0 |            0 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |             194 |           24 |
+| Yes          | Yes                   | No                     |             194 |           23 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -63,57 +63,57 @@ Table of Contents
 +--------------------------------------------------+-------------------+----------------------------------+------------------+----------------+
 |                   Clock Signal                   |   Enable Signal   |         Set/Reset Signal         | Slice Load Count | Bel Load Count |
 +--------------------------------------------------+-------------------+----------------------------------+------------------+----------------+
-|  fetch/mem_re_reg/G0                             |                   |                                  |                1 |              2 |
-|  fetch/stallreq_reg/G0                           |                   |                                  |                1 |              2 |
 |  fetch/waiting_reg/G0                            |                   |                                  |                1 |              2 |
 |  fetch/using_mem_reg_i_2_n_11                    |                   | fetch/mem_re_reg_i_2_n_11        |                1 |              2 |
+|  fetch/mem_re_reg/G0                             |                   |                                  |                1 |              2 |
+|  fetch/stallreq_reg/G0                           |                   |                                  |                1 |              2 |
 |  decode/n_0_121_BUFG                             |                   |                                  |                2 |              6 |
 |  execute/ALU_CU/ALU_control_line_reg[4]_i_2_n_11 |                   | rst_IBUF                         |                2 |             10 |
-|                                                  |                   | rst_IBUF                         |                5 |             14 |
-|  Registers/n_8_37_BUFG                           |                   |                                  |               14 |             64 |
-|  Registers/n_4_33_BUFG                           |                   |                                  |               13 |             64 |
-|  Registers/n_9_38_BUFG                           |                   |                                  |               19 |             64 |
-|  Registers/n_3_32_BUFG                           |                   |                                  |               13 |             64 |
-|  Registers/n_10_39_BUFG                          |                   |                                  |               20 |             64 |
-|  Registers/x_reg[26][31]_i_1_n_11                |                   |                                  |               10 |             64 |
-|  Registers/x_reg[27][31]_i_1_n_11                |                   |                                  |               12 |             64 |
-|  Registers/x_reg[15][31]_i_1_n_11                |                   |                                  |               11 |             64 |
+|                                                  |                   | rst_IBUF                         |                2 |             14 |
+|  Registers/x_reg[14][31]_i_1_n_11                |                   |                                  |               16 |             64 |
 |  Registers/x_reg[13][31]_i_1_n_11                |                   |                                  |               14 |             64 |
-|  Registers/x_reg[28][31]_i_1_n_11                |                   |                                  |               17 |             64 |
-|  Registers/x_reg[19][31]_i_1_n_11                |                   |                                  |               11 |             64 |
-|  Registers/x_reg[10][31]_i_1_n_11                |                   |                                  |               13 |             64 |
-|  Registers/x_reg[16][31]_i_1_n_11                |                   |                                  |               10 |             64 |
-|  Registers/x_reg[18][31]_i_1_n_11                |                   |                                  |               11 |             64 |
-|  Registers/x_reg[21][31]_i_1_n_11                |                   |                                  |               13 |             64 |
-|  Registers/x_reg[23][31]_i_1_n_11                |                   |                                  |               19 |             64 |
-|  Registers/x_reg[24][31]_i_1_n_11                |                   |                                  |               12 |             64 |
-|  Registers/x_reg[25][31]_i_1_n_11                |                   |                                  |               14 |             64 |
-|  Registers/x_reg[29][31]_i_1_n_11                |                   |                                  |               16 |             64 |
-|  Registers/x_reg[31][31]_i_1_n_11                |                   |                                  |               21 |             64 |
+|  Registers/x_reg[21][31]_i_1_n_11                |                   |                                  |               12 |             64 |
+|  Registers/x_reg[10][31]_i_1_n_11                |                   |                                  |               16 |             64 |
+|  Registers/x_reg[27][31]_i_1_n_11                |                   |                                  |               12 |             64 |
+|  Registers/x_reg[11][31]_i_1_n_11                |                   |                                  |               14 |             64 |
+|  Registers/x_reg[28][31]_i_1_n_11                |                   |                                  |               10 |             64 |
+|  Registers/x_reg[20][31]_i_1_n_11                |                   |                                  |               13 |             64 |
+|  Registers/x_reg[17][31]_i_1_n_11                |                   |                                  |               10 |             64 |
+|  Registers/x_reg[25][31]_i_1_n_11                |                   |                                  |               13 |             64 |
+|  Registers/x_reg[29][31]_i_1_n_11                |                   |                                  |               11 |             64 |
+|  Registers/x_reg[31][31]_i_1_n_11                |                   |                                  |               22 |             64 |
+|  Registers/x_reg[18][31]_i_1_n_11                |                   |                                  |               12 |             64 |
+|  Registers/x_reg[23][31]_i_1_n_11                |                   |                                  |               20 |             64 |
+|  Registers/x_reg[30][31]_i_1_n_11                |                   |                                  |               19 |             64 |
+|  Registers/x_reg[19][31]_i_1_n_11                |                   |                                  |               13 |             64 |
+|  Registers/x_reg[8][31]_i_1_n_11                 |                   |                                  |               19 |             64 |
+|  Registers/x_reg[22][31]_i_1_n_11                |                   |                                  |               19 |             64 |
+|  Registers/n_10_39_BUFG                          |                   |                                  |               21 |             64 |
+|  Registers/n_5_34_BUFG                           |                   |                                  |               16 |             64 |
+|  Registers/n_9_38_BUFG                           |                   |                                  |               22 |             64 |
+|  Registers/n_3_32_BUFG                           |                   |                                  |               15 |             64 |
+|  Registers/n_7_36_BUFG                           |                   |                                  |               18 |             64 |
+|  Registers/n_8_37_BUFG                           |                   |                                  |               15 |             64 |
+|  Registers/n_4_33_BUFG                           |                   |                                  |               14 |             64 |
+|  Registers/n_6_35_BUFG                           |                   |                                  |               17 |             64 |
+|  execute/ALU/result_reg[31]_i_2_n_11             |                   | rst_IBUF                         |               25 |             64 |
+|  Registers/x_reg[16][31]_i_1_n_11                |                   |                                  |               12 |             64 |
+| ~reg_EX_MEM0/MEM_mem_read                        |                   |                                  |               14 |             64 |
+| ~decode/data_R16_out                             |                   | rst_IBUF                         |               14 |             64 |
+|  decode/n_1_8_BUFG                               |                   | rst_IBUF                         |               12 |             64 |
+|  Registers/x_reg[26][31]_i_1_n_11                |                   |                                  |               11 |             64 |
+|  Registers/x_reg[24][31]_i_1_n_11                |                   |                                  |               15 |             64 |
 |  Registers/x_reg[12][31]_i_1_n_11                |                   |                                  |               13 |             64 |
-|  Registers/x_reg[8][31]_i_1_n_11                 |                   |                                  |               17 |             64 |
-|  Registers/x_reg[22][31]_i_1_n_11                |                   |                                  |               18 |             64 |
-|  Registers/x_reg[11][31]_i_1_n_11                |                   |                                  |               13 |             64 |
-|  Registers/x_reg[17][31]_i_1_n_11                |                   |                                  |               13 |             64 |
-|  Registers/x_reg[30][31]_i_1_n_11                |                   |                                  |               22 |             64 |
-|  Registers/x_reg[14][31]_i_1_n_11                |                   |                                  |               15 |             64 |
-|  Registers/x_reg[20][31]_i_1_n_11                |                   |                                  |               12 |             64 |
-|  Registers/x_reg[9][31]_i_1_n_11                 |                   |                                  |               18 |             64 |
-|  Registers/n_7_36_BUFG                           |                   |                                  |               12 |             64 |
-|  access_dm/DataIN/data_out_reg[31]_i_2_n_11      |                   |                                  |               10 |             64 |
-|  Registers/n_5_34_BUFG                           |                   |                                  |               13 |             64 |
-|  execute/ALU/result_reg[31]_i_2_n_11             |                   | rst_IBUF                         |               26 |             64 |
-|  Registers/n_6_35_BUFG                           |                   |                                  |               15 |             64 |
-| ~decode/data_R16_out                             |                   | rst_IBUF                         |               12 |             64 |
-|  decode/n_2_1_BUFG                               |                   | rst_IBUF                         |               12 |             64 |
-|  decode/n_1_8_BUFG                               |                   | rst_IBUF                         |               15 |             64 |
-|  access_dm/DataOut/data_out_reg[31]_i_2_n_11     |                   |                                  |               12 |             64 |
-| ~reg_EX_MEM0/MEM_mem_read                        |                   |                                  |               11 |             64 |
+|  access_dm/DataIN/data_out_reg[31]_i_2_n_11      |                   |                                  |                8 |             64 |
+|  access_dm/DataOut/data_out_reg[31]_i_2_n_11     |                   |                                  |                9 |             64 |
+|  decode/n_2_1_BUFG                               |                   | rst_IBUF                         |               14 |             64 |
+|  Registers/x_reg[15][31]_i_1_n_11                |                   |                                  |               15 |             64 |
+|  Registers/x_reg[9][31]_i_1_n_11                 |                   |                                  |               20 |             64 |
 |  clk_IBUF_BUFG                                   | reg_PC0/p_0_in    | rst_IBUF                         |                9 |             66 |
 |  decode/n_0_121_BUFG                             |                   | rst_IBUF                         |               24 |            118 |
-|  clk_IBUF_BUFG                                   | reg_IF_ID0/p_1_in | reg_IF_ID0/ID_PC[31]_i_1_n_11    |               15 |            128 |
-|  clk_IBUF_BUFG                                   |                   | rst_IBUF                         |               47 |            294 |
-|  clk_IBUF_BUFG                                   |                   | reg_ID_EX0/EX_funct3[2]_i_1_n_11 |               41 |            300 |
+|  clk_IBUF_BUFG                                   | reg_IF_ID0/p_1_in | reg_IF_ID0/ID_PC[31]_i_1_n_11    |               14 |            128 |
+|  clk_IBUF_BUFG                                   |                   | rst_IBUF                         |               46 |            294 |
+|  clk_IBUF_BUFG                                   |                   | reg_ID_EX0/EX_funct3[2]_i_1_n_11 |               47 |            300 |
 +--------------------------------------------------+-------------------+----------------------------------+------------------+----------------+
 
 

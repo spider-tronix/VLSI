@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date         : Tue Jan 12 14:12:41 2021
+| Date         : Wed Jan 13 11:48:58 2021
 | Host         : Sudhar-Windows running 64-bit major release  (build 9200)
 | Command      : report_drc -file RV32Core_drc_opted.rpt -pb RV32Core_drc_opted.pb -rpx RV32Core_drc_opted.rpx
 | Design       : RV32Core
@@ -20,7 +20,7 @@ Table of Contents
 1. REPORT SUMMARY
 -----------------
             Netlist: netlist
-          Floorplan: checkpoint_RV32Core
+          Floorplan: design_1
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>

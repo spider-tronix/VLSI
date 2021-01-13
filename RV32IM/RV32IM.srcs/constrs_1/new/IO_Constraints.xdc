@@ -1,4 +1,4 @@
-set_property -dict {PACKAGE_PIN N11 IOSTANDARD LVCMOS33} [get_ports clk]
+set_property -dict { PACKAGE_PIN N11    IOSTANDARD LVCMOS33 } [get_ports { clk }]; 
 
 # Switch
 set_property -dict {PACKAGE_PIN L5 IOSTANDARD LVCMOS33} [get_ports rst]
