@@ -1,19 +1,22 @@
 `timescale 1ns / 1ps
 
 module Stage_IF#(parameter XLEN = 32)
-                (input [XLEN-1:0]PC,
+                (
+                //  input [XLEN-1:0]PC,
                  input PC_ready,
                  branch,
                  input rst,
                  select,
                  clk,
-                 output [XLEN-1:0]Instr,
+                 input wire mem_busy,
+                 output reg mem_re,
+                //  output [XLEN-1:0]Instr,
                  output reg stallreq);
     
     reg using_mem;
     reg waiting;
-    reg mem_re ;
-    wire mem_busy;
+    // reg mem_re ;
+    // wire mem_busy;
     reg br_occur = 0;
     // always@(posedge branch) begin
     // if(branch) begin
@@ -65,10 +68,10 @@ module Stage_IF#(parameter XLEN = 32)
             end
     end
     
-    ROM_Module fetch_instr(
-    .clk(clk),
-    .Addr(PC), .Instr(Instr), .mem_busy(mem_busy),
-    .ROM_Enable(mem_re),.ROM_Rst(1'b0)
-    );
+    // ROM_Module fetch_instr(
+    // .clk(clk),
+    // .Addr(PC), .Instr(Instr), .mem_busy(mem_busy),
+    // .ROM_Enable(mem_re),.ROM_Rst(1'b0)
+    // );
     
 endmodule

@@ -24,7 +24,14 @@
 module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
                  (input clk,
                   input rst,
-                  output [5:0]stall);
+                  output [5:0]stall,
+                  // To ROM
+                  output [XLEN-1:0]ROM_addr,
+                  output ROM_enable, ROM_rst,
+                  // From ROM
+                  input ROM_busy,
+                  input [XLEN-1:0]ROM_data
+                  );
                   wire [XLEN-1:0]ALU_result;
     
     // Stall signals
@@ -94,11 +101,16 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
         // -------------------------- STAGE_IF -------------------------------
     Stage_IF fetch(
         // Inputs
-        .clk(clk),
+        // .clk(clk),
+        .mem_busy(ROM_busy),
         .PC(IF_PC), .PC_ready(IF_PC_ready), .branch(take_branch), .rst(rst), .select(current_stage[0]),
         // Outputs
-        .Instr(Instr), .stallreq(stallreq_IF)
+        .mem_re(ROM_enable), 
+        // .Instr(Instr),
+        .stallreq(stallreq_IF)
     );
+    assign ROM_addr = IF_PC;
+    assign ROM_rst = 0;  // TEMP
         // -------------------------- **STAGE_IF** -------------------------------
         
         // Pipeline register between IF --------- ID
@@ -107,7 +119,7 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
         .clk(clk), .rst(rst),
         .branch(take_branch),
         .stall(stall),
-        .IF_instr(Instr),
+        .IF_instr(ROM_data),
         .IF_PC(IF_PC),
         .ID_PC(ID_PC),
         .ID_instr(Instr_IF_ID_reg_to_ID)
