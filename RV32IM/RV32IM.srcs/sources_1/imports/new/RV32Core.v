@@ -30,7 +30,13 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
                   output ROM_enable, ROM_rst,
                   // From ROM
                   input ROM_busy,
-                  input [XLEN-1:0]ROM_data
+                  input [XLEN-1:0]ROM_data,
+                  // To RAM
+                  input [XLEN-1:0] RAM_data_read,
+                  // From RAM
+                  output [XLEN-3:0] RAM_Addr,
+                  output [XLEN-1:0] RAM_data_write,
+                  output [3:0] RAM_cs, RAM_re, RAM_we
                   );
                   wire [XLEN-1:0]ALU_result;
     
@@ -243,12 +249,15 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
         // -------------------------- STAGE_MEM -------------------------------
     Stage_MEM access_dm(
         // Inputs
-        .clk(clk),
+        // .clk(clk),
+
         .mem_write(MEM_mem_write),.mem_read(MEM_mem_read),.select(current_stage[3]),
         .Addr(MEM_ALU_result),.funct3(MEM_funct3),
         .data_i(MEM_data_src2_R),
-        
+        .data_from_mem(RAM_data_read),
         // Output
+        .Addr_M(RAM_Addr), .data_to_mem(RAM_data_write),
+        .cs(RAM_cs), .re(RAM_re), .we(RAM_we),
         .data_o(mem_read_data), .stallreq(stallreq_MEM)
     );
     assign MEM_data = (MEM_mem_to_reg)?mem_read_data:MEM_ALU_result;

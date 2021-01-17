@@ -7,7 +7,7 @@ module Stage_IF#(parameter XLEN = 32)
                  branch,
                  input rst,
                  select,
-                 clk,
+                //  clk,
                  input wire mem_busy,
                  output reg mem_re,
                 //  output [XLEN-1:0]Instr,
