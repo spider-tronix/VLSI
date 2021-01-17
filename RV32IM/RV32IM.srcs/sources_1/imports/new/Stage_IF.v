@@ -2,7 +2,7 @@
 
 module Stage_IF#(parameter XLEN = 32)
                 (
-                //  input [XLEN-1:0]PC,
+                 input [XLEN-1:0]PC,
                  input PC_ready,
                  branch,
                  input rst,

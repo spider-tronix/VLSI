@@ -36,7 +36,7 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
                   // From RAM
                   output [XLEN-3:0] RAM_Addr,
                   output [XLEN-1:0] RAM_data_write,
-                  output [3:0] RAM_cs, RAM_re, RAM_we
+                  output [3:0] RAM_cs, RAM_re, RAM_wr
                   );
                   wire [XLEN-1:0]ALU_result;
     
@@ -257,7 +257,7 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
         .data_from_mem(RAM_data_read),
         // Output
         .Addr_M(RAM_Addr), .data_to_mem(RAM_data_write),
-        .cs(RAM_cs), .re(RAM_re), .we(RAM_we),
+        .cs(RAM_cs), .re(RAM_re), .wr(RAM_wr),
         .data_o(mem_read_data), .stallreq(stallreq_MEM)
     );
     assign MEM_data = (MEM_mem_to_reg)?mem_read_data:MEM_ALU_result;
