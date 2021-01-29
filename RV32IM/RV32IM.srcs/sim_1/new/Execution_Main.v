@@ -16,6 +16,8 @@ module Execution_Main #(parameter enable = 1'b1,parameter XLEN = 32);
     wire [3:0] RAM_cs, RAM_re, RAM_wr;
     // Debug
     wire [5:0]stall;
+assign ROM_busy = 0;
+
 initial begin
      rst = 1;
      clk = 0;
@@ -45,7 +47,9 @@ RamMemory Dm ( .clk(clk),
 
 ROM_Module fetch_instr(
     .clk(clk),
-    .Addr(ROM_addr), .Instr(ROM_data), .mem_busy(ROM_busy),
-    .ROM_Enable(ROM_enable),.ROM_Rst(ROM_rst)
+    .Addr(ROM_addr), .data_o(ROM_data), .data_i(0),
+    .re(ROM_enable), .we(0), .cs(1)
+    
+    //.mem_busy(ROM_busy),
 );
 endmodule

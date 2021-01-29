@@ -44,7 +44,7 @@ module Stage_IF#(parameter XLEN = 32)
                 stallreq  = 0;
                 waiting   = 1;
                 end else if (!waiting && !mem_busy && !using_mem) begin
-                // $display("!mem_busy && !using_mem");
+                $display("!mem_busy && !using_mem");
                 stallreq  = 0;
                 using_mem = 1;
                 mem_re    = 1;

@@ -17,7 +17,6 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param synth.incrementalSynthesisCache C:/Users/ssudh/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-8384-Sudhar-Windows/incrSyn
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7a35tftg256-1
@@ -32,6 +31,7 @@ set_property target_language Verilog [current_project]
 set_property board_part allaboutfpga.com:edgea7:part0:1.1 [current_project]
 set_property ip_output_repo d:/Spider/VLSI/RV32IM/RV32IM.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
+read_mem D:/Spider/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim/Code.txt
 read_verilog -library xil_defaultlib {
   D:/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/RamMemory.v
   D:/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/Registers_Module.v

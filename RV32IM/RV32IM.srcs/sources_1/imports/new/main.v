@@ -23,10 +23,10 @@
 module Execution_main_source#(parameter enable = 1'b1,parameter XLEN = 32)
     (input clk,
     input rst,
-    output wire [5:0]stall,
-    output wire [XLEN-1:0]ROM_data,
-    output wire [XLEN-1:0] RAM_data_read,
-    output wire [XLEN-1:0] RAM_data_write);
+    output wire [5:0]stall);
+     wire [XLEN-1:0]ROM_data;
+     wire [XLEN-1:0] RAM_data_read;
+     wire [XLEN-1:0] RAM_data_write;
 // To ROM
     wire [XLEN-1:0]ROM_addr;
     wire ROM_enable, ROM_rst;
@@ -41,7 +41,7 @@ module Execution_main_source#(parameter enable = 1'b1,parameter XLEN = 32)
     wire [3:0] RAM_cs, RAM_re, RAM_wr;
 // Debug
     // wire [5:0]stall;
-
+assign ROM_busy = 0;
 RV32Core core1(
     // Inputs
     .clk(clk),
@@ -64,8 +64,10 @@ RamMemory Dm ( .clk(clk),
 
 ROM_Module fetch_instr(
     .clk(clk),
-    .Addr(ROM_addr), .Instr(ROM_data), .mem_busy(ROM_busy),
-    .ROM_Enable(ROM_enable),.ROM_Rst(ROM_rst)
+    .Addr(ROM_addr), .data_o(ROM_data), .data_i(0),
+    .re(ROM_enable), .we(0), .cs(1)
+    
+    //.mem_busy(ROM_busy),
 );
 endmodule
 
