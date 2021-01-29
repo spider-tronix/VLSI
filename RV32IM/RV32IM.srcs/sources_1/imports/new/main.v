@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 19.01.2021 19:51:26
+// Create Date: 
 // Design Name: 
 // Module Name: Execution_main_source
 // Project Name: 
@@ -20,23 +20,27 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module Execution_main_source#(parameter enable = 1'b1,parameter XLEN = 32);
-    reg rst ;
-    reg clk ;
-    // To ROM
+module Execution_main_source#(parameter enable = 1'b1,parameter XLEN = 32)
+    (input clk,
+    input rst,
+    output wire [5:0]stall,
+    output wire [XLEN-1:0]ROM_data,
+    output wire [XLEN-1:0] RAM_data_read,
+    output wire [XLEN-1:0] RAM_data_write);
+// To ROM
     wire [XLEN-1:0]ROM_addr;
     wire ROM_enable, ROM_rst;
-    // From ROM
+// From ROM
     wire ROM_busy;
-    wire [XLEN-1:0]ROM_data;
-    // To RAM
-    wire [XLEN-1:0] RAM_data_read;
-    // From RAM
+    // wire [XLEN-1:0]ROM_data;
+// To RAM
+    // wire [XLEN-1:0] RAM_data_read;
+// From RAM
     wire [XLEN-3:0] RAM_Addr;
-    wire [XLEN-1:0] RAM_data_write;
+    // wire [XLEN-1:0] RAM_data_write;
     wire [3:0] RAM_cs, RAM_re, RAM_wr;
-    // Debug
-    wire [5:0]stall;
+// Debug
+    // wire [5:0]stall;
 
 RV32Core core1(
     // Inputs

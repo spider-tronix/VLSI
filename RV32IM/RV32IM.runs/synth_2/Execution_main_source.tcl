@@ -17,7 +17,9 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param xicom.use_bs_reader 1
+set_param synth.incrementalSynthesisCache C:/Users/ssudh/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-8384-Sudhar-Windows/incrSyn
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7a35tftg256-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -53,6 +55,7 @@ read_verilog -library xil_defaultlib {
   D:/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/BranchControl.v
   D:/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/Stage_MEM.v
   D:/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/input_shifter.v
+  D:/Spider/VLSI/RV32IM/RV32IM.srcs/sources_1/imports/new/main.v
 }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -71,12 +74,12 @@ set_property used_in_implementation false [get_files D:/Spider/VLSI/RV32IM/RV32I
 set_param ips.enableIPCacheLiteLoad 0
 close [open __synthesis_is_running__ w]
 
-synth_design -top RV32Core -part xc7a35tftg256-1 -flatten_hierarchy none
+synth_design -top Execution_main_source -part xc7a35tftg256-1 -flatten_hierarchy none
 
 
 # disable binary constraint mode for synth run checkpoints
 set_param constraints.enableBinaryConstraints false
-write_checkpoint -force -noxdef RV32Core.dcp
-create_report "synth_2_synth_report_utilization_0" "report_utilization -file RV32Core_utilization_synth.rpt -pb RV32Core_utilization_synth.pb"
+write_checkpoint -force -noxdef Execution_main_source.dcp
+create_report "synth_2_synth_report_utilization_0" "report_utilization -file Execution_main_source_utilization_synth.rpt -pb Execution_main_source_utilization_synth.pb"
 file delete __synthesis_is_running__
 close [open __synthesis_is_complete__ w]

@@ -1,13 +1,13 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date         : Wed Jan 13 11:46:58 2021
+| Date         : Fri Jan 29 10:38:24 2021
 | Host         : Sudhar-Windows running 64-bit major release  (build 9200)
-| Command      : report_utilization -file RV32Core_utilization_synth.rpt -pb RV32Core_utilization_synth.pb
-| Design       : RV32Core
+| Command      : report_utilization -file Execution_main_source_utilization_synth.rpt -pb Execution_main_source_utilization_synth.pb
+| Design       : Execution_main_source
 | Device       : 7a35tftg256-1
 | Design State : Synthesized
------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------
 
 Utilization Design Information
 
@@ -30,8 +30,8 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             | 1641 |     0 |     20800 |  7.89 |
-|   LUT as Logic          | 1641 |     0 |     20800 |  7.89 |
+| Slice LUTs*             | 1642 |     0 |     20800 |  7.89 |
+|   LUT as Logic          | 1642 |     0 |     20800 |  7.89 |
 |   LUT as Memory         |    0 |     0 |      9600 |  0.00 |
 | Slice Registers         | 1720 |     0 |     41600 |  4.13 |
 |   Register as Flip Flop |  394 |     0 |     41600 |  0.95 |
@@ -56,8 +56,8 @@ Table of Contents
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
 | 1323  |          Yes |           - |        Reset |
-| 0     |          Yes |         Set |            - |
-| 394   |          Yes |       Reset |            - |
+| 64    |          Yes |         Set |            - |
+| 330   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -91,7 +91,7 @@ Table of Contents
 +-----------------------------+------+-------+-----------+-------+
 |          Site Type          | Used | Fixed | Available | Util% |
 +-----------------------------+------+-------+-----------+-------+
-| Bonded IOB                  |    8 |     0 |       170 |  4.71 |
+| Bonded IOB                  |  104 |     0 |       170 | 61.18 |
 | Bonded IPADs                |    0 |     0 |         2 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |         5 |  0.00 |
 | PHASER_REF                  |    0 |     0 |         5 |  0.00 |
@@ -149,16 +149,17 @@ Table of Contents
 +----------+------+---------------------+
 | LDCE     | 1326 |        Flop & Latch |
 | LUT6     | 1085 |                 LUT |
-| FDRE     |  394 |        Flop & Latch |
+| FDRE     |  330 |        Flop & Latch |
 | MUXF7    |  288 |               MuxFx |
 | LUT3     |  229 |                 LUT |
 | LUT4     |  223 |                 LUT |
 | LUT5     |  155 |                 LUT |
-| LUT2     |  115 |                 LUT |
+| LUT2     |  116 |                 LUT |
+| OBUF     |  102 |                  IO |
 | CARRY4   |   80 |          CarryLogic |
+| FDSE     |   64 |        Flop & Latch |
 | BUFG     |   12 |               Clock |
 | LUT1     |    9 |                 LUT |
-| OBUF     |    6 |                  IO |
 | RAMB18E1 |    5 |        Block Memory |
 | IBUF     |    2 |                  IO |
 +----------+------+---------------------+
