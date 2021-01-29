@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 module Execution_Main #(parameter enable = 1'b1,parameter XLEN = 32);
     reg rst = 1;
-    reg clk = 0;
+    reg clk = 1;
     // To ROM
     wire [XLEN-1:0]ROM_addr;
     wire ROM_enable, ROM_rst;

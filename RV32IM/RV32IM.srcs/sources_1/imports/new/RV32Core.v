@@ -225,7 +225,7 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
         // Inputs
         .ALUOp(EX_alu_op),.funct7(EX_funct7),.funct3(EX_funct3),
         .rs1(EX_data_src1), .rs2(EX_data_src2),
-        .ALU_Reset(rst), .select(current_stage[2]),  // TODO Add jump and link addr
+        .ALU_Reset(rst), .select(current_stage[2]),  
         .link_addr(EX_link_addr), .jump(EX_jump),
         // Outputs
         .result(ALU_result),.zero_flag(zero_flag), .stallreq(stallreq_EX)

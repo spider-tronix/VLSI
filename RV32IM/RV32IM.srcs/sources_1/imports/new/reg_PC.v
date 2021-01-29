@@ -35,9 +35,9 @@ module reg_PC (input wire clk,
             PC_ready = 0;
         end
              if (rst) begin
-                pc_o     = 0;
+                pc_o     = -1;
                 PC_ready = 0;
-                PC       = 0;
+                PC       = -1;
                 PC_ready_o =0;
                 br_occur = 0;
                 end else if (!stall[0]) begin

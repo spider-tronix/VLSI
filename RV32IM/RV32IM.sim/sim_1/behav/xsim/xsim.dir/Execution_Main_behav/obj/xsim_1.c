@@ -43,7 +43,6 @@
 #define alloca _alloca
 #endif
 typedef void (*funcp)(char *, char *);
-extern int main(int, char**);
 extern void execute_2(char*, char *);
 extern void execute_3(char*, char *);
 extern void execute_59(char*, char *);
