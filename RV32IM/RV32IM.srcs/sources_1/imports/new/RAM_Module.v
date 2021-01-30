@@ -1,16 +1,17 @@
 `timescale 1ns / 1ps
 module RAM_Module #(parameter WORDLENGTH = 8,
                     parameter XLEN = 32,
-                    parameter Size = 2048)
+                    parameter Size = 256)
                     
                    (input [XLEN-3:0] Addr,
                     input [WORDLENGTH-1:0] data_i,
-                    input re,we,cs,clk,
+                    input re,we,cs,
+                    clk,
                     output reg [WORDLENGTH-1:0] data_o);
                      
-reg [WORDLENGTH-1:0] RAM_mem[0:Size-1];
+ reg [WORDLENGTH-1:0] RAM_mem[0:Size-1];
 
-always @(posedge clk)
+always @(negedge clk)
 begin
     if(cs)
         begin
