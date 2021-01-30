@@ -23,11 +23,10 @@
     // Floating OPCodes
     `define OP_FLW      7'b0000111
     `define OP_FSW      7'b0100111
-    `define OP_FLW      7'b0000111
-    `define OP_FMADD.S  7'b1000011
-    `define OP_FMSUB.S  7'b1000111
-    `define OP_FNMSUB.S 7'b1001011
-    `define OP_FNMADD.S 7'b1001111
+    `define OP_FMADD_S  7'b1000011
+    `define OP_FMSUB_S  7'b1000111
+    `define OP_FNMSUB_S 7'b1001011
+    `define OP_FNMADD_S 7'b1001111
     `define OP_F_OP     7'b1010011
 
     //================== Instruction funct3 in RISC-V ================== 
@@ -91,26 +90,26 @@
     `define FUNCT7_AND 7'b0000000
 
     // Floating Point 
-    `define FUNCT7_FADD.S    7'b0000000
-    `define FUNCT7_FSUB.S    7'b0000100
-    `define FUNCT7_FMUL.S    7'b0001000
-    `define FUNCT7_FDIV.S    7'b0001100
-    `define FUNCT7_FSQRT.S   7'b0101100
-    `define FUNCT7_FSGNJ.S   7'b0010000
-    `define FUNCT7_FSGNJN.S  7'b0010000
-    `define FUNCT7_FSGNJX.S  7'b0010000 
-    `define FUNCT7_FMIN.S    7'b0010100
-    `define FUNCT7_FMAX.S    7'b0010100
-    `define FUNCT7_FCVT.W.S  7'b1100000
-    `define FUNCT7_FCVT.WU.S 7'b1100000
-    `define FUNCT7_FMV.X.W   7'b1110000
-    `define FUNCT7_FEQ.S     7'b1010000
-    `define FUNCT7_FLT.S     7'b1010000
-    `define FUNCT7_FLE.S     7'b1010000
-    `define FUNCT7_FCLASS.S  7'b1110000
-    `define FUNCT7_FCVT.S.W  7'b1101000
-    `define FUNCT7_FCVT.S.WU 7'b1101000
-    `define FUNCT7_FMV.W.X   7'b1111000
+    `define FUNCT7_FADD_S    7'b0000000
+    `define FUNCT7_FSUB_S    7'b0000100
+    `define FUNCT7_FMUL_S    7'b0001000
+    `define FUNCT7_FDIV_S    7'b0001100
+    `define FUNCT7_FSQRT_S   7'b0101100
+    `define FUNCT7_FSGNJ_S   7'b0010000
+    `define FUNCT7_FSGNJN_S  7'b0010000
+    `define FUNCT7_FSGNJX_S  7'b0010000 
+    `define FUNCT7_FMIN_S    7'b0010100
+    `define FUNCT7_FMAX_S    7'b0010100
+    `define FUNCT7_FCVT_W_S  7'b1100000
+    `define FUNCT7_FCVT_WU_S 7'b1100000
+    `define FUNCT7_FMV_X_W   7'b1110000
+    `define FUNCT7_FEQ_S     7'b1010000
+    `define FUNCT7_FLT_S     7'b1010000
+    `define FUNCT7_FLE_S     7'b1010000
+    `define FUNCT7_FCLASS_S  7'b1110000
+    `define FUNCT7_FCVT_S_W  7'b1101000
+    `define FUNCT7_FCVT_S_WU 7'b1101000
+    `define FUNCT7_FMV_W_X   7'b1111000
     //================== Rounding Mode ================== 
     `define RM_RNE 3'b000
     `define RM_RTZ 3'b001

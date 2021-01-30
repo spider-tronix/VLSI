@@ -35,7 +35,7 @@ module Stage_ID(input [31:0] IR,
                 output reg [2:0] funct3,
                 output reg [6:0] funct7,
                 output reg [4:0] src1,
-                src2,
+                src2, src3,
                 dest,
                 output reg [31:0] imm,
                 output wire stallreq,
@@ -48,7 +48,7 @@ begin
     opcode <= 0;
 end
 reg stallreq_1, stallreq_2, stallreq_R;
-reg re1, re2;
+reg re1, re2, re3;
 assign stallreq = stallreq_1 || stallreq_2 || stallreq_R;
 always @(*)
 begin
@@ -70,101 +70,211 @@ begin
             begin
                 src1   <= IR[19:15];
                 src2   <= IR[24:20];
+                src3   <= 'bz;
                 dest   <= IR[11:7];
                 funct3 <= IR[14:12];
                 funct7 <= IR[31:25];
                 imm    <= 'b0;
                 re1    <= 1;
                 re2    <= 1;
+                re3    <= 0;
             end
             `OP_OP_IMM:
             begin
                 src1   <= IR[19:15];
                 src2   <= 'bz;
+                src3   <= 'bz;
                 dest   <= IR[11:7];
                 funct3 <= IR[14:12];
                 funct7 <= 'b0;
                 imm    <= {{20{IR[31]}},IR[31:20]};
                 re1    <= 1;
                 re2    <= 0;
+                re3    <= 0;
             end
             `OP_LUI:
             begin
                 src1   <= 'bz;
                 src2   <= 'bz;
+                src3   <= 'bz;
                 dest   <= IR[11:7];
                 funct3 <= 'b0;
                 funct7 <= 'b0;
                 imm    <= {IR[31:12],{12{1'b0}}};
                 re1    <= 0;
                 re2    <= 0;
+                re3    <= 0;
             end
             `OP_AUIPC:
             begin
                 src1   <= 'bz;
                 src2   <= 'bz;
+                src3   <= 'bz;
                 dest   <= IR[11:7];
                 funct3 <= 'b0;
                 funct7 <= 'b0;
                 imm    <= {IR[31:12],{12{1'b0}}};
                 re1    <= 0;
                 re2    <= 0;
+                re3    <= 0;
             end
             `OP_JAL:
             begin
                 src1   <= 'bz;
                 src2   <= 'bz;
+                src3   <= 'bz;
                 dest   <= IR[11:7];
                 funct3 <= 'b0;
                 funct7 <= 'b0;
                 imm    <= {IR[31], IR[19:12], IR[20], IR[30:21]};
                 re1    <= 0;
                 re2    <= 0;
+                re3    <= 0;
             end
             `OP_JALR:
             begin
                 src1   <= IR[19:15];
                 src2   <= 'bz;
+                src3   <= 'bz;
                 dest   <= IR[11:7];
                 funct3 <= IR[14:12];
                 funct7 <= 'b0;
                 imm    <= IR[31:20];
                 re1    <= 1;
                 re2    <= 0;
+                re3    <= 0;
             end
             `OP_BRANCH:
             begin
                 src1   <= IR[19:15];
                 src2   <= IR[24:20];
+                src3   <= 'bz;
                 dest   <= 'bz;
                 funct3 <= IR[14:12];
                 funct7 <= 'b0;
                 imm    <= {{20{IR[31]}},IR[7],IR[30:25],IR[11:8],1'b0};
                 re1    <= 1;
                 re2    <= 1;
+                re3    <= 0;
             end
             `OP_LOAD:
             begin
                 src1   <= IR[19:15];
                 src2   <= 'bz;
+                src3   <= 'bz;
                 dest   <= IR[11:7];
                 funct3 <= IR[14:12];
                 funct7 <= 'b0;
                 imm    <= {{20{{IR[31]}}},IR[31:20]};
                 re1    <= 1;
                 re2    <= 0;
+                re3    <= 0;
             end
             `OP_STORE:
             begin
                 src1   <= IR[19:15];
                 src2   <= IR[24:20];
+                src3   <= 'bz;
                 dest   <= 'bz;
                 funct3 <= IR[14:12];
                 funct7 <= 'b0;
                 imm    <= {{20{{IR[31]}}},IR[31:25],IR[11:7]};
                 re1    <= 1;
                 re2    <= 0;
+                re3    <= 0;
             end
+            `OP_FLW:
+            begin
+                src1   <= IR[19:15];
+                src2   <= 'bz;
+                src3   <= 'bz;
+                dest   <= IR[11:7];
+                funct3 <= IR[14:12];
+                funct7 <= 'b0;
+                imm    <= {{20{{IR[31]}}},IR[31:20]};
+                re1    <= 1;
+                re2    <= 0;
+                re3    <= 0;
+            end
+            `OP_FSW:
+            begin
+                src1   <= IR[19:15];
+                src2   <= IR[24:20];
+                src3   <= 'bz;
+                dest   <= 'bz;
+                funct3 <= IR[14:12];
+                funct7 <= 'b0;
+                imm    <= {{20{{IR[31]}}},IR[31:25],IR[11:7]};
+                re1    <= 1;
+                re2    <= 0;
+                re3    <= 0;
+            end
+            `OP_F_OP:
+            begin
+                src1   <= IR[19:15];
+                src2   <= IR[24:20];
+                src3   <= 'bz;
+                dest   <= IR[11:7];
+                funct3 <= IR[14:12];
+                funct7 <= IR[31:25];
+                imm    <= 'b0;
+                re1    <= 1;
+                re2    <= 1;
+                re3    <= 0;
+            end
+            `OP_FNMADD_S:
+            begin
+                src1   <= IR[19:15];
+                src2   <= IR[24:20];
+                src3   <= IR[31:27];
+                dest   <= IR[11:7];
+                funct3 <= IR[14:12];
+                funct7 <= IR[26:25];
+                imm    <= 'b0;
+                re1    <= 1;
+                re2    <= 1;
+                re3    <= 1; 
+            end
+            `OP_FMADD_S:
+            begin
+                src1   <= IR[19:15];
+                src2   <= IR[24:20];
+                src3   <= IR[31:27];
+                dest   <= IR[11:7];
+                funct3 <= IR[14:12];
+                funct7 <= IR[26:25];
+                imm    <= 'b0;
+                re1    <= 1;
+                re2    <= 1;
+                re3    <= 1; 
+            end
+            `OP_FMSUB_S:
+            begin
+                src1   <= IR[19:15];
+                src2   <= IR[24:20];
+                src3   <= IR[31:27];
+                dest   <= IR[11:7];
+                funct3 <= IR[14:12];
+                funct7 <= IR[26:25];
+                imm    <= 'b0;
+                re1    <= 1;
+                re2    <= 1;
+                re3    <= 1; 
+            end
+            `OP_FNMSUB_S:
+            begin
+                src1   <= IR[19:15];
+                src2   <= IR[24:20];
+                src3   <= IR[31:27];
+                dest   <= IR[11:7];
+                funct3 <= IR[14:12];
+                funct7 <= IR[26:25];
+                imm    <= 'b0;
+                re1    <= 1;
+                re2    <= 1;
+                re3    <= 1; 
+            end
+            
             default :
             ;
         endcase
@@ -199,4 +309,5 @@ end
 always @(*)begin
     `SET_output(data_R, 1, src2, regdata2, regdata2, stallreq_R)
 end
+
 endmodule
