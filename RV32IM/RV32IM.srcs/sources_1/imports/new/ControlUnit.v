@@ -33,6 +33,7 @@ module ControlUnit#(parameter XLEN = 32)
                     stallreq_ID,
                     stallreq_IF,
                     output reg[1:0] alu_op,
+                    output reg[2:0] FPU_op,
                     output reg mem_read,
                     mem_write,
                     alu_src,
@@ -98,6 +99,7 @@ module ControlUnit#(parameter XLEN = 32)
                 branch_addr <= 'b0;
                 link_addr   <= 'b0;
                 load        <= 0;
+                FPU_op      <= 3'bX;
             end
             `OP_OP_IMM:
             begin
@@ -112,6 +114,7 @@ module ControlUnit#(parameter XLEN = 32)
                 branch_addr <= 'b0;
                 link_addr   <= 'b0;
                 load        <= 0;
+                FPU_op      <= 3'bX;
                 
             end
             `OP_LOAD:
@@ -127,6 +130,7 @@ module ControlUnit#(parameter XLEN = 32)
                 branch_addr <= 'b0;
                 link_addr   <= 'b0;
                 load        <= 1;
+                FPU_op      <= 3'bX;
                 
             end
             `OP_STORE:
@@ -142,6 +146,7 @@ module ControlUnit#(parameter XLEN = 32)
                 branch_addr <= 'b0;
                 link_addr   <= 'b0;
                 load        <= 0;
+                FPU_op      <= 3'bX;
                 
             end
             `OP_BRANCH:
@@ -159,6 +164,7 @@ module ControlUnit#(parameter XLEN = 32)
                 
                 link_addr <= 'b0;
                 load      <= 0;
+                FPU_op      <= 3'bX;
                 
             end
             `OP_JALR:
@@ -174,6 +180,7 @@ module ControlUnit#(parameter XLEN = 32)
                 branch_addr <= reg1_plus_I_imm;
                 link_addr   <= pc_plus_4;
                 load        <= 0;
+                FPU_op      <= 3'bX;
                 
             end
             `OP_JAL:
@@ -191,6 +198,7 @@ module ControlUnit#(parameter XLEN = 32)
                 branch_addr <= pc_plus_J_imm;
                 link_addr   <= pc_plus_4;
                 load        <= 0;
+                FPU_op      <= 3'bX;
                 
             end
             `OP_AUIPC:
@@ -206,6 +214,7 @@ module ControlUnit#(parameter XLEN = 32)
                 branch_addr <= 'b0;
                 link_addr   <= 'b0;
                 load        <= 0;
+                FPU_op      <= 3'bX;
                 
             end
             `OP_LUI:
@@ -221,6 +230,7 @@ module ControlUnit#(parameter XLEN = 32)
                 branch_addr <= 'b0;
                 link_addr   <= 'b0;
                 load        <= 0;
+                FPU_op      <= 3'bX;
             end
             `OP_FLW:
             begin
@@ -237,6 +247,7 @@ module ControlUnit#(parameter XLEN = 32)
                 link_addr   <= 'b0;
                 load        <= 0;
                 load_F      <= 1;
+                FPU_op      <= 3'b100;
             end
             `OP_FSW:
             begin
@@ -253,6 +264,7 @@ module ControlUnit#(parameter XLEN = 32)
                 link_addr   <= 'b0;
                 load        <= 0;
                 load_F      <= 0;
+                FPU_op      <= 3'b100;
             end
             `OP_F_OP:
             begin
@@ -269,6 +281,7 @@ module ControlUnit#(parameter XLEN = 32)
                 link_addr   <= 'b0;
                 load        <= 0;
                 load_F      <= 0;
+                FPU_op      <= 3'b111;
             end
             `OP_FNMADD_S:
             begin
@@ -285,6 +298,7 @@ module ControlUnit#(parameter XLEN = 32)
                 link_addr   <= 'b0;
                 load        <= 0;
                 load_F      <= 0;
+                FPU_op      <= 3'b011;
             end
             `OP_FMADD_S:
             begin
@@ -301,6 +315,7 @@ module ControlUnit#(parameter XLEN = 32)
                 link_addr   <= 'b0;
                 load        <= 0;
                 load_F      <= 0;
+                FPU_op      <= 3'b000;
             end
             `OP_FMSUB_S:
             begin
@@ -317,6 +332,7 @@ module ControlUnit#(parameter XLEN = 32)
                 link_addr   <= 'b0;
                 load        <= 0;
                 load_F      <= 0;
+                FPU_op      <= 3'b001;
             end
             `OP_FNMSUB_S:
             begin
@@ -333,6 +349,7 @@ module ControlUnit#(parameter XLEN = 32)
                 link_addr   <= 'b0;
                 load        <= 0;
                 load_F      <= 0;
+                FPU_op      <= 3'b010;
             end
             default:
             begin
