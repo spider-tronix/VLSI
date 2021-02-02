@@ -27,7 +27,7 @@ module reg_ID_EX#(parameter XLEN = 32)
                   input wire [2:0] ID_funct3,
                   input wire [6:0] ID_funct7,
                   input wire [XLEN - 1:0] ID_src1,
-                  ID_src2,
+                  ID_src2, ID_src3,
                   input wire [4:0] ID_dest,
                   input wire [31:0] ID_imm,
                   input wire[1:0] ID_alu_op,
@@ -36,21 +36,26 @@ module reg_ID_EX#(parameter XLEN = 32)
                   ID_alu_src,
                   ID_mem_to_reg,
                   ID_reg_write,
+                  ID_reg_write_F,
                   ID_branch,
                   ID_jump,
                   ID_load,
+                  ID_load_F,
+                  ID_instr_float,
+                  input wire [2:0] ID_FPU_op,
                   input wire [XLEN-1:0] ID_link_addr,
                   ID_branch_addr,
                   input wire [XLEN-1:0] ID_data_src2_R,
                   output reg [2:0] EX_funct3,
                   output reg [6:0] EX_funct7,
                   output reg [XLEN - 1:0] EX_src1,
-                  EX_src2,
+                  EX_src2, EX_src3,
                   output reg [4:0] EX_dest,
                   output reg [XLEN-1:0] EX_data_src2_R,
                   output reg [XLEN-1:0] EX_imm,
                   output reg [XLEN-1:0] EX_link_addr,
                   EX_branch_addr,
+                  output reg [2:0] EX_FPU_op,
                   output reg[1:0] EX_alu_op,
                   output reg EX_mem_read,
                   EX_mem_write,
@@ -59,7 +64,10 @@ module reg_ID_EX#(parameter XLEN = 32)
                   EX_reg_write,
                   EX_branch,
                   EX_jump,
-                  EX_load);
+                  EX_load,
+                  EX_reg_write_F,
+                  EX_load_F,
+                  EX_instr_float);
     always @ (posedge clk) begin
         if (rst || (stall[2] && !stall[3])) begin
             EX_alu_src     <= 1'b0;
@@ -73,11 +81,16 @@ module reg_ID_EX#(parameter XLEN = 32)
             EX_link_addr   <= 'b0;
             EX_branch_addr <= 'b0;
             EX_load        <= 'b0;
+            EX_reg_write_F <= 'b0;
+            EX_load_F      <= 'b0;
+            EX_instr_float <= 'b0;
+            EX_FPU_op      <= 'b0;
             // From STAGE_ID
             EX_funct3      <= 0;
             EX_funct7      <= 0;
             EX_src1        <= 0;
             EX_src2        <= 0;
+            EX_src3        <= 0;
             EX_data_src2_R <= 0;
             EX_dest        <= 0;
             EX_imm         <= 0;
@@ -93,14 +106,20 @@ module reg_ID_EX#(parameter XLEN = 32)
             EX_link_addr   <= ID_link_addr;
             EX_branch_addr <= ID_branch_addr;
             EX_load        <= ID_load;
+            EX_reg_write_F <= ID_reg_write_F;
+            EX_load_F      <= ID_load_F;
+            EX_instr_float <= ID_instr_float;
+            EX_FPU_op      <= ID_FPU_op;
             // From STAGE_ID
             EX_funct3      <= ID_funct3;
             EX_funct7      <= ID_funct7;
             EX_src1        <= ID_src1;
             EX_src2        <= ID_src2;
+            EX_src3        <= ID_src3;
             EX_dest        <= ID_dest;
             EX_imm         <= ID_imm;
             EX_data_src2_R <= ID_data_src2_R;
+            
         end
     end
 endmodule
