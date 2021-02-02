@@ -56,31 +56,41 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
     wire [XLEN-1:0] Instr_IF_ID_reg_to_ID;
     wire [31:0]ID_PC;
     // STAGE_ID
-    wire [XLEN-1:0] data_src1,data_src2;
+    wire [XLEN-1:0] data_src1, data_src2;
+    wire [XLEN-1:0] data_src1_I, data_src2_I;
+    wire [XLEN-1:0] data_src1_F, data_src2_F, data_src3_F;
+
     wire [6:0] opcode;
     wire [2:0] funct3;
     wire [6:0] funct7;
-    wire [4:0] src1,src2,dest;
+    wire [4:0] src1,src2,src3, dest;
     wire [31:0] imm;
     wire [1:0] alu_op;
-    wire mem_read,mem_write,mem_to_reg,reg_write;
+    wire [2:0] FPU_op;
+    wire instr_float;
+    wire re1, re2;
+    wire re1_F, re2_F, re3_F;
+    wire mem_read,mem_write,mem_to_reg,reg_write, reg_write_F;
     wire zero_flag,alu_src;
     wire jump, branch;
     wire [XLEN - 1:0] ID_branch_addr, ID_link_addr;
-    wire [XLEN - 1:0] ID_data1, ID_data2, ID_data_R;
-    wire ID_load, EX_load;
+    wire [XLEN - 1:0] ID_data1, ID_data2, ID_data3, ID_data_R;
+    wire ID_load, ID_load_F, EX_load, EX_load_F;
+    wire EX_instr_float;
     // Registers Module 
     // Reg ID-EX
     wire [2:0] EX_funct3;
     wire [6:0] EX_funct7;
-    wire [XLEN - 1:0] EX_data_src1, EX_data_src2;
+    wire [XLEN - 1:0] EX_data_src1, EX_data_src2, EX_data_src3;
     wire [4:0] EX_dest;     // "EX_dest" linked in the WB stage to "WB_dest"
     wire [31:0] EX_imm;
     wire[1:0] EX_alu_op;
+    wire [2:0] EX_FPU_op;
     wire EX_mem_read;
     wire EX_mem_write;
     wire EX_mem_to_reg;
     wire EX_reg_write;
+    wire EX_reg_write_F;
     wire EX_branch;
     wire EX_jump;
     wire [XLEN-1:0] EX_data_src2_R;
@@ -90,7 +100,7 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
     wire [2:0] MEM_funct3;
     wire [4:0] MEM_dest;
     wire MEM_mem_read, MEM_mem_write, MEM_reg_write, MEM_mem_to_reg, MEM_jump;
-
+    wire MEM_instr_float;
     // Others
     wire [4:0] WB_dest;
     wire [XLEN-1:0] WB_data;
@@ -136,8 +146,9 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
     Stage_ID decode(
         // Inputs
         .IR(Instr_IF_ID_reg_to_ID),
-        .regdata1(data_src1), .regdata2(data_src2),
+        .regdata1(data_src1), .regdata2(data_src2), .regdata3(data_src3_F),
         // .clk(clk),
+        .instr_float(instr_float),
         .rst(rst),
         .DecoderEnable(current_stage[1]),
         // Data Forwarding
@@ -145,25 +156,32 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
             .MEM_reg_write(MEM_reg_write),
             .MEM_data(MEM_data),
             .MEM_dest(MEM_dest),
+            .MEM_instr_float(MEM_instr_float),
             // EX
             .EX_reg_write(EX_reg_write),
             .EX_data(ALU_result),
             .EX_dest(EX_dest),
             .EX_load(EX_load),
+            .EX_load_F(EX_load_F),
+            .EX_instr_float(EX_instr_float),
         // Outputs
+        .reg_write(reg_write), .reg_write_F(reg_write_F),
         .opcode(opcode),
         .funct3(funct3),.funct7(funct7),
-        .src1(src1),.src2(src2),.dest(dest),
+        .src1(src1),.src2(src2), .src3(src3),
+        .dest(dest),
         .imm(imm),
         .stallreq(stallreq_ID),
-        .data1(ID_data1), .data2(ID_data2),
-        .data_R(ID_data_R)
+        .data1(ID_data1), .data2(ID_data2), .data3(ID_data3),
+        .data_R(ID_data_R),
+        .re1(re1), .re2(re2),
+        .re1_F(re1_F), .re2_F(re2_F), .re3_F(re3_F)
     );
         
     ControlUnit control_unit(
         // Inputs
         // .clk(clk),
-        .opcode(opcode),
+        .opcode(opcode), 
         .stallreq_MEM(stallreq_MEM),
         .stallreq_EX(stallreq_EX),
         .stallreq_ID(stallreq_ID),
@@ -174,19 +192,29 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
         .data_src1(data_src1),  // For calculating branch address
         // Outputs
         .alu_op(alu_op),.mem_read(mem_read), .branch(branch), .jump(jump),
-        .mem_write(mem_write),.alu_src(alu_src),.mem_to_reg(mem_to_reg),.reg_write(reg_write),.current_stage(current_stage),
-        .branch_addr(ID_branch_addr), .link_addr(ID_link_addr), .load(ID_load),
-        .stall(stall)
+        .mem_write(mem_write),.alu_src(alu_src),.mem_to_reg(mem_to_reg), .current_stage(current_stage),
+        .branch_addr(ID_branch_addr), .link_addr(ID_link_addr), .load(ID_load), .load_F(ID_load_F),
+        .stall(stall), .FPU_op(FPU_op), .instr_float(instr_float)
     );
     Registers_Module Registers(
         // Inputs
         // .clk(clk),
         .src1(src1), .src2(src2), .dest(WB_dest),
-        .we(WB_wr_enable), .re(enable),.re1(enable), .re2(enable),
+        .we(WB_wr_enable), .re(enable),.re1(re1), .re2(re2),
         .rd(WB_data),
         // Outputs
-        .rs1(data_src1), .rs2(data_src2)
+        .rs1(data_src1_I), .rs2(data_src2_I)
     );     
+    Registers_Float_Module Registers_F(
+        // Inputs
+        .src1(src1), .src2(src2), .src3(src3), .dest(WB_dest),
+        .we(WB_wr_enable), .re(enable),.re1(re1_F), .re2(re2_F), .re3(re3_F),  // TODO change WB
+        .rd(WB_data),
+        // Outputs
+        .rs1(data_src1_F), .rs2(data_src2_F), .rs3(data_src3_F)
+    );
+    assign data_src1 = (instr_float)?data_src1_F:data_src1_I;
+    assign data_src2 = (instr_float)?data_src2_F:data_src2_I;
     BranchControl branchControl0(
         // Inputs
         .branch(branch),
@@ -198,6 +226,7 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
         // Outputs
         .take_branch(take_branch)
     );    
+    
         // -------------------------- **STAGE_ID** -------------------------------
         
         // Pipeline register between ID --------- EX
@@ -206,19 +235,23 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
         .rst(rst), .clk(clk), .stall(stall),
         .ID_funct3(funct3), .ID_funct7(funct7),
         .ID_data_src2_R(ID_data_R),
-        .ID_src1(ID_data1), .ID_src2(ID_data2), .ID_dest(dest), .ID_imm(imm),
+        .ID_src1(ID_data1), .ID_src2(ID_data2), .ID_src3(ID_data3),
+        .ID_dest(dest), .ID_imm(imm),
         // Inputs from Control Unit
         .ID_alu_op(alu_op), .ID_mem_read(mem_read), .ID_mem_write(mem_write),
-        .ID_alu_src(alu_src), .ID_mem_to_reg(mem_to_reg), .ID_reg_write(reg_write),
+        .ID_alu_src(alu_src), .ID_mem_to_reg(mem_to_reg), .ID_reg_write(reg_write),  .ID_reg_write_F(reg_write_F),
         .ID_branch(branch), .ID_jump(jump), 
-        .ID_link_addr(ID_link_addr), .ID_branch_addr(ID_branch_addr), .ID_load(ID_load),
+        .ID_link_addr(ID_link_addr), .ID_branch_addr(ID_branch_addr), .ID_load(ID_load), .ID_load_F(ID_load_F),
+        .ID_reg_write_F(reg_write_F), .ID_load_F(load_F), .ID_instr_float(instr_float), .ID_FPU_op(FPU_op),
         // Outputs
-        .EX_funct3(EX_funct3), .EX_funct7(EX_funct7), .EX_src1(EX_data_src1), .EX_src2(EX_data_src2),
+        .EX_funct3(EX_funct3), .EX_funct7(EX_funct7), 
+        .EX_src1(EX_data_src1), .EX_src2(EX_data_src2), .EX_src3(EX_data_src3),
         .EX_dest(EX_dest), .EX_imm(EX_imm), .EX_alu_op(EX_alu_op), .EX_mem_read(EX_mem_read),
         .EX_mem_write(EX_mem_write), .EX_mem_to_reg(EX_mem_to_reg),
-        .EX_reg_write(EX_reg_write), .EX_branch(EX_branch), .EX_jump(EX_jump),
+        .EX_reg_write(EX_reg_write), .EX_reg_write_F(EX_reg_write_F), .EX_branch(EX_branch), .EX_jump(EX_jump),
         .EX_data_src2_R(EX_data_src2_R),
-        .EX_link_addr(EX_link_addr), .EX_branch_addr(EX_branch_addr), .EX_load(EX_load)
+        .EX_link_addr(EX_link_addr), .EX_branch_addr(EX_branch_addr), .EX_load(EX_load), .EX_load_F(EX_load_F),
+        .EX_reg_write_F(EX_reg_write_F), .EX_load_F(EX_load_F), .EX_instr_float(EX_instr_float), .EX_FPU_op(EX_FPU_op)
     );
         // -------------------------- STAGE_EX -------------------------------
     Stage_EX execute(
