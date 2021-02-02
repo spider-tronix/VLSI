@@ -3,6 +3,7 @@
 module FPU_control(input[1:0] FPUOp,
                    input[6:0] funct7,
                    input[2:0] funct3,
+                   input[4:0] rs2, // TODO get this!!
                    output reg [4:0]FPU_control_line,
                    input wire rst);
 always @(*)
@@ -25,15 +26,15 @@ begin
                                        ((funct7 == `FUNCT7_FSGNJX_S)  && (funct3 == `FUNCT3_FSGNJX_S))  ? `FPU_FSGNJX_S:
                                        ((funct7 == `FUNCT7_FMIN_S)    && (funct3 == `FUNCT3_FMIN_S))    ? `FPU_FMIN_S:
                                        ((funct7 == `FUNCT7_FMAX_S)    && (funct3 == `FUNCT3_FMAX_S))    ? `FPU_FMAX_S:
-                                       (funct7 == `FUNCT7_FCVT_W_S)   ? `FPU_FCVT_W_S:
-                                       (funct7 == `FUNCT7_FCVT_WU_S)  ? `FPU_FCVT_WU_S:
+                                       ((funct7 == `FUNCT7_FCVT_W_S) && rs2[0] == 0 )  ? `FPU_FCVT_W_S:
+                                       ((funct7 == `FUNCT7_FCVT_WU_S)&& rs2[0] == 1 )  ? `FPU_FCVT_WU_S:
                                        ((funct7 == `FUNCT7_FMV_X_W)  && (funct3 == `FUNCT3_FMV_X_W))    ? `FPU_FMV_X_W:
                                        ((funct7 == `FUNCT7_FEQ_S)    && (funct3 == `FUNCT3_FEQ_S))      ? `FPU_FEQ_S:
                                        ((funct7 == `FUNCT7_FLT_S)    && (funct3 == `FUNCT3_FLT_S))      ? `FPU_FLT_S:
                                        ((funct7 == `FUNCT7_FLE_S)    && (funct3 == `FUNCT3_FLE_S))      ? `FPU_FLE_S:
                                        ((funct7 == `FUNCT7_FCLASS_S) && (funct3 == `FUNCT3_FCLASS_S))   ? `FPU_FCLASS_S:
-                                       (funct7 == `FUNCT7_FCVT_S_W)   ? `FPU_FCVT_S_W:
-                                       (funct7 == `FUNCT7_FCVT_S_WU)  ? `FPU_FCVT_S_WU:
+                                       ((funct7 == `FUNCT7_FCVT_S_W) && rs2[0] == 0 )  ? `FPU_FCVT_S_W:
+                                       ((funct7 == `FUNCT7_FCVT_S_WU)&& rs2[0] == 1 )  ? `FPU_FCVT_S_WU:
                                        (funct7 == `FUNCT7_FMV_W_X)    ? `FPU_FMV_W_X: `FPU_NOP;
         endcase
     end
