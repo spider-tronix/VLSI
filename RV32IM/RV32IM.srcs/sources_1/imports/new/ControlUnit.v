@@ -38,12 +38,11 @@ module ControlUnit#(parameter XLEN = 32)
                     mem_write,
                     alu_src,
                     mem_to_reg,
-                    reg_write,
-                    reg_write_F,
                     branch,
                     jump,
                     load,
                     load_F,
+                    instr_float,
                     output reg [5:0]stall,
                     output reg [4:0] current_stage,
                     output reg [XLEN - 1:0] branch_addr,
@@ -90,7 +89,6 @@ module ControlUnit#(parameter XLEN = 32)
             begin
                 alu_src     <= 1'b0;
                 mem_to_reg  <= 1'b0;
-                reg_write   <= 1'b1;
                 mem_read    <= 1'b0;
                 mem_write   <= 1'b0;
                 branch      <= 1'b0;
@@ -100,12 +98,12 @@ module ControlUnit#(parameter XLEN = 32)
                 link_addr   <= 'b0;
                 load        <= 0;
                 FPU_op      <= 3'bX;
+                instr_float <= 0;
             end
             `OP_OP_IMM:
             begin
                 alu_src     <= 1'b1;
                 mem_to_reg  <= 1'b0;
-                reg_write   <= 1'b1;
                 mem_read    <= 1'b0;
                 mem_write   <= 1'b0;
                 branch      <= 1'b0;
@@ -115,13 +113,12 @@ module ControlUnit#(parameter XLEN = 32)
                 link_addr   <= 'b0;
                 load        <= 0;
                 FPU_op      <= 3'bX;
-                
+                instr_float <= 0;
             end
             `OP_LOAD:
             begin
                 alu_src     <= 1'b1;
                 mem_to_reg  <= 1'b1;
-                reg_write   <= 1'b1;
                 mem_read    <= 1'b1;
                 mem_write   <= 1'b0;
                 branch      <= 1'b0;
@@ -131,13 +128,12 @@ module ControlUnit#(parameter XLEN = 32)
                 link_addr   <= 'b0;
                 load        <= 1;
                 FPU_op      <= 3'bX;
-                
+                instr_float <= 0;
             end
             `OP_STORE:
             begin
                 alu_src     <= 1'b1;
                 mem_to_reg  <= 1'bX;
-                reg_write   <= 1'b0;
                 mem_read    <= 1'b0;
                 mem_write   <= 1'b1;
                 branch      <= 1'b0;
@@ -147,13 +143,12 @@ module ControlUnit#(parameter XLEN = 32)
                 link_addr   <= 'b0;
                 load        <= 0;
                 FPU_op      <= 3'bX;
-                
+                instr_float <= 0;
             end
             `OP_BRANCH:
             begin
                 alu_src     <= 1'b1;
                 mem_to_reg  <= 1'bX;
-                reg_write   <= 1'b0;
                 mem_read    <= 1'b0;
                 mem_write   <= 1'b0;
                 branch      <= 1'b1;
@@ -165,13 +160,13 @@ module ControlUnit#(parameter XLEN = 32)
                 link_addr <= 'b0;
                 load      <= 0;
                 FPU_op      <= 3'bX;
+                instr_float <= 0;
                 
             end
             `OP_JALR:
             begin
                 alu_src     <= 1'b1;
                 mem_to_reg  <= 1'b0;
-                reg_write   <= 1'b1;
                 mem_read    <= 1'b0;
                 mem_write   <= 1'b0;
                 branch      <= 1'b0;
@@ -181,13 +176,13 @@ module ControlUnit#(parameter XLEN = 32)
                 link_addr   <= pc_plus_4;
                 load        <= 0;
                 FPU_op      <= 3'bX;
+                instr_float <= 0;
                 
             end
             `OP_JAL:
             begin
                 alu_src    <= 1'b1;
                 mem_to_reg <= 1'b0;
-                reg_write  <= 1'b1;
                 mem_read   <= 1'b0;
                 mem_write  <= 1'b0;
                 branch     <= 1'b0;
@@ -199,13 +194,13 @@ module ControlUnit#(parameter XLEN = 32)
                 link_addr   <= pc_plus_4;
                 load        <= 0;
                 FPU_op      <= 3'bX;
+                instr_float <= 0;
                 
             end
             `OP_AUIPC:
             begin
                 alu_src     <= 1'b1;
                 mem_to_reg  <= 1'bX;
-                reg_write   <= 1'b1;
                 mem_read    <= 1'b0;
                 mem_write   <= 1'b0;
                 branch      <= 1'b0;
@@ -215,13 +210,13 @@ module ControlUnit#(parameter XLEN = 32)
                 link_addr   <= 'b0;
                 load        <= 0;
                 FPU_op      <= 3'bX;
+                instr_float <= 0;
                 
             end
             `OP_LUI:
             begin
                 alu_src     <= 1'b1;
                 mem_to_reg  <= 1'bX;
-                reg_write   <= 1'b1;
                 mem_read    <= 1'b0;
                 mem_write   <= 1'b0;
                 branch      <= 1'b0;
@@ -231,13 +226,12 @@ module ControlUnit#(parameter XLEN = 32)
                 link_addr   <= 'b0;
                 load        <= 0;
                 FPU_op      <= 3'bX;
+                instr_float <= 0;
             end
             `OP_FLW:
             begin
                 alu_src     <= 1'b1;
                 mem_to_reg  <= 1'b1;
-                reg_write   <= 1'b0;
-                reg_write_F <= 1'b1;
                 mem_read    <= 1'b1;
                 mem_write   <= 1'b0;
                 branch      <= 1'b0;
@@ -248,13 +242,12 @@ module ControlUnit#(parameter XLEN = 32)
                 load        <= 0;
                 load_F      <= 1;
                 FPU_op      <= 3'b100;
+                instr_float <= 1;
             end
             `OP_FSW:
             begin
                 alu_src     <= 1'b1;
                 mem_to_reg  <= 1'bX;
-                reg_write   <= 1'b0;
-                reg_write_F <= 1'b0;
                 mem_read    <= 1'b0;
                 mem_write   <= 1'b1;
                 branch      <= 1'b0;
@@ -265,13 +258,13 @@ module ControlUnit#(parameter XLEN = 32)
                 load        <= 0;
                 load_F      <= 0;
                 FPU_op      <= 3'b100;
+                instr_float <= 1;
             end
             `OP_F_OP:
             begin
+
                 alu_src     <= 1'b0;
                 mem_to_reg  <= 1'b0;
-                reg_write   <= 1'b0;
-                reg_write_F <= 1'b1;
                 mem_read    <= 1'b0;
                 mem_write   <= 1'b0;
                 branch      <= 1'b0;
@@ -282,13 +275,12 @@ module ControlUnit#(parameter XLEN = 32)
                 load        <= 0;
                 load_F      <= 0;
                 FPU_op      <= 3'b111;
+                instr_float <= 1;
             end
             `OP_FNMADD_S:
             begin
                 alu_src     <= 1'b0;
                 mem_to_reg  <= 1'b0;
-                reg_write   <= 1'b0;
-                reg_write_F <= 1'b1;
                 mem_read    <= 1'b0;
                 mem_write   <= 1'b0;
                 branch      <= 1'b0;
@@ -299,13 +291,12 @@ module ControlUnit#(parameter XLEN = 32)
                 load        <= 0;
                 load_F      <= 0;
                 FPU_op      <= 3'b011;
+                instr_float <= 1;
             end
             `OP_FMADD_S:
             begin
                 alu_src     <= 1'b0;
                 mem_to_reg  <= 1'b0;
-                reg_write   <= 1'b0;
-                reg_write_F <= 1'b1;
                 mem_read    <= 1'b0;
                 mem_write   <= 1'b0;
                 branch      <= 1'b0;
@@ -316,13 +307,12 @@ module ControlUnit#(parameter XLEN = 32)
                 load        <= 0;
                 load_F      <= 0;
                 FPU_op      <= 3'b000;
+                instr_float <= 1;
             end
             `OP_FMSUB_S:
             begin
                 alu_src     <= 1'b0;
                 mem_to_reg  <= 1'b0;
-                reg_write   <= 1'b0;
-                reg_write_F <= 1'b1;
                 mem_read    <= 1'b0;
                 mem_write   <= 1'b0;
                 branch      <= 1'b0;
@@ -333,13 +323,12 @@ module ControlUnit#(parameter XLEN = 32)
                 load        <= 0;
                 load_F      <= 0;
                 FPU_op      <= 3'b001;
+                instr_float <= 1;
             end
             `OP_FNMSUB_S:
             begin
                 alu_src     <= 1'b0;
                 mem_to_reg  <= 1'b0;
-                reg_write   <= 1'b0;
-                reg_write_F <= 1'b1;
                 mem_read    <= 1'b0;
                 mem_write   <= 1'b0;
                 branch      <= 1'b0;
@@ -350,13 +339,12 @@ module ControlUnit#(parameter XLEN = 32)
                 load        <= 0;
                 load_F      <= 0;
                 FPU_op      <= 3'b010;
+                instr_float <= 1;
             end
             default:
             begin
                 alu_src     <= 1'b0;
                 mem_to_reg  <= 1'b0;
-                reg_write   <= 1'b0;
-                reg_write_F <= 1'b1;
                 mem_read    <= 1'b0;
                 mem_write   <= 1'b0;
                 branch      <= 1'b0;
@@ -366,6 +354,7 @@ module ControlUnit#(parameter XLEN = 32)
                 link_addr   <= 'b0;
                 load        <= 0;
                 load_F      <= 0;
+                instr_float <= 1;
             end
             
         endcase
