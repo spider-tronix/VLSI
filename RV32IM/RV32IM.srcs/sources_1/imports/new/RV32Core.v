@@ -100,11 +100,11 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
     wire [2:0] MEM_funct3;
     wire [4:0] MEM_dest;
     wire MEM_mem_read, MEM_mem_write, MEM_reg_write, MEM_mem_to_reg, MEM_jump;
-    wire MEM_instr_float;
+    wire MEM_instr_float, MEM_reg_write_F;
     // Others
     wire [4:0] WB_dest;
     wire [XLEN-1:0] WB_data;
-    wire WB_wr_enable;
+    wire WB_wr_enable, WB_wr_enable_F;
     wire [4:0]current_stage;
 
     reg_PC reg_PC0(
@@ -157,8 +157,10 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
             .MEM_data(MEM_data),
             .MEM_dest(MEM_dest),
             .MEM_instr_float(MEM_instr_float),
+            .MEM_reg_write_F(MEM_reg_write_F),
             // EX
             .EX_reg_write(EX_reg_write),
+            .EX_reg_write_F(EX_reg_write_F),
             .EX_data(ALU_result),
             .EX_dest(EX_dest),
             .EX_load(EX_load),
@@ -208,13 +210,13 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
     Registers_Float_Module Registers_F(
         // Inputs
         .src1(src1), .src2(src2), .src3(src3), .dest(WB_dest),
-        .we(WB_wr_enable), .re(enable),.re1(re1_F), .re2(re2_F), .re3(re3_F),  // TODO change WB
+        .we(WB_wr_enable_F), .re(enable),.re1(re1_F), .re2(re2_F), .re3(re3_F),  // TODO change WB
         .rd(WB_data),
         // Outputs
         .rs1(data_src1_F), .rs2(data_src2_F), .rs3(data_src3_F)
     );
-    assign data_src1 = (instr_float)?data_src1_F:data_src1_I;
-    assign data_src2 = (instr_float)?data_src2_F:data_src2_I;
+    assign data_src1 = (re1_F)?data_src1_F:data_src1_I;
+    assign data_src2 = (re2_F)?data_src2_F:data_src2_I;
     BranchControl branchControl0(
         // Inputs
         .branch(branch),
@@ -251,7 +253,7 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
         .EX_reg_write(EX_reg_write), .EX_reg_write_F(EX_reg_write_F), .EX_branch(EX_branch), .EX_jump(EX_jump),
         .EX_data_src2_R(EX_data_src2_R),
         .EX_link_addr(EX_link_addr), .EX_branch_addr(EX_branch_addr), .EX_load(EX_load), .EX_load_F(EX_load_F),
-        .EX_reg_write_F(EX_reg_write_F), .EX_load_F(EX_load_F), .EX_instr_float(EX_instr_float), .EX_FPU_op(EX_FPU_op)
+        .EX_load_F(EX_load_F), .EX_instr_float(EX_instr_float), .EX_FPU_op(EX_FPU_op)
     );
         // -------------------------- STAGE_EX -------------------------------
     Stage_EX execute(
@@ -271,13 +273,13 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
         .clk(clk), .rst(rst), .stall(stall), .EX_dest(EX_dest),
         .EX_Addr(ALU_result), .EX_data_i(EX_data_src2_R), .EX_funct3(EX_funct3),
         .EX_mem_read(EX_mem_read), .EX_mem_write(EX_mem_write),
-        .EX_mem_to_reg(EX_mem_to_reg), .EX_jump(EX_jump), .EX_reg_write(EX_reg_write),
+        .EX_mem_to_reg(EX_mem_to_reg), .EX_jump(EX_jump), .EX_reg_write(EX_reg_write), .EX_reg_write_F(EX_reg_write_F), .EX_instr_float(EX_instr_float),
         
         // Outputs
         .MEM_Addr(MEM_ALU_result), .MEM_data_i(MEM_data_src2_R), .MEM_funct3(MEM_funct3),
         .MEM_mem_read(MEM_mem_read), .MEM_mem_write(MEM_mem_write),
         .MEM_dest(MEM_dest), .MEM_mem_to_reg(MEM_mem_to_reg),
-        .MEM_jump(MEM_jump), .MEM_reg_write(MEM_reg_write)
+        .MEM_jump(MEM_jump), .MEM_reg_write(MEM_reg_write), .MEM_reg_write_F(MEM_reg_write_F), .MEM_instr_float(MEM_instr_float)
     );
         // -------------------------- STAGE_MEM -------------------------------
     Stage_MEM access_dm(
@@ -300,10 +302,10 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
     reg_MEM_WB reg_MEM_WB0(
         // Input
         .clk(clk), .rst(rst), .stall(stall),
-        .MEM_data(MEM_data), .MEM_wr_enable(MEM_reg_write), .MEM_register_dest(MEM_dest),
+        .MEM_data(MEM_data), .MEM_wr_enable(MEM_reg_write),  .MEM_wr_enable_F(MEM_reg_write_F), .MEM_register_dest(MEM_dest),
         
         // Output
-        .WB_data(WB_data), .WB_dest(WB_dest), .WB_wr_enable(WB_wr_enable)
+        .WB_data(WB_data), .WB_dest(WB_dest), .WB_wr_enable(WB_wr_enable), .WB_wr_enable_F(WB_wr_enable_F)
         
     );
     //write back stage, writes output to destination register

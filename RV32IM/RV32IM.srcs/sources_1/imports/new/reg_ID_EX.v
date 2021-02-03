@@ -97,7 +97,6 @@ module reg_ID_EX#(parameter XLEN = 32)
             end else if (!stall[2]) begin
             EX_alu_src     <= ID_alu_src;
             EX_mem_to_reg  <= ID_mem_to_reg;
-            EX_reg_write   <= ID_reg_write;
             EX_mem_read    <= ID_mem_read;
             EX_mem_write   <= ID_mem_write;
             EX_branch      <= ID_branch;
@@ -106,7 +105,6 @@ module reg_ID_EX#(parameter XLEN = 32)
             EX_link_addr   <= ID_link_addr;
             EX_branch_addr <= ID_branch_addr;
             EX_load        <= ID_load;
-            EX_reg_write_F <= ID_reg_write_F;
             EX_load_F      <= ID_load_F;
             EX_instr_float <= ID_instr_float;
             EX_FPU_op      <= ID_FPU_op;
@@ -119,7 +117,8 @@ module reg_ID_EX#(parameter XLEN = 32)
             EX_dest        <= ID_dest;
             EX_imm         <= ID_imm;
             EX_data_src2_R <= ID_data_src2_R;
-            
+            EX_reg_write   <= ID_reg_write;
+            EX_reg_write_F <= ID_reg_write_F;
         end
     end
 endmodule

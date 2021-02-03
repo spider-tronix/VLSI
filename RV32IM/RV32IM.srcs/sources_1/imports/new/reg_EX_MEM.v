@@ -34,6 +34,8 @@ module reg_EX_MEM#(parameter XLEN = 32,
                    EX_mem_to_reg,
                    EX_jump,
                    EX_reg_write,
+                   EX_reg_write_F,
+                   EX_instr_float,
                    output reg [4:0] MEM_dest,
                    output reg [XLEN-1:0] MEM_Addr,
                    output reg [XLEN-1:0] MEM_data_i,
@@ -42,7 +44,9 @@ module reg_EX_MEM#(parameter XLEN = 32,
                    MEM_mem_to_reg,
                    MEM_jump,
                    MEM_mem_write,
-                   MEM_reg_write);
+                   MEM_reg_write,
+                   MEM_reg_write_F,
+                   MEM_instr_float);
     always @ (posedge clk) begin
         if (rst || (stall[3] && !stall[4])) begin
             MEM_Addr       <= 0;
@@ -54,6 +58,8 @@ module reg_EX_MEM#(parameter XLEN = 32,
             MEM_mem_to_reg <= 0;
             MEM_jump       <= 0;
             MEM_reg_write  <= 0;
+            MEM_reg_write_F<= 0;
+            MEM_instr_float<= 0;
             end else if (!stall[3]) begin
             MEM_Addr       <= EX_Addr;
             MEM_data_i     <= EX_data_i;
@@ -64,6 +70,8 @@ module reg_EX_MEM#(parameter XLEN = 32,
             MEM_mem_to_reg <= EX_mem_to_reg;
             MEM_jump       <= EX_jump;
             MEM_reg_write  <= EX_reg_write;
+            MEM_reg_write_F<= EX_reg_write_F;
+            MEM_instr_float<= EX_instr_float;
         end
     end
 endmodule
