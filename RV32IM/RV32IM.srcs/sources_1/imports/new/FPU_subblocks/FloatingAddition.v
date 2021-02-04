@@ -2,7 +2,7 @@
 module FloatingAddition #(parameter XLEN=32)
                         (input [XLEN-1:0]A,
                          input [XLEN-1:0]B,
-                         input clk,
+                         input subract_A, subract_B, enable,
                          output overflow,
                          output underflow,
                          output exception,
@@ -21,40 +21,44 @@ reg carry;
 reg [2:0] one_hot;
 reg comp;
 reg [7:0] exp_adjust;
+reg [XLEN-1:0] A_F, B_F;
 always @(*)
 begin
+if(enable) begin
+    B_F <= { (subract_B ^ B[31]),B[30:0] }; // Invert sign bit if subract signal is HIGH
+    A_F <= { (subract_A ^ A[31]),A[30:0] }; // Invert sign bit if subract signal is HIGH
+    comp =  (A_F[30:23] >= B_F[30:23])? 1'b1 : 1'b0;
+    
+    A_Mantissa = comp ? {1'b1,A_F[22:0]} : {1'b1,B_F[22:0]};
+    A_Exponent = comp ? A_F[30:23] : B_F[30:23];
+    A_sign = comp ? A_F[31] : B_F[31];
+    
+    B_Mantissa = comp ? {1'b1,B_F[22:0]} : {1'b1,A_F[22:0]};
+    B_Exponent = comp ? B_F[30:23] : A_F[30:23];
+    B_sign = comp ? B_F[31] : A_F[31];
 
-comp =  (A[30:23] >= B[30:23])? 1'b1 : 1'b0;
-  
-A_Mantissa = comp ? {1'b1,A[22:0]} : {1'b1,B[22:0]};
-A_Exponent = comp ? A[30:23] : B[30:23];
-A_sign = comp ? A[31] : B[31];
-  
-B_Mantissa = comp ? {1'b1,B[22:0]} : {1'b1,A[22:0]};
-B_Exponent = comp ? B[30:23] : A[30:23];
-B_sign = comp ? B[31] : A[31];
-
-diff_Exponent = A_Exponent-B_Exponent;
-B_Mantissa = (B_Mantissa >> diff_Exponent);
-{carry,Temp_Mantissa} =  (A_sign ~^ B_sign)? A_Mantissa + B_Mantissa : A_Mantissa-B_Mantissa ; 
-exp_adjust = A_Exponent;
-if(carry)
-    begin
-        Temp_Mantissa = Temp_Mantissa>>1;
-        exp_adjust = exp_adjust+1'b1;
-    end
-else
-    begin
-    while(!Temp_Mantissa[23])
+    diff_Exponent = A_Exponent-B_Exponent;
+    B_Mantissa = (B_Mantissa >> diff_Exponent);
+    {carry,Temp_Mantissa} =  (A_sign ~^ B_sign)? A_Mantissa + B_Mantissa : A_Mantissa-B_Mantissa ; 
+    exp_adjust = A_Exponent;
+    if(carry)
         begin
-           Temp_Mantissa = Temp_Mantissa<<1;
-           exp_adjust =  exp_adjust-1'b1;
+            Temp_Mantissa = Temp_Mantissa>>1;
+            exp_adjust = exp_adjust+1'b1;
         end
-    end
-Sign = A_sign;
-Mantissa = Temp_Mantissa[22:0];
-Exponent = exp_adjust;
-result = {Sign,Exponent,Mantissa};
+    else
+        begin
+        while(!Temp_Mantissa[23])
+            begin
+            Temp_Mantissa = Temp_Mantissa<<1;
+            exp_adjust =  exp_adjust-1'b1;
+            end
+        end
+    Sign = A_sign;
+    Mantissa = Temp_Mantissa[22:0];
+    Exponent = exp_adjust;
+    result = {Sign,Exponent,Mantissa};
+end
 //Temp_Mantissa = (A_sign ~^ B_sign) ? (carry ? Temp_Mantissa>>1 : Temp_Mantissa) : (0); 
 //Temp_Exponent = carry ? A_Exponent + 1'b1 : A_Exponent; 
 //Temp_sign = A_sign;
