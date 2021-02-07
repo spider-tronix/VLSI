@@ -203,4 +203,5 @@
 `define FPU_FCVT_S_WU 23
 `define FPU_FMV_W_X 24
 
+`define NaN 32'h7fc00000
 `endif
