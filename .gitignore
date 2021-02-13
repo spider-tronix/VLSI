@@ -48,4 +48,8 @@
 !*.jpg
 !.gitignore
 RV32IM/RV32IM.sim/sim_1/behav/xsim/xsim.dir/controUnit_TestBench_behav/Compile_Options.txt
+!RV32IM GNU Toolchain/Sample/RV32IF/Add/output
+!RV32IM GNU Toolchain/Sample/RV32IF/Branch/output
+!RV32IM GNU Toolchain/Sample/RV32IF/Jump/output
+!RV32IM GNU Toolchain/Sample/RV32IF/Multiply/output
 
