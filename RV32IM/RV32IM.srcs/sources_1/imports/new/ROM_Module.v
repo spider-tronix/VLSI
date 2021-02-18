@@ -94,7 +94,7 @@ module ROM_Module #(parameter WORDLENGTH = 32,
                      
  reg [WORDLENGTH-1:0] ROM_mem[0:Size-1];
 initial begin
-    $readmemh("Code.txt", ROM_mem);
+    $readmemh("Sample/RV32IF/Add/Imem.txt", ROM_mem);
     $display("Done Reading!!!!!!");
 end
 always @(negedge clk)
