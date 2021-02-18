@@ -198,7 +198,7 @@ always @(*) begin
                             op3 <= 'b0; 
                             comp1 <= rs1;
                             comp2 <= rs2;
-                            result <= (comp_result == 001 || 110 )? rs1:(( comp_result == 111)? NaN: rs2);  //if A<B, comp_result = 001
+                            result <= (comp_result == 'b001 || comp_result == 'b110 )? rs1:(( comp_result == 'b111)? NaN: rs2);  //if A<B, comp_result = 001
             end
             `FPU_FMAX_S:begin 
                             M_enable <= 0;
@@ -213,7 +213,7 @@ always @(*) begin
                             op3 <= 'b0; 
                             comp1 <= rs1;
                             comp2 <= rs2;
-                            result <= (comp_result == 010 || 110 )? rs1:(( comp_result == 111)? NaN: rs2); //if A>B, comp_result = 010
+                            result <= (comp_result == 'b010 || comp_result == 'b110 )? rs1:(( comp_result == 'b111)? NaN: rs2); //if A>B, comp_result = 010
             end
          //to do
             `FPU_FCVT_W_S:
@@ -232,7 +232,7 @@ always @(*) begin
                             op3 <= 'b0; 
                             comp1 <= rs1;
                             comp2 <= rs2;
-                            result <= (comp_result ==000)?1:0; //if A=B, comp_result = 00
+                            result <= (comp_result == 'b000)?1:0; //if A=B, comp_result = 00
             end           
             `FPU_FLT_S:begin
                             M_enable <= 0;
@@ -247,7 +247,7 @@ always @(*) begin
                             op3 <= 'b0; 
                             comp1 <= rs1;
                             comp2 <= rs2;
-                            result <= (comp_result ==001)?1:0; //if A<B, comp_result = 01
+                            result <= (comp_result == 'b001)?1:0; //if A<B, comp_result = 01
                     end
             `FPU_FLE_S:begin
                                     M_enable <= 0;
@@ -262,7 +262,7 @@ always @(*) begin
                                     op3 <= 'b0; 
                                     comp1 <= rs1;
                                     comp2 <= rs2;
-                                    result <= (comp_result == 001 || 000 )?1:0; //if A<B, comp_result = 01
+                                    result <= (comp_result == 'b001 || comp_result == 'b000 )?1:0; //if A<B, comp_result = 01
                
                             end
             `FPU_FCLASS_S:

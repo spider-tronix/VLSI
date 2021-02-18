@@ -36,23 +36,23 @@ always@(*)
 begin
     if (enable)begin 
         if(A==B)begin
-        result_comp <= 00;
+        result_comp <= 'b00;
         end
         
-    result_comp = (A[31]>B[31])? 001 :(A[31]<B[31])? 010 : 000; 
+    result_comp = (A[31]>B[31])? 'b001 :(A[31]<B[31])? 'b010 : 'b000; 
                                                           
     if(A[31] == B[31])begin
-        result_comp = (A[30:23]>B[30:23])?010:000;
+        result_comp = (A[30:23]>B[30:23])?'b010:'b000;
         if(A[30:23] == B[30:23])begin
-        result_comp = (A[22:0] > B[22:0] )? 010 :000 ;
+        result_comp = (A[22:0] > B[22:0] )? 'b010 : 'b000 ;
         end    
        end
     if(A == NaN && B != NaN)
-        result_comp = 101; // result = B
+        result_comp = 'b101; // result = B
     else if(A!= NaN && B == NaN) 
-        result_comp = 110; //result = A;
+        result_comp = 'b110; //result = A;
     else if(A==NaN && B== NaN)
-        result_comp = 111; //result = NaN;
+        result_comp = 'b111; //result = NaN;
     end
 end
 endmodule

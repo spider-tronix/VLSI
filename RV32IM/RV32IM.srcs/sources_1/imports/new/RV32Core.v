@@ -5,7 +5,7 @@
 //
 // Create Date: 25.10.2020 13:23:36
 // Design Name:
-// Module Name: five_stages_combined
+// Module Name: 
 // Project Name:
 // Target Devices:
 // Tool Versions:
