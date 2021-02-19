@@ -10,9 +10,9 @@ reg [FLEN-1:0] op1, op2, op3;
 wire [FLEN-1:0] A_op1, A_op2;
 wire [FLEN-1:0] M_result, D_result, A_result, S_result, SQRT_result;
 reg M_enable, D_enable, A_enable, Sub_A, Sub_B, SQRT_enable;
-reg COMP_enable; 
+reg COMP_enable, CONV_enable,float_to_int,sign; 
 reg [2:0]comp_result;
-reg [FLEN-1:0] comp1, comp2;
+reg [FLEN-1:0] comp1, comp2, conv, conv_result;
 assign A_op1 = (M_enable)?M_result:op1;
 assign A_op2 = (M_enable)?op3:op2;
 
@@ -22,8 +22,9 @@ FloatingAddition Add_unit(.enable(A_enable), .subract_A(Sub_A), .subract_B(Sub_B
 FloatingDivision Div_unit(.enable(D_enable), .A(op1), .B(op2), .result(D_result));
 FloatingSqrt Sqrt_unit(.enable(SQRT_enable), .A(op1), .result(SQRT_result));
 FloatingComparator Comp(.enable(COMP_enable), .A(comp1), .B(comp2), .result_comp(comp_result));
-
+Float_to_int_converter Conv(.enable(CONV_enable), .float_to_int(float_to_int), .sign(sign), .data(conv),.result_conv(conv_result));
 always @(*) begin
+    Conv_enable <=0;
     if(rst)
         result<=0;
     else begin
@@ -216,9 +217,29 @@ always @(*) begin
                             result <= (comp_result == 'b010 || comp_result == 'b110 )? rs1:(( comp_result == 'b111)? NaN: rs2); //if A>B, comp_result = 010
             end
          //to do
-            `FPU_FCVT_W_S:
-            `FPU_FCVT_WU_S:
-            `FPU_FMV_X_W:
+            `FPU_FCVT_W_S: begin
+                        M_enable <= 0;
+                         D_enable <= 0;
+                         A_enable <= 0;
+                         COMP_enable <=0;
+                         CONV_enable <=1;
+                         sign <=1;
+                         conv<= rs1;
+                         float_to_int <=1;
+                         result <= conv_result;
+                    end     
+            `FPU_FCVT_WU_S: 
+            begin           M_enable <= 0;
+                             D_enable <= 0;
+                             A_enable <= 0;
+                             COMP_enable <=0;
+                             CONV_enable <=1;
+                             sign <=0;
+                             conv<= rs1;
+                             float_to_int <=1;
+                             result <= conv_result;
+             end
+            `FPU_FMV_X_W: 
             `FPU_FEQ_S: begin
                             M_enable <= 0;
                             D_enable <= 0;
