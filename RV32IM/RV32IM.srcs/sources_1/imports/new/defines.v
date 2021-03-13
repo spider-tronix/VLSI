@@ -203,5 +203,11 @@
 `define FPU_FCVT_S_WU 23
 `define FPU_FMV_W_X 24
 
+//Floating point corner case definitions 
 `define NaN 32'h7fc00000
+`define PLUS_ZERO 32'h00000000
+`define MINUS_ZERO 32'h80000000
+`define PLUS_INFINITY 32'h7F800000
+`define MINUS_INFINITY 32'hFF800000
+
 `endif
