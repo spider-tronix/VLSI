@@ -325,18 +325,14 @@ always @(*) begin
                              else if(rs1 == `PLUS_INFINITY)
                                 mask[7] <= 1;
                              else if(32'h7F800001<=rs1<= 32'h7FBFFFFF || 32'hFF800001<= rs1<= 32'hFFBFFFFF)
-                             //Signalling NAN
-                                mask[8] <=1;
+                                mask[8] <=1; //Signalling NAN
                              else if(32'h7FC00000<=rs1<=32'h7FFFFFFF || 32'hFFC00000<=rs1<=32'hFFFFFFFF)
-                             //Quiet NAN 
-                                mask[9] <=1;
+                                mask[9] <=1;  //Quiet NAN 
                              //subnormal numbers 
                              else if( 32'h00800000<=rs1 <= 32'h007fffff)
-                             //positive subnormal 
-                                mask[5] <=1;
+                                mask[5] <=1;//positive subnormal 
                              else if(32'h80800000<=rs1<=32'h807fffff )
-                             //negative subnormal
-                                mask[2] <=1;
+                                mask[2] <=1;    //negative subnormal
                              else if(rs1[31] == 1)
                                 mask[1] <=1;
                              else if(rs1[31] == 0)
