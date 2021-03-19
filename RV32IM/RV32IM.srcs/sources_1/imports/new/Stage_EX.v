@@ -38,7 +38,9 @@ module Stage_EX#(parameter XLEN= 32,
         output [XLEN-1:0]result,
         output zero_flag, stallreq);
 
-    wire [XLEN-1:0]result_temp;
+    wire [4:0] FPU_control_line;
+
+    wire [XLEN-1:0]result_temp, FPU_result;
     wire [4:0]ALU_control_line;
     ALU_control ALU_CU(.ALUOp(ALUOp),
                         .funct7(funct7),
@@ -49,11 +51,31 @@ module Stage_EX#(parameter XLEN= 32,
     ALU_Module ALU( .rs1(rs1),
                     .rs2(rs2),
                     .ALU_Reset(ALU_Reset),
-                    .ALU_Enable(select),
+                    .ALU_Enable(instr_float),
                     .ALUOp(ALU_control_line),
                     .result(result_temp),
                     .zero_flag(zero_flag)
     );
-assign result = (jump)?link_addr:result_temp;
+
+    FPU_control FPU_CU ( .FPUOp(FPU_op),
+                         .funct7(funct7),
+                         .funct3(funct3),
+                         .rs2(rs2_address),
+                         .rst(ALU_Reset),
+                         // Output
+                         .FPU_control_line(FPU_control_line)
+    );  
+
+    FPU_module FPU( .rs1(rs1),
+                    .rs2(rs2),
+                    .rs3(rs3),
+                    .FPU_control_line(FPU_control_line),
+                    .rst(ALU_Reset),
+                    // Output
+                    .result(FPU_result)
+    );
+
+assign result = (jump)?link_addr:
+                (instr_float)?FPU_result:result_temp;
 assign stallreq = 0;
 endmodule
