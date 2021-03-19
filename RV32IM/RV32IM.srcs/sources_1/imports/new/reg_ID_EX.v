@@ -26,6 +26,7 @@ module reg_ID_EX#(parameter XLEN = 32)
                   input wire [5:0] stall,
                   input wire [2:0] ID_funct3,
                   input wire [6:0] ID_funct7,
+                  input wire [4:0] ID_rs2,
                   input wire [XLEN - 1:0] ID_src1,
                   ID_src2, ID_src3,
                   input wire [4:0] ID_dest,
@@ -48,6 +49,7 @@ module reg_ID_EX#(parameter XLEN = 32)
                   input wire [XLEN-1:0] ID_data_src2_R,
                   output reg [2:0] EX_funct3,
                   output reg [6:0] EX_funct7,
+                  output reg [4:0] EX_rs2,
                   output reg [XLEN - 1:0] EX_src1,
                   EX_src2, EX_src3,
                   output reg [4:0] EX_dest,
@@ -88,6 +90,7 @@ module reg_ID_EX#(parameter XLEN = 32)
             // From STAGE_ID
             EX_funct3      <= 0;
             EX_funct7      <= 0;
+            EX_rs2         <= 0;
             EX_src1        <= 0;
             EX_src2        <= 0;
             EX_src3        <= 0;
@@ -111,6 +114,7 @@ module reg_ID_EX#(parameter XLEN = 32)
             // From STAGE_ID
             EX_funct3      <= ID_funct3;
             EX_funct7      <= ID_funct7;
+            EX_rs2         <= ID_rs2;
             EX_src1        <= ID_src1;
             EX_src2        <= ID_src2;
             EX_src3        <= ID_src3;
