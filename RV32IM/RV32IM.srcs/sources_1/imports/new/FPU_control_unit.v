@@ -3,7 +3,7 @@
 module FPU_control(input[1:0] FPUOp,
                    input[6:0] funct7,
                    input[2:0] funct3,
-                   input[4:0] rs2, // TODO get this!!
+                   input[4:0] rs2, 
                    output reg [4:0]FPU_control_line,
                    input wire rst);
 always @(*)
