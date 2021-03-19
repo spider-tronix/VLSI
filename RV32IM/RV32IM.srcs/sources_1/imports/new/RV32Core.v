@@ -81,6 +81,7 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
     // Reg ID-EX
     wire [2:0] EX_funct3;
     wire [6:0] EX_funct7;
+    wire [4:0] EX_rs2;
     wire [XLEN - 1:0] EX_data_src1, EX_data_src2, EX_data_src3;
     wire [4:0] EX_dest;     // "EX_dest" linked in the WB stage to "WB_dest"
     wire [31:0] EX_imm;
@@ -210,7 +211,7 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
     Registers_Float_Module Registers_F(
         // Inputs
         .src1(src1), .src2(src2), .src3(src3), .dest(WB_dest),
-        .we(WB_wr_enable_F), .re(enable),.re1(re1_F), .re2(re2_F), .re3(re3_F),  // TODO change WB
+        .we(WB_wr_enable_F), .re(enable),.re1(re1_F), .re2(re2_F), .re3(re3_F),  
         .rd(WB_data),
         // Outputs
         .rs1(data_src1_F), .rs2(data_src2_F), .rs3(data_src3_F)
@@ -235,7 +236,7 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
     reg_ID_EX reg_ID_EX0 (
         // Inputs from ID
         .rst(rst), .clk(clk), .stall(stall),
-        .ID_funct3(funct3), .ID_funct7(funct7),
+        .ID_funct3(funct3), .ID_funct7(funct7), .ID_rs2(src2),
         .ID_data_src2_R(ID_data_R),
         .ID_src1(ID_data1), .ID_src2(ID_data2), .ID_src3(ID_data3),
         .ID_dest(dest), .ID_imm(imm),
@@ -246,7 +247,7 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
         .ID_link_addr(ID_link_addr), .ID_branch_addr(ID_branch_addr), .ID_load(ID_load), .ID_load_F(ID_load_F),
         .ID_reg_write_F(reg_write_F), .ID_load_F(load_F), .ID_instr_float(instr_float), .ID_FPU_op(FPU_op),
         // Outputs
-        .EX_funct3(EX_funct3), .EX_funct7(EX_funct7), 
+        .EX_funct3(EX_funct3), .EX_funct7(EX_funct7), .EX_rs2(EX_rs2),
         .EX_src1(EX_data_src1), .EX_src2(EX_data_src2), .EX_src3(EX_data_src3),
         .EX_dest(EX_dest), .EX_imm(EX_imm), .EX_alu_op(EX_alu_op), .EX_mem_read(EX_mem_read),
         .EX_mem_write(EX_mem_write), .EX_mem_to_reg(EX_mem_to_reg),
@@ -258,10 +259,11 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
         // -------------------------- STAGE_EX -------------------------------
     Stage_EX execute(
         // Inputs
-        .ALUOp(EX_alu_op),.funct7(EX_funct7),.funct3(EX_funct3),
-        .rs1(EX_data_src1), .rs2(EX_data_src2),
+        .ALUOp(EX_alu_op),.funct7(EX_funct7),.funct3(EX_funct3), .rs2_address(EX_rs2),
+        .rs1(EX_data_src1), .rs2(EX_data_src2), .rs3(EX_data_src3),
         .ALU_Reset(rst), .select(current_stage[2]),  
-        .link_addr(EX_link_addr), .jump(EX_jump),
+        .link_addr(EX_link_addr), .jump(EX_jump), 
+        .instr_float(EX_instr_float), .FPU_op(EX_FPU_op),
         // Outputs
         .result(ALU_result),.zero_flag(zero_flag), .stallreq(stallreq_EX)
     );
