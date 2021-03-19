@@ -21,7 +21,7 @@ module Registers_Float_Module #(parameter FLEN = 32,
                           parameter RegBank_Size = 32)
                          
                          (input [4:0] src1,src2, src3, dest,
-                          input wire re,re1,re2,we,
+                          input wire re,re1,re2,re3,we,
                           // clk,
                           input [FLEN-1:0] rd,
                           output reg [FLEN-1:0] rs1,rs2,rs3);
@@ -50,7 +50,7 @@ begin
     begin
       rs1 <= re1 ? x[src1] : 'bz;
       rs2 <= re2 ? x[src2] : 'bz;
-      rs3 <= re2 ? x[src3] : 'bz;
+      rs3 <= re3 ? x[src3] : 'bz;
     end
 end
 
