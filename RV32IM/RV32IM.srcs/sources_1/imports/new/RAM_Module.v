@@ -12,6 +12,7 @@ module RAM_Module_0 #(parameter WORDLENGTH = 8,
  reg [WORDLENGTH-1:0] RAM_mem[0:Size-1];
 initial begin 
     $readmemh("Sample/RV32IF/Add/dmem0.txt", RAM_mem);
+    $display("RAM0 Done Reading!!!!!!");
 end 
 always @(negedge clk)
 begin
@@ -39,6 +40,7 @@ module RAM_Module_1 #(parameter WORDLENGTH = 8,
  reg [WORDLENGTH-1:0] RAM_mem[0:Size-1];
 initial begin 
     $readmemh("Sample/RV32IF/Add/dmem1.txt", RAM_mem);
+    $display("RAM1 Done Reading!!!!!!");
 end 
 always @(negedge clk)
 begin
@@ -66,6 +68,7 @@ module RAM_Module_2 #(parameter WORDLENGTH = 8,
  reg [WORDLENGTH-1:0] RAM_mem[0:Size-1];
 initial begin 
     $readmemh("Sample/RV32IF/Add/dmem2.txt", RAM_mem);
+    $display("RAM2 Done Reading!!!!!!");
 end 
 always @(negedge clk)
 begin
@@ -93,6 +96,7 @@ module RAM_Module_3 #(parameter WORDLENGTH = 8,
 reg [WORDLENGTH-1:0] RAM_mem[0:Size-1];
 initial begin 
     $readmemh("Sample/RV32IF/Add/dmem3.txt", RAM_mem);
+    $display("RAM3 Done Reading!!!!!!");
 end 
 always @(negedge clk)
 begin

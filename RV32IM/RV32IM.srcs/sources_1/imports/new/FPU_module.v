@@ -58,7 +58,19 @@ always @(*) begin
         result<=0;
     else begin
         case(FPU_control_line)
-            `FPU_NOP: ;
+            `FPU_NOP: begin
+                            M_enable <= 0;
+                            D_enable <= 0;
+                            A_enable <= 0;
+                            COMP_enable <= 0 ;
+                            Sub_A <= 0;
+                            Sub_B <= 0;
+                            SQRT_enable <= 0;
+                            op1 <= 0;
+                            op2 <= 0;
+                            op3 <= 0; 
+                            result <= rs1;
+            end
             `FPU_FMADD_S: begin
                             M_enable <= 1;
                             D_enable <= 0;

@@ -16,6 +16,7 @@ begin
             3'b001: FPU_control_line = `FPU_FMSUB_S;
             3'b010: FPU_control_line = `FPU_FNMSUB_S;
             3'b011: FPU_control_line = `FPU_FNMADD_S;
+            3'b100: FPU_control_line = `FPU_NOP;
             3'b111: FPU_control_line = (funct7 == `FUNCT7_FADD_S)  ? `FPU_FADD_S:
                                        (funct7 == `FUNCT7_FSUB_S)  ? `FPU_FSUB_S:
                                        (funct7 == `FUNCT7_FMUL_S)  ? `FPU_FMUL_S:
