@@ -245,7 +245,7 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
         .ID_alu_src(alu_src), .ID_mem_to_reg(mem_to_reg), .ID_reg_write(reg_write),  .ID_reg_write_F(reg_write_F),
         .ID_branch(branch), .ID_jump(jump), 
         .ID_link_addr(ID_link_addr), .ID_branch_addr(ID_branch_addr), .ID_load(ID_load), .ID_load_F(ID_load_F),
-        .ID_reg_write_F(reg_write_F), .ID_load_F(load_F), .ID_instr_float(instr_float), .ID_FPU_op(FPU_op),
+        .ID_instr_float(instr_float), .ID_FPU_op(FPU_op),
         // Outputs
         .EX_funct3(EX_funct3), .EX_funct7(EX_funct7), .EX_rs2(EX_rs2),
         .EX_src1(EX_data_src1), .EX_src2(EX_data_src2), .EX_src3(EX_data_src3),
@@ -254,7 +254,7 @@ module RV32Core #(parameter enable = 1'b1,parameter XLEN = 32)
         .EX_reg_write(EX_reg_write), .EX_reg_write_F(EX_reg_write_F), .EX_branch(EX_branch), .EX_jump(EX_jump),
         .EX_data_src2_R(EX_data_src2_R),
         .EX_link_addr(EX_link_addr), .EX_branch_addr(EX_branch_addr), .EX_load(EX_load), .EX_load_F(EX_load_F),
-        .EX_load_F(EX_load_F), .EX_instr_float(EX_instr_float), .EX_FPU_op(EX_FPU_op)
+        .EX_instr_float(EX_instr_float), .EX_FPU_op(EX_FPU_op)
     );
         // -------------------------- STAGE_EX -------------------------------
     Stage_EX execute(
