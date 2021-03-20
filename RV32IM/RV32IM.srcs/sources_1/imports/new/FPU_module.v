@@ -69,7 +69,7 @@ always @(*) begin
                             op1 <= 0;
                             op2 <= 0;
                             op3 <= 0; 
-                            result <= rs1;
+                            result <= rs1 + rs2;
             end
             `FPU_FMADD_S: begin
                             M_enable <= 1;

@@ -51,7 +51,7 @@ module Stage_EX#(parameter XLEN= 32,
     ALU_Module ALU( .rs1(rs1),
                     .rs2(rs2),
                     .ALU_Reset(ALU_Reset),
-                    .ALU_Enable(instr_float),
+                    .ALU_Enable(enable),
                     .ALUOp(ALU_control_line),
                     .result(result_temp),
                     .zero_flag(zero_flag)

@@ -1,6 +1,6 @@
 `include "defines.v"
 
-module FPU_control(input[1:0] FPUOp,
+module FPU_control(input[2:0] FPUOp,
                    input[6:0] funct7,
                    input[2:0] funct3,
                    input[4:0] rs2, 
