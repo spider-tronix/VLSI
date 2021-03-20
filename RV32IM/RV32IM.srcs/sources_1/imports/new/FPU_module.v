@@ -16,16 +16,18 @@ assign A_op2 = (M_enable)?op3:op2;
 
 //Comparator
 reg COMP_enable;
-reg [2:0]comp_result;
+wire [2:0]comp_result;
 reg [FLEN-1:0] comp1, comp2;
 
 //Float to int converter 
 reg  F_to_I_CONV_enable,float_to_int,sign_f_to_i; 
-reg [FLEN-1:0]  conv, F_to_I_conv_result;
+reg [FLEN-1:0]  F_to_I_data;
+wire [FLEN-1:0] F_to_I_conv_result;
 
 //Int to float converter 
 reg I_to_F_CONV_enable; reg sign_i_to_f;
-reg [FLEN-1:0] I_to_F_data, I_to_F_conv_result;
+reg [FLEN-1:0] I_to_F_data;
+wire [FLEN-1:0] I_to_F_conv_result;
 
 
 //Classify instruction 
@@ -37,10 +39,11 @@ FloatingDivision Div_unit(.enable(D_enable), .A(op1), .B(op2), .result(D_result)
 FloatingSqrt Sqrt_unit(.enable(SQRT_enable), .A(op1), .result(SQRT_result));
 FloatingComparator Comp(.enable(COMP_enable), .A(comp1), .B(comp2), .result_comp(comp_result));
 
-Float_to_int_converter F_TO_I_Conv(.enable(F_to_I_CONV_enable), .float_to_int(float_to_int), .sign(sign_f_to_i), .data(conv),.result_conv(F_to_I_conv_result));
-Int_to_float_converter I_TO_F_Conv(.enable(I_to_F_CONV_enable), .sign(sign_i_to_f), .int_data(I_to_F_data),
-                                     .float_result(I_to_F_conv_result));
-                                     
+// Float_to_int_converter F_TO_I_Conv(.enable(F_to_I_CONV_enable), .float_to_int(float_to_int), .sign(sign_f_to_i), .data(F_to_I_conv_result),.result_conv(F_to_I_conv_result));
+// Int_to_float_converter I_TO_F_Conv(.enable(I_to_F_CONV_enable), .sign(sign_i_to_f), .int_data(I_to_F_data),
+//                                      .float_result(I_to_F_conv_result));
+Float_to_int_converter F_TO_I_Conv(.enable(F_to_I_CONV_enable), .sign(sign_f_to_i), .data(F_to_I_data), .result_conv(F_to_I_conv_result));
+Int_to_float_converter I_TO_F_Conv(.enable(I_to_F_CONV_enable), .sign(sign_i_to_f), .int_data(I_to_F_data), .float_result(I_to_F_conv_result));
 always @(*) begin
     F_to_I_CONV_enable<=0;
     I_to_F_CONV_enable<=0;
@@ -251,7 +254,7 @@ always @(*) begin
                          COMP_enable <=0;
                          F_to_I_CONV_enable<=1;
                          sign_f_to_i <=1;
-                         conv<= rs1;
+                         F_to_I_data<= rs1;
                          float_to_int <=1;
                          result <= F_to_I_conv_result;
                     end     
@@ -262,7 +265,7 @@ always @(*) begin
                              COMP_enable <=0;
                              F_to_I_CONV_enable<=1;
                              sign_f_to_i <=0;
-                             conv<= rs1;
+                             F_to_I_data<= rs1;
                              float_to_int <=1;
                              result <= F_to_I_conv_result;
              end
