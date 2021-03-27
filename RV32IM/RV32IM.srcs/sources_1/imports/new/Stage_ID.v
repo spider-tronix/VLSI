@@ -64,6 +64,7 @@ begin
     opcode <= 0;
 end
 reg stallreq_1, stallreq_2, stallreq_3, stallreq_R;
+reg immediate_inst;
 assign stallreq = stallreq_1 || stallreq_2 || stallreq_R || stallreq_3;
 always @(*)
 begin
@@ -77,6 +78,7 @@ begin
         re1    <= 0;
         re2    <= 0;
         opcode <= 0;
+        immediate_inst <=0;
     end
     else if (DecoderEnable) begin
         opcode <= IR[6:0];
@@ -96,6 +98,7 @@ begin
                 re2_F     <= 0;
                 re3_F     <= 0;
                 reg_write <= 1'b1;
+                immediate_inst <=0;
             end
             `OP_OP_IMM:
             begin
@@ -112,6 +115,7 @@ begin
                 re2_F     <= 0;
                 re3_F     <= 0;
                 reg_write <= 1'b1;
+                immediate_inst <=1;
             end
             `OP_LUI:
             begin
@@ -128,6 +132,7 @@ begin
                 re2_F     <= 0;
                 re3_F     <= 0;
                 reg_write <= 1'b1;
+                immediate_inst <=1;
             end
             `OP_AUIPC:
             begin
@@ -144,6 +149,7 @@ begin
                 re2_F     <= 0;
                 re3_F     <= 0;
                 reg_write <= 1'b1;
+                immediate_inst <= 1;
             end
             `OP_JAL:
             begin
@@ -160,6 +166,7 @@ begin
                 re2_F     <= 0;
                 re3_F     <= 0;
                 reg_write <= 1'b1;
+                immediate_inst <=1;
             end
             `OP_JALR:
             begin
@@ -176,6 +183,7 @@ begin
                 re2_F     <= 0;
                 re3_F     <= 0;
                 reg_write <= 1'b1;
+                immediate_inst <=1;
             end
             `OP_BRANCH:
             begin
@@ -192,6 +200,7 @@ begin
                 re2_F     <= 0;
                 re3_F     <= 0;
                 reg_write <= 1'b0;
+                immediate_inst <=1;
             end
             `OP_LOAD:
             begin
@@ -208,6 +217,7 @@ begin
                 re2_F     <= 0;
                 re3_F     <= 0;
                 reg_write <= 1'b1;
+                immediate_inst <=1;
             end
             `OP_STORE:
             begin
@@ -224,6 +234,7 @@ begin
                 re2_F     <= 0;
                 re3_F     <= 0;
                 reg_write <= 1'b0;
+                immediate_inst <=1;
             end
             `OP_FLW:
             begin
@@ -241,6 +252,7 @@ begin
                 re3_F       <= 0;
                 reg_write   <= 1'b0;
                 reg_write_F <= 1'b1;
+                immediate_inst <=1;
             end
             `OP_FSW:
             begin
@@ -258,6 +270,7 @@ begin
                 re3_F       <= 0;
                 reg_write   <= 1'b0;
                 reg_write_F <= 1'b0;
+                immediate_inst <=1;
             end
             `OP_F_OP:
             begin
@@ -307,6 +320,7 @@ begin
                                (funct7 == `FUNCT7_FCVT_S_W)  ? 1 :
                                (funct7 == `FUNCT7_FCVT_S_WU) ? 1 :
                                (funct7 == `FUNCT7_FMV_W_X)   ? 1 : 1;
+                immediate_inst <=0;
             end
             `OP_FNMADD_S:
             begin
@@ -324,6 +338,7 @@ begin
                 re3_F       <= 1;
                 reg_write   <= 1'b0;
                 reg_write_F <= 1'b1;
+                immediate_inst <=0;
             end
             `OP_FMADD_S:
             begin
@@ -341,6 +356,7 @@ begin
                 re3_F       <= 1;
                 reg_write   <= 1'b0;
                 reg_write_F <= 1'b1;
+                immediate_inst <=0;
             end
             `OP_FMSUB_S:
             begin
@@ -358,6 +374,7 @@ begin
                 re3_F       <= 1;
                 reg_write   <= 1'b0;
                 reg_write_F <= 1'b1;
+                immediate_inst <=0;
             end
             `OP_FNMSUB_S:
             begin
@@ -375,6 +392,7 @@ begin
                 re3_F       <= 1;
                 reg_write   <= 1'b0;
                 reg_write_F <= 1'b1;
+                immediate_inst <=0;
             end
             
             default :
@@ -393,6 +411,7 @@ begin
                 re3_F       <= 'bX;
                 reg_write   <= 'bX;
                 reg_write_F <= 'bX;
+                immediate_inst <='bX;
             end
         endcase
     end
@@ -421,7 +440,7 @@ begin
             `SET_output(data1, re1, re1_F, src1, regdata1, 0, stallreq_1)
         end
         always @(*)begin
-            `SET_output(data2, re2, re2_F, src2, regdata2, imm, stallreq_2)
+            `SET_output(data2, ((!immediate_inst) & re2), ((!immediate_inst) & re2_F), src2, regdata2, imm, stallreq_2)
         end
         always @(*)begin
             `SET_output(data3, 0, re3_F, src3, regdata3, 0, stallreq_3)

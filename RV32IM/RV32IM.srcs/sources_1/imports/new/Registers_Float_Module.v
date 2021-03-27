@@ -48,9 +48,9 @@ always @(*)
 begin
  if(re)
     begin
-      rs1 <= re1 ? x[src1] : 'bz;
-      rs2 <= re2 ? x[src2] : 'bz;
-      rs3 <= re3 ? x[src3] : 'bz;
+      rs1 <= re1 ? x[(src1==0)?0:src1 - 8] : 'bz;
+      rs2 <= re2 ? x[(src2==0)?0:src2 - 8] : 'bz;
+      rs3 <= re3 ? x[(src3==0)?0:src3 - 8] : 'bz;
     end
 end
 
@@ -58,7 +58,7 @@ always @(*)
 begin
  if(we)
     begin
-      x[dest] <= dest ? rd[31:0] : 32'b0 ;
+      x[(dest==0)?0:dest - 8] <= ((dest==0)?0:dest - 8) ? rd[31:0] : 32'b0 ;
     end
 end
 

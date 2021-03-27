@@ -1,3 +1,4 @@
+SEARCH_DIR("/opt/riscv32if/riscv32-unknown-elf/lib");
 MEMORY
 {
   ram      (rwx) : ORIGIN = 0x00000000, LENGTH = 0x0020000

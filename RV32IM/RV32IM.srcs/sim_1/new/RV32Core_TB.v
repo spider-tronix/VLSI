@@ -52,6 +52,8 @@ initial begin
      rst = 0;
      RAM_data_read = 32'h447a0666;
      ROM_data = 32'h00402787;
+    //  ROM_data = 32'h00002787;
+
 end 
 // Stall signals
     // wire [5:0] stall;
@@ -237,7 +239,7 @@ end
         .jump(jump),
         .rst(rst),
         .data1(ID_data1),
-        .data2(ID_data1),
+        .data2(ID_data2),
         .funct3(funct3),
         // Outputs
         .take_branch(take_branch)

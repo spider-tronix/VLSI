@@ -2,11 +2,11 @@
 # Webtalk v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Sat Mar 20 13:11:28 2021
-# Process ID: 6988
+# Start of session at: Sat Mar 27 15:11:49 2021
+# Process ID: 24914
 # Current directory: /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim
-# Command line: wbtcv -mode batch -source /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim/xsim.dir/FPU_control_behav/webtalk/xsim_webtalk.tcl -notrace
+# Command line: wbtcv -mode batch -source /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim/xsim.dir/Execution_Main_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim/webtalk.log
 # Journal file: /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim/webtalk.jou
 #-----------------------------------------------------------
-source /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim/xsim.dir/FPU_control_behav/webtalk/xsim_webtalk.tcl -notrace
+source /run/media/sudhar/D-Drive/Spider/VLSI/RV32IM/RV32IM.sim/sim_1/behav/xsim/xsim.dir/Execution_Main_behav/webtalk/xsim_webtalk.tcl -notrace
